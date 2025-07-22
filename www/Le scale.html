@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lezioni di musica</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="../style/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
 </head>
-<body>
-  <header>
-    <h1>Imparo la musica</h1>
-    <p>Lezioni coinvolgenti e interessanti</p>
-  </header>
 
+<body>
+  <div id="header-container"></div>
+
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-container").innerHTML = data;
+    });
+</script>
   <!-- Contenitore con l'indice originale, può essere nascosto -->
 
 
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra: qui copieremo l'indice -->
-     <aside class="left-sidebar">
-  <nav id="original-index" style="display:none;">
-    <h3>Indice Generale</h3>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-      <li><a href="#">Capitolo 1 - I parametri fondamentali del suono</a></li>
-      <li><a href="#">Capitolo 2</a></li>
-      <li><a href="#">Capitolo 3</a></li>
-      <li><a href="#">Capitolo 4</a></li>
-      <li><a href="#">Capitolo 5</a></li>
-      <li><a href="#">Capitolo 6</a>
-
-      </li>
-
-    </ul>
-  </nav>
-
+      <aside class="left-sidebar">
+        <nav id="original-index" style="display:none;">
+          <h3>Indice Generale</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Capitolo 1 - I parametri fondamentali del suono</a></li>
+            <li><a href="#">Capitolo 2</a></li>
+            <li><a href="#">Capitolo 3</a></li>
+            <li><a href="#">Capitolo 4</a></li>
+            <li><a href="#">Capitolo 5</a></li>
+            <li><a href="#">Capitolo 6</a>
+            </li>
+          </ul>
+        </nav>
       </aside>
 
       <article>
@@ -65,12 +68,14 @@
 
         <h3 id="congiunti">Congiunti e disgiunti</h3>
         <p>
-          I gradi sono <strong>congiunti</strong> quando seguono l'ordine naturale delle note (es. Do Re Mi Fa). Se si salta una nota, come in Do Mi Fa, si parla di movimento <strong>disgiunto</strong>.
+          I gradi sono <strong>congiunti</strong> quando seguono l'ordine naturale delle note (es. Do Re Mi Fa). Se si
+          salta una nota, come in Do Mi Fa, si parla di movimento <strong>disgiunto</strong>.
         </p>
 
         <h3 id="asc-desc">Ascendente e discendente</h3>
         <p>
-          Una scala è <strong>ascendente</strong> se va dal grave all'acuto, e <strong>discendente</strong> se scende dall'acuto al grave.
+          Una scala è <strong>ascendente</strong> se va dal grave all'acuto, e <strong>discendente</strong> se scende
+          dall'acuto al grave.
         </p>
 
         <div id="notation-asc"></div>
@@ -135,4 +140,5 @@
     });
   </script>
 </body>
+
 </html>

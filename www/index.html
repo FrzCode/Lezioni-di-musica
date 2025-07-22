@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><!-- Inserisci titolo qui --></title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+<script>
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-container").innerHTML = data;
+    });
+</script>
+
+
+    <main>
+        <section>
+            <h2><!-- Sottotitolo sezione 1 -->Indice degli argomenti</h2>
+            <p><!-- Testo descrittivo sezione 1 -->
+            <a href="Le scale.html">Le scale</a> 
+
+            </p>
+        </section>
+
+        <section>
+            <h2><!-- Sottotitolo sezione 2 --></h2>
+            <p><!-- Testo descrittivo sezione 2 --></p>
+        </section>
+    </main>
+
+    <footer>
+        <p><!-- Testo del footer (es. copyright, contatti) --></p>
+    </footer>
+</body>
+
+</html>
