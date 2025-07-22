@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f8fa;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* Layout principale */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.index-home {
+    text-align: center;
+}
+/* Contenitore a 3 colonne */
+.content-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1300px; /*Ampiezza della sezione centrale*/
+}
+
+/* Sidebar sinistra */
+.left-sidebar {
+  flex: 0 0 240px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+/* Sidebar destra */
+.right-sidebar {
+  flex: 0 0 240px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+/* Contenuto centrale */
+article {
+  flex: 1;
+  min-width: 0;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Titoli e spaziatura */
+article h2 {
+  padding-top: 1.2em;
+}
+
+article h3 {
+  padding-top: 1.2em;
+}
+
+/* Titoli delle sidebar */
+aside h3 {
+  margin-top: 0;
+  border-bottom: 2px solid #2575fc;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Liste nelle sidebar */
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin-bottom: 0.8rem;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: #2575fc;
+  transition: color 0.3s;
+}
+
+aside ul li a:hover {
+  color: #6a11cb;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .left-sidebar,
+  .right-sidebar,
+  article {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}

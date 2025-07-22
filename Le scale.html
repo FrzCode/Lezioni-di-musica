@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lezioni di musica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Imparo la musica</h1>
+    <p>Lezioni coinvolgenti e interessanti</p>
+  </header>
+
+  <!-- Contenitore con l'indice originale, può essere nascosto -->
+
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra: qui copieremo l'indice -->
+     <aside class="left-sidebar">
+  <nav id="original-index" style="display:none;">
+    <h3>Indice Generale</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+      <li><a href="#">Capitolo 1 - I parametri fondamentali del suono</a></li>
+      <li><a href="#">Capitolo 2</a></li>
+      <li><a href="#">Capitolo 3</a></li>
+      <li><a href="#">Capitolo 4</a></li>
+      <li><a href="#">Capitolo 5</a></li>
+      <li><a href="#">Capitolo 6</a>
+
+      </li>
+
+    </ul>
+  </nav>
+
+      </aside>
+
+      <article>
+        <h1>Cos'è una scala?</h1>
+        <hr />
+        <p>
+          La scala è una successione di note con determinate caratteristiche. La definizione classica è:
+          <em>"successione di suoni ordinati per grado congiunto".</em>
+        </p>
+        <p>
+          Da questa definizione emergono alcune <strong>parole chiave</strong>:
+        </p>
+        <ul>
+          <li>grado</li>
+          <li>congiunto</li>
+          <li>ascendente</li>
+          <li>discendente</li>
+        </ul>
+
+        <h3 id="grado">Grado</h3>
+        <p>
+          Ogni nota della scala si chiama <strong>grado</strong>, come i gradini di una scala fisica.
+        </p>
+        <img src="img/gradini_scala.png" alt="Disegno della scala musicale" />
+        <p><em>(Immagina i gradi della scala come dei gradini)</em></p>
+
+        <h3 id="congiunti">Congiunti e disgiunti</h3>
+        <p>
+          I gradi sono <strong>congiunti</strong> quando seguono l'ordine naturale delle note (es. Do Re Mi Fa). Se si salta una nota, come in Do Mi Fa, si parla di movimento <strong>disgiunto</strong>.
+        </p>
+
+        <h3 id="asc-desc">Ascendente e discendente</h3>
+        <p>
+          Una scala è <strong>ascendente</strong> se va dal grave all'acuto, e <strong>discendente</strong> se scende dall'acuto al grave.
+        </p>
+
+        <div id="notation-asc"></div>
+        <button id="play-asc">Scala ascendente</button>
+        <div id="notation-desc"></div>
+        <button id="play-desc">Scala discendente</button>
+
+        <script>
+          const abcAsc = `X:1\nT:Ascendente\nM:4/4\nL:1/4\nK:C\nC D E F G A B c`;
+          const abcDesc = `X:1\nT:Discendente\nM:4/4\nL:1/4\nK:C\nc B A G F E D C`;
+
+          const visualAsc = ABCJS.renderAbc("notation-asc", abcAsc, { responsive: "resize" })[0];
+          const visualDesc = ABCJS.renderAbc("notation-desc", abcDesc, { responsive: "resize" })[0];
+
+          document.getElementById("play-asc").addEventListener("click", async () => {
+            const synth = new ABCJS.synth.CreateSynth();
+            await synth.init({ visualObj: visualAsc });
+            await synth.prime();
+            synth.start();
+          });
+
+          document.getElementById("play-desc").addEventListener("click", async () => {
+            const synth = new ABCJS.synth.CreateSynth();
+            await synth.init({ visualObj: visualDesc });
+            await synth.prime();
+            synth.start();
+          });
+        </script>
+
+        <h2>Argomenti correlati</h2>
+        <p>
+          <a href="La scala maggiore.html">Vai alla lezione</a><br />
+          <a href="Le_note_musicali.html">Vai alla lezione sul nome delle note</a><br />
+          <a href="parametri_fondamentali_del_suono.html">Parametri fondamentali del suono</a><br />
+          <a href="frequenza.html">Frequenza</a>
+        </p>
+      </article>
+
+      <aside>
+        <h3>Articoli Correlati</h3>
+        <ul>
+          <li><a href="#">Titolo articolo correlato 1</a></li>
+          <li><a href="#">Titolo articolo correlato 2</a></li>
+          <li><a href="#">Titolo articolo correlato 3</a></li>
+          <li><a href="#">Titolo articolo correlato 4</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+    });
+  </script>
+</body>
+</html>
