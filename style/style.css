@@ -10,6 +10,9 @@
   --text-dark: #343a40;
   --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
   --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+
+  /* larghezza sidebar regolabile */
+  --sidebar-w: 220px;
 }
 
 * { box-sizing: border-box; }
@@ -18,9 +21,8 @@
    BODY & TYPO
    ========================= */
 body {
-  font-family: 'Nunito', sans-serif;
-  max-width: 1000px;
-  margin: 0 auto;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;             /* niente max-width qui: il body è solo “sfondo” */
   padding: 20px;
   font-size: 17px;
   line-height: 1.7;
@@ -53,7 +55,6 @@ article h2, article h3 {
 
 /* =========================
    HEADER
-   (manteniamo il gradient ma con palette nuova)
    ========================= */
 header {
   background: linear-gradient(135deg, #0a9ecc 0%, #087ea4 100%);
@@ -74,24 +75,27 @@ header h1 {
    ========================= */
 main {
   display: flex;
-  justify-content: center;
+  /* niente justify-content:center: ci pensa il wrapper */
   padding: 2rem 0;
 }
 
 .index-home { text-align: center; }
 
+/* Wrapper centrato e più ampio */
 .content-wrapper {
-  display: flex;
+  /* GRID a 3 colonne: sidebar - articolo - sidebar */
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr var(--sidebar-w);
   gap: 1.5rem;
   width: 100%;
-  max-width: 1300px; /* ampiezza della sezione centrale */
+  max-width: clamp(1100px, 92vw, 1400px);
+  margin: 0 auto; /* centrato */
 }
 
 /* Sidebar sinistra/destra */
 .left-sidebar,
 .right-sidebar,
 aside { /* l'HTML usa <aside> a destra senza classe */
-  flex: 0 0 240px;
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
@@ -101,7 +105,6 @@ aside { /* l'HTML usa <aside> a destra senza classe */
 
 /* Contenuto centrale */
 article {
-  flex: 1;
   min-width: 0;
   background: white;
   padding: 1.5rem;
@@ -118,7 +121,7 @@ aside h3 {
 }
 
 /* Liste nelle sidebar */
-aside ul { list-style: none; padding: 0; }
+aside ul { list-style: none; padding: 0; margin: 0; }
 aside ul li { margin-bottom: 0.8rem; }
 aside ul li a {
   text-decoration: none;
@@ -142,7 +145,7 @@ footer {
 
 /* =========================
    COMPONENTI DEL TEMA 2
-   (adattati alla struttura del tema 1)
+   (adattati alla struttura)
    ========================= */
 
 /* Container generico (se usi .container in alcune pagine) */
@@ -168,245 +171,4 @@ footer {
   position: relative;
 }
 .abc-section:hover {
-  box-shadow: var(--shadow-light);
-  transform: translateY(-2px);
-}
-.abc-title {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.abc-title::before {
-  content: "♪";
-  font-size: 1.2em;
-  color: var(--secondary-color);
-}
-.abc-desc {
-  margin-bottom: 20px;
-  font-style: italic;
-  color: #666;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  border-left: 3px solid var(--primary-color);
-}
-
-/* Indicatore di progresso opzionale nelle sezioni */
-.progress-indicator {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: var(--success-color);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.8em;
-  font-weight: 600;
-  display: none;
-}
-.abc-section.completed .progress-indicator { display: block; }
-
-/* Paragrafo introduttivo “hero” (se vuoi usarlo) */
-.intro-paragraph {
-  text-align: center;
-  font-size: 1.1em;
-  margin: 40px 0;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  font-weight: 500;
-}
-
-/* Controlli (sezioni bottoni/slider) */
-.controls-container {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 15px;
-  padding: 15px;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
-.speed-control {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--background-light);
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 0.9em;
-}
-.speed-control input[type="range"] {
-  width: 80px;
-  accent-color: var(--primary-color);
-}
-.speed-display {
-  font-weight: 600;
-  color: var(--primary-color);
-  min-width: 35px;
-}
-
-/* Bottoni stile tema 2 */
-.pdf-btn, .loop-btn, .metronome-btn,
-article button, /* stile anche per i bottoni Scala asc/desc dell’HTML */
-button {
-  background: linear-gradient(135deg, var(--primary-color), #087ea4);
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95em;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.pdf-btn:hover, .loop-btn:hover, .metronome-btn:hover,
-article button:hover, button:hover {
-  background: linear-gradient(135deg, #087ea4, var(--primary-color));
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(10, 158, 204, 0.3);
-}
-.loop-btn.active {
-  background: linear-gradient(135deg, var(--success-color), #20c997);
-}
-.metronome-btn.active {
-  background: linear-gradient(135deg, var(--secondary-color), #e55a2b);
-}
-
-/* TOC flottante (se lo usi su altre pagine) */
-.floating-toc {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: var(--shadow-medium);
-  max-width: 250px;
-  max-height: 400px;
-  overflow-y: auto;
-  z-index: 1000;
-  display: none;
-}
-.floating-toc.show { display: block; }
-.toc-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 18px;
-  z-index: 1001;
-  box-shadow: var(--shadow-medium);
-  transition: all 0.3s ease;
-}
-.toc-toggle:hover { transform: scale(1.1); }
-.toc-item {
-  display: block;
-  padding: 5px 0;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-size: 0.9em;
-  border-bottom: 1px solid #eee;
-}
-.toc-item:hover {
-  background: var(--background-light);
-  padding-left: 5px;
-}
-
-/* Badge categoria (opzionale) */
-.pattern-category {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 15px;
-  margin: 30px 0;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* Messaggi di stato */
-.audio-error {
-  background: #f8d7da;
-  color: #721c24;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #f5c6cb;
-}
-.sticking-legend {
-  background: #e9ecef;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  text-align: center;
-}
-.sticking-legend strong { color: var(--primary-color); }
-
-/* Link esterni call-to-action */
-.external-link-container {
-  text-align: center;
-  margin-top: 50px;
-  padding: 30px;
-  background: var(--background-light);
-  border-radius: 10px;
-  box-shadow: var(--shadow-light);
-}
-.external-link-container a {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--secondary-color), #e55a2b);
-  color: white;
-  padding: 15px 30px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 1.2em;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255,107,53,0.4);
-}
-.external-link-container a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,107,53,0.6);
-}
-
-/* Nascondi tempo ABCJS */
-.abcjs-tempo,
-.abcjs-tempo-text,
-.abcjs-tempo-indicator { display: none !important; }
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 768px) {
-  body { padding: 10px; }
-  .content-wrapper { flex-direction: column; }
-  .left-sidebar, .right-sidebar, article, aside {
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-  main { padding: 1rem 0; }
-
-  .container { padding: 20px; }
-
-  .controls-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .floating-toc { display: none !important; }
-  .toc-toggle { display: none; }
-}
+  box-shadow: var(--shadow-light)
