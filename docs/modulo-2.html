@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modulo 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+      });
+  </script>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
+      <aside class="left-sidebar">
+        <nav id="original-index" style="display:none;">
+          <h3>Indice Generale</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="modulo-1.html">Modulo 1</a></li>
+            <li><a href="modulo-3.html">Modulo 3</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Modulo 2</h1>
+        <hr />
+
+        <h2 id="tamburo">Tamburo</h2>
+        <p>Sezione dedicata al tamburo.</p>
+        <p><a href="pause-di-crome.html">Pause di crome</a></p>
+   
+        
+        <h2 id="mallet">Mallet</h2>
+        <p>Sezione dedicata agli strumenti a tastiera percussiva (marimba, vibrafono...).</p>
+        <p><a href="Le scale.html">Vai alla lezione sulle scale</a></p>
+
+        <h2 id="timpani">Timpani</h2>
+        <p>Sezione dedicata ai timpani.</p>
+        <p><a href="index.html">Torna alla home</a></p>
+      </article>
+
+      <!-- Sidebar destra -->
+      <aside>
+        <h3>Articoli Correlati</h3>
+        <ul>
+          <li><a href="Le scale.html">Le scale musicali</a></li>
+          <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
+          <li><a href="#">Tecniche di percussione</a></li>
+          <li><a href="#">Pattern ritmici</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+
+  <!-- Script per popolare la sidebar sinistra -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+    });
+  </script>
+</body>
+
+</html>
