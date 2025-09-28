@@ -27,9 +27,8 @@
         titolo: "Minuetto il Sol Maggiore",
         descrizione: "Ascolta il brano",
         abc: `X:1
-X:1
 T:Minuetto in Sol Maggiore
-C:J.S. Bach
+C:Christian Petzold
 %%score (1 2)
 %play_highlight_v1_only
 %%stretchlast true
@@ -62,7 +61,7 @@ a2 f | g2 b | c' d' d | g2 G :|
 |: g3 | f3 | e g e | a2 A | 
 a3 | b d' ^c' | d' f a | d' d =c' |
 b d' b | c' e' c' | b a g | d'2 z | 
-d2 f | e g f | g B d | g d G :| `
+d2 f | e g f | g B d | g d G :|]`
       },
       {
         id: "scala",
@@ -74,10 +73,10 @@ L:1/4
 K:G
 V:1 stems=auto
 %%MIDI program 12
-G A B c d e !mark!f g !mark!f e d c B A G |]``
+G A B c d e !mark!f g !mark!f e d c B A G |]`
       },
       {
-        id: "arpeggio",
+        id: "arp",
         titolo: "Arpeggio di Sol Maggiore",
         descrizione: "Esegui l'arpeggio lentamente, altenando le mani",
         abc: `X:1
@@ -94,9 +93,6 @@ G B d g d B G |]`
         descrizione: "Soffermiamoci sull'incipit del brano, facendo attenzione alle note e allo sticking",
         abc: `X:1
 T:Pattern 1
-%%barnumbers 1
-%%setbarnb 0
-%%measurefont 10
 L:1/4
 M:3/4
 K:G
@@ -111,180 +107,164 @@ w:R L R L R R L L `
         descrizione: "Ora ripetiamo questo pattern ritmico-melodico con le note della scala di Sol:",
         abc: `X:1
 T:
-%%barnumbers 1
-%%setbarnb 0
-%%measurefont 10
 L:1/4
 M:3/4
 K:G
 V:1 stems=auto
 %%MIDI program 12
-G/A/B/c/ | d G G | A/B/c/d/ | e G G |
-w: R L R L R L L R L R L R L L
-B/c/d/e/ | f G G |c/d/e/f/ | g G G |
-w:R L R L R L L R L R L R L L
-d/e/f/g/ | a G G |e/f/g/a/ | b G G |
-w:R L R L R L L R L R L R L L
-f/g/a/b/ | c' G G |g/a/b/c'/ | d' G G |
-w:R L R L R L L R L R L R L L`
+G/A/B/c/ | d G || A/B/c/d/|e A||
+w:L R L R R L L R L R R L  
+B/c/d/e/ | f B || c/d/e/f/|g c||
+w:L R L R R L L R L R R L 
+d/e/f/g/ | a d || e/f/g/a/|b e||
+w:L R L R R L L R L R R L 
+f/g/a/b/ | c' f || g/a/b/c'/|d' g||
+w:L R L R R L L R L R R L `
       },
       {
         id: "pattern2",
-        titolo: "Pattern 2 ",
-        descrizione: "Passiamo ad un altro pattern che si trova alla battuta n. 5. Ripetilo più volte.",
+        titolo: "Pattern di battuta 5",
+        descrizione: "Passiamo ad un altro pattern che si trova alla battuta n. 5. Ripetilo più volte, con entrambi gli *sticking*.",
         abc: `X:1
 T:
-%%barnumbers 1
-%%setbarnb 0
-%%measurefont 10
 L:1/4
 M:3/4
 K:G
 V:1 stems=auto
 %%MIDI program 12
-c d/c/B/A/ :|`
-w: 
+c d/c/B/A/ :|
+w:R L R L R
+w:L R L R L`
       },
       {
-        id: "pattern_battuta5_scala",
-        titolo: "Pattern: Battuta 5 sulla scala di Sol",
+        id: "pattern2_scala",
+        titolo: "",
         descrizione: "Ora applichiamo questo pattern iniziando da ogni nota della scala di Sol:",
         abc: `X:1
 T:
-%%score (1)
-%play_highlight_v1_only
+L:1/4
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+g a/g/f/e/|f g/f/e/d/|e f/e/d/c/| d e/d/c/B/| 
+w:L R L R L R L R L R L R L R L R L R L R
+c d/c/B/A/|B c/B/A/G/|A B/A/G/F/| G3||
+w:L R L R L R L R L R L R L R L R||`
+      },
+      {
+        id: "pattern3",
+        titolo: "Pattern da battuta 17 a 19",
+        descrizione: "La seconda parte del brano contiene un altro pattern ritmico-melodico. Eseguilo più volte con attenzione.",
+        abc: `X:1
+T:
+L:1/4
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+b g/a/b/g/ | a d/e/f/d/ | g e/f/g/d/ |
+w: R L R R L R L R R L R L R R L`
+      },
+      {
+        id: "pattern3_scala",
+        titolo: "",
+        descrizione: "Applichiamo questo pattern iniziando da ogni nota della scala di Sol in senso discendente:",
+        abc: `X:1
+T:
+L:1/4
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+g/a/b/g/ a| f/g/a/f/ g| e/f/g/e/ f| d/e/f/d/ e|
+w:L R R L R L R R L R L R R L R L R R L R  
+c/d/e/c/ d| B/c/d/B/ c| A/B/c/A/ B| G/A/B/G/ A| F/G/A/F/ G |]
+w:L R R L R L R R L R L R R L R L R R L R L R R L R`
+      },
+      {
+        id: "pattern3_scala2",
+        titolo: "",
+        descrizione: "Possiamo usare lo stesso pattern con la scala di Sol in senso ascendente. Fai attenzione allo sticking.",
+        abc: `X:1
+T:
 L:1/4
 M:3/4
 K:G
 V:1 stems=auto
 %%MIDI program 12
 V:1
-|:c/c/c/c/:|
-w: R R L L 
-M:2/4
-|:c/4c/4c/4c/4 c/4c/4c/4c/4:|
-w: R R L L R R L L R R L L
-M:2/4
-|:c/8c/8c/8c/8c/8c/8c/8c/8 c/8c/8c/8c/8c/8c/8c/8c/8:|
-w: R R L L R R L L R R L L R R L L`
+G/A/B/G/ A|A/B/c/A/ B| B/c/d/B/ c| c/d/e/c/ d|
+w:R L R L R R L R L R R L R L R R L R L R  
+d/e/f/d/ e|e/f/g/e/ f| f/g/a/f/ g |]
+w:R L R L R R L R L R R L R L R R L R L R`
       },
       {
-        id: "Rullo9_1",
-        titolo: "Rullo a 9 - Passo 1",
-        descrizione: "Cominciamo con eseguire una quartina di semicrome a colpi singoli:",
+        id: "pattern4",
+        titolo: "Pattern battute 25 e 26",
+        descrizione: "",
         abc: `X:1
 T:
 L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-V:1 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-|:c/4c/4c/4c/4 c:|
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+d G/F/ G | e G/F/ G |
+w: R L R L R L R L `
+      },
+      {
+        id: "pattern4_scala",
+        titolo: "",
+        descrizione: "Applichiamo questo pattern alla scala di Sol:",
+        abc: `X:1
+T:
+L:1/4
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+G G/F/ G | A G/F/ G | B G/F/ G | c G/F/ G | 
+w: R L R L R L R L R L R L R L R L
+d G/F/ G | e G/F/ G | f G/F/ G | g G/F/ G |] 
+w: R L R L R L R L R L R L R L R L `
+      },
+      {
+        id: "pattern5",
+        titolo: "Pattern di battuta 28",
+        descrizione: "L'ultimo pattern che approfondiamo lo troviamo a battuta 28:",
+        abc: `X:1
+T:
+L:1/4
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+V1:
+A/G/F/G/ A |
 w: R L R L R
 w: L R L R L`
       },
       {
-        id: "Rullo9_2",
-        titolo: "Rullo a 9 - Passo 2",
-        descrizione: "Per ogni semicroma eseguiamo due colpi con la tecnica dei colpi doppi. Otteniamo così 8 biscrome che più la nota successiva fanno una successione di 9 note.",
+        id: "pattern5_scala",
+        titolo: "",
+        descrizione: "Applichiamo questo pattern alla scala di Sol sia in senso ascendente che discendente:",
         abc: `X:1
 T:
 L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-V:1 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-|:c/8c/8c/8c/8c/8c/8c/8c/8 c:|
-w: R R L L R R L L R
-w: L L R R L L R R L`
-      },
-      {
-        id: "Rullo9_3",
-        titolo: "Rullo a 9 - Notazione",
-        descrizione: "Lo troveremo scritto così:",
-        abc: `X:1
-T:
-L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-%%score (1 2)
-V:1 clef=perc stems=down
-%%MIDI program none
-%%MIDI transpose none
-V:2 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-%%voicecolor transparent
-V:1
-|:(!///!c c):|
-V:2
-|:c/8c/8c/8c/8c/8c/8c/8c/8 c:|`
-      },
-      {
-        id: "Rullo5_1",
-        titolo: "Rullo a 5 - Passo 1",
-        descrizione: "Cominciamo con eseguire una coppia di semicrome a colpi singoli:",
-        abc: `X:1
-T:
-L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-V:1 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-|:c/4c/4c/ c:|c/c/4c/4 c:|
-w: R L R L R L R L `
-      },
-      {
-        id: "Rullo5_2",
-        titolo: "Rullo a 5 - Passo 2",
-        descrizione: "Per ogni semicroma eseguiamo due colpi con la tecnica dei colpi doppi. Otteniamo così 4 biscrome che più la nota successiva fanno una successione di 5 note.",
-        abc: `X:1
-T:
-L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-V:1 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-|:c/8c/8c/8c/8c/ c:|c/c/8c/8c/8c/8 c:|
-w: R R L L R L R L L R R L `
-      },
-      {
-        id: "Rullo5_3",
-        titolo: "Rullo a 5 - Notazione",
-        descrizione: "Lo troveremo scritto così:",
-        abc: `X:1
-T:
-L:1/4
-K:none
-M:2/4
-Q:72
-%%stretchlast 0
-%%score (1 2)
-V:1 clef=perc stems=down
-%%MIDI program none
-%%MIDI transpose none
-V:2 clef=perc stems=auto
-%%MIDI program 128
-%%MIDI transpose -34
-%%voicecolor transparent
-V:1
-|:(!//!c/c/) c:|:c/(!//!c/ c):|
-V:2
-|:c/8c/8c/8c/8 c/ c:|:c/c/8c/8c/8c/8  c:|`
+M:3/4
+K:G
+V:1 stems=auto
+%%MIDI program 12
+V1:
+G/F/E/F/ G|A/G/F/G/ A | B/A/G/A/ B| c/B/A/B/ c| 
+w:R L R L R R L R L R R L R L R R L R L R 
+d/c/B/c/ d| e/d/c/d/ e| f/e/d/e/ f| g/f/e/f/ g||
+w:R L R L R R L R L R R L R L R R L R L R 
+g/f/e/f/ g|f/e/d/e/ f|e/d/c/d/ e|d/c/B/c/ d|
+w:R L R L R R L R L R R L R L R R L R L R 
+c/B/A/B/ c| B/A/G/A/ B|A/G/F/G/ A | G/F/E/F/ G|]
+w:R L R L R R L R L R R L R L R R L R L R`      
       },
     ];
 
@@ -444,214 +424,155 @@ V:2
 
       <!-- Contenuti principali -->
       <article>
-        <h1>Yankee Doodle</h1>
+        <h1>Minuetto in Sol Maggiore</h1>
 
         <h2>Introduzione</h2>
-        <p><b>Yankee Doodle</b> è una delle canzoni popolari americane più riconoscibili, ma le sue origini sono tutt'altro
-          che patriottiche. Nel periodo della guerra di indipendenza americana dall'Inghilterra, questa melodia fu composta
-          dai soldati britannici per prendere in giro i coloni americani, descritti come persone sempliciotte e ingenue.
-          Il termine "yankee" era un nomignolo dispregiativo che indicava gli americani delle colonie del Nord, mentre
-          "doodle" significava "sciocco" o "semplicione". La canzone racconta la storia di un giovane "yankee" che, nella sua
-          ingenuità, mette una piuma nel cappello e pensa di essere alla moda.
-          Contrariamente alle intenzioni originali, i coloni americani adottarono la canzone con orgoglio, trasformando
-          l'insulto in un simbolo di identità e patriottismo durante la Guerra d'indipendenza. Oggi, "Yankee Doodle" è un inno
-          alla storia americana e alla capacità di un popolo di appropriarsi di un insulto e farne una bandiera.</p>
+        <p>Questo brano è un pilastro per chiunque si avvicini alla musica classica. Sebbene sia conosciuto come un'opera di Bach, l'autore più probabile è in realtà <strong>Christian Petzold</strong>, un altro compositore barocco. L'opera proviene dal famoso <em>Quaderno di Anna Magdalena Bach</em>, raffinata musicista e seconda moglie di Johann Sebastian Bach.
+    </p>
+   
+    <h3>Carattere e Forma della Melodia</h3>
+    <p>
+        Il Minuetto è una danza di corte del periodo barocco, il che significa che il tuo obiettivo principale è trasmettere **grazia, nobiltà e stabilità ritmica**.
+    </p>
+    
+    <h4>Tempo e Tonalità</h4>
+    <p>
+        Il brano è in <strong>Sol Maggiore</strong> e segue un rigoroso schema in <strong>3/4</strong>. Questo metro ternario richiede che tu senta un **leggero accento sul primo battito** di ogni misura, mantenendo il tempo moderato e costante, proprio come farebbe un ballerino.
+    </p>
+
+    <h4>La Forma Binaria (A-B)</h4>
+    <p>
+        La melodia è costruita in due sezioni principali, entrambe ripetute (A-A-B-B).
+    </p>
+    <ul>
+        <li>La <strong>Sezione A</strong> parte da Sol Maggiore e, attraverso una melodia molto orecchiabile e basata su intervalli semplici (spesso terze e note ribattute), si sposta verso la dominante, **Re Maggiore**. Questo crea la prima tensione.</li>
+        <li>La <strong>Sezione B</strong> esplora brevemente la nuova armonia prima di reindirizzare la melodia verso il ritorno a **Sol Maggiore**, concludendo il pezzo con un senso di completezza.</li>
+    </ul>
+    </div>
 
         <div id="brano" class="abc-section">
-          <div class="abc-title"></div>
-          <div class="abc-desc">Adesso ascoltiamo il brano completo arrangiato per rullante e pianoforte.</div>
-          <div id="brano-paper"></div>
-          <div id="brano-audio"></div>
-        </div>
+    <div class="abc-title"></div>
+    <div class="abc-desc"></div>
+    <div id="brano-paper"></div>
+    <div id="brano-audio"></div>
+  </div>  
+  <p>Per affrontare al meglio lo studio di questo brano sulla marimba, dobbiamo capire in che tonalità è impostato il brano. Eseguiamo la scala e l'arpeggio:</p>
+  
 
-        <p class="intro-paragraph">Adesso ci eserciteremo su alcuni <b>"rudiments"</b> che troviamo in questo brano.</p>
+  <div id="scala" class="abc-section">
+    <div class="abc-title"></div>
+    <div class="abc-desc"></div>
+    <div id="scala-paper"></div>
+    <div id="scala-audio"></div>
+  </div>
+  <div id="arp" class="abc-section">
+    <div class="abc-title"></div>
+    <div class="abc-desc"></div>
+    <div id="arp-paper"></div>
+    <div id="arp-audio"></div>
+  </div>
 
-        <h2>Cos'è un "rudiment"?</h2>
-        <p>Un <b>"rudiment"</b> è un pattern (cioè schema, modello) tecnico per lo studio e l'esecuzione del rullante. I
-          "rudiments" sono essenziali per lo sviluppo della tecnica e della coordinazione.</p>
+        <p> <class="intro-paragraph">Adesso ci eserciteremo su alcuni <b>"patterns"</b> ritmico-melodici che troviamo in questo brano.</p>
 
-        <p>In parole semplici:</p>
-        <p>È un <b>uno schema ritmico</b> che usiamo più volte, per allenarci nella coordinazione, nella memoria e nella
-          musicalità.</p>
+<h2>Cos'è un pattern?</h2>
+<p>Un <b>pattern</b> è una <i>piccola cellula musicale</i>, una breve sequenza di note con un ritmo specifico, che possiamo trovare più volte.</p>
 
-        <h2>Perché studiare i rudiment?</h2>
+<p><b>“Pattern”</b> infatti significa <b>modello</b> o <b>schema</b>.</p>
 
-        <p><b>Sticking efficiente</b>: imparare che sticking usare in un "rudiment" è essenziale per essere poi pronti ad
-          applicarlo quando si rende necessario.</p>
+<p>In parole semplici:</p>
+<p>È un <b>mini-motivetto</b> che usiamo più volte, per allenarci nella coordinazione, nella memoria e nella musicalità.</p>
 
-        <p><b>Memoria motoria</b>: ripetere lo stesso "rudiment" aiuta ad automatizzare i movimenti delle mani.</p>
+<h2>Perché studiare i pattern?</h2>
 
-        <p><b>Analisi musicale</b>: Memorizzare un "rudiment" significa imparare a riconoscere visivamente e a riprodurre
-          un'intera sequenza di note e colpi con un unico "sguardo". Invece di dover leggere ogni singola nota, il tuo
-          cervello riconosce il pattern del rudimento e sa già come eseguirla.</p>
+<p><b>Sticking efficiente</b>: imparare dove usare la mano destra o sinistra in sequenza, prima ancora di pensare all’intero fraseggio.</p>
 
-        <p>Ogni "rudiment" su cui ci soffermeremo lo ripeteremo:</p>
+<p><b>Memoria motoria</b>: ripetere uno stesso pattern aiuta ad automatizzare i movimenti delle mani.</p>
+   
+<p><b>Analisi musicale</b>: riconoscere i pattern nel brano aiuta a capire la struttura e a suonare in modo più consapevole.</p>
 
-        <p>- prima lentamente, facendo attenzione a leggere correttamente il ritmo, le note e lo sticking;</p>
+<p>Ogni frammento su cui ci soffermeremo lo ripeteremo:</p>
 
-        <p>- quando lo memorizziamo correttamente lo possiamo eseguire più volte sempre più velocemente;</p>
+<p>- prima lentamente, facendo attenzione a leggere correttamente il ritmo, le note e lo sticking;</p>
+   
+<p>- quando lo memorizziamo correttamente lo possiamo eseguire più volte sempre più velocemente;</p>
 
-        <p>- infine, lo possiamo applicare al brano che stiamo studiando.</p>
+<p>- infine lo trasporteremo su tutte le note della scala, per rendere più solido il controllo tecnico.</p>
 
         <div id="pattern1" class="abc-section">
-          <div class="abc-title">Pattern ritmici con crome e semicrome</div>
-          <div class="abc-desc">Eseguiamo più volte questi pattern del brano prima lentamente e poi velocemente.</div>
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
           <div id="pattern1-paper"></div>
           <div id="pattern1-audio"></div>
         </div>
 
+        <div id="pattern1_scala" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern1_scala-paper"></div>
+          <div id="pattern1_scala-audio"></div>
+        </div>
+
         <div id="pattern2" class="abc-section">
-          <div class="abc-title">Pattern ritmico con crome e semicrome</div>
-          <div class="abc-desc">Esegui questo pattern alternando le mani.</div>
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
           <div id="pattern2-paper"></div>
           <div id="pattern2-audio"></div>
         </div>
 
+        <div id="pattern2_scala" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern2_scala-paper"></div>
+          <div id="pattern2_scala-audio"></div>
+        </div>
+
         <div id="pattern3" class="abc-section">
-          <div class="abc-title">Pattern ritmico con semicrome</div>
-          <div class="abc-desc">Concentrati sulla precisione ritmica.</div>
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
           <div id="pattern3-paper"></div>
           <div id="pattern3-audio"></div>
         </div>
 
+        <div id="pattern3_scala class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern3_scala-paper"></div>
+          <div id="pattern3_scala-audio"></div>
+        </div>
+
+        <div id="pattern3_scala2" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern3_scala2-paper"></div>
+          <div id="pattern3_scala2-audio"></div>
+        </div>
+
         <div id="pattern4" class="abc-section">
-          <div class="abc-title">Pattern con accenti</div>
-          <div class="abc-desc">Esegui gli accenti con dinamica marcata.</div>
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
           <div id="pattern4-paper"></div>
           <div id="pattern4-audio"></div>
-        </div>html
+        </div>
 
-        <h2>Il Flam: cos'è e come si realizza</h2>
-        <p>Il <b>Flam</b> è un rudimento essenziale che arricchisce il fraseggio. Ecco una spiegazione dettagliata su come
-          eseguirlo correttamente sul rullante.</p>
-        <p>Ecco una procedura passo-passo per imparare ad eseguire il flam correttamente.</p>
-
-        <p><strong>Spiegazione del Flam:</strong></p>
-        <p>Il flam non è altro che due colpi eseguiti quasi simultaneamente, ma con una leggera differenza temporale. I due
-          colpi sono chiamati colpo principale e acciaccatura.</p>
-
-        <p><b>Colpo Principale</b>: Questo è il colpo forte, che determina il tempo del flam. Viene eseguito con la bacchetta
-          che parte da un'altezza maggiore.</p>
-
-        <p><b>Acciaccatura</b>: Questo è il colpo più debole e breve. Viene eseguito con la bacchetta che parte da un'altezza
-          molto bassa, quasi a contatto con la pelle del rullante.</p>
-
-        <p>La chiave del flam è la corretta coordinazione tra i due colpi. Le due bacchette partiranno insieme. Ovviamente la
-          bacchetta posizionata più vicina al rullante suonerà prima di quella posta più in alto.</p>
-        <i>Non devono suonare come due colpi distinti e separati, ma nemmeno come un unico colpo.</i>
+        <div id="pattern4_scala" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern4_scala-paper"></div>
+          <div id="pattern4_scala-audio"></div>
+        </div>
 
         <div id="pattern5" class="abc-section">
-          <div class="abc-title">Flam</div>
-          <div class="abc-desc">Esegui il Flam. Parti lentamente e accellera gradualmente.</div>
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
           <div id="pattern5-paper"></div>
-          <div id="pattern5-audio"></div>
-          <p>Qui puoi approfondire come realizzare il flam:</p>
-          <a href="https://www.youtube.com/watch?v=cABTAOyYFY8" target="_blank">Guarda l'approfondimento sul flam</a>
+          <div id="Pattern5-audio"></div>
         </div>
 
-        <h2>Il Rullo a colpi doppi: cos'è e come si realizza</h2>
-        <p>Il <b>rullo</b> è una tecnica che serve a dare l'illusione di un suono continuo e prolungato, quasi come una nota
-          tenuta. Sul rullante, che ha un suono percussivo e secco, il rullo è l'unico modo per ottenere questo effetto.</p>
-        <p>Ecco una procedura passo-passo per imparare ad eseguire il rullo correttamente.</p>
-
-        <p><strong>Spiegazione dell'esecuzione del Rullo a colpi doppi:</strong></p>
-        <p>Il segreto per un rullo pulito sta nel far <strong>rimbalzare</strong> la bacchetta. L'obiettivo non è un doppio
-          colpo forzato, ma una serie di colpi che fluiscono naturalmente.</p>
-
-        <div class="step">
-          <b>Posizione di partenza</b>
-          <p>Tieni la bacchetta in modo rilassato ma saldo, senza stringere. La presa deve permettere alla bacchetta di
-            muoversi liberamente.</p>
-        </div>
-
-        <div class="step">
-          <b>Primo Colpo (Down Stroke)</b>
-          <p>Esegui un colpo deciso. Non lasciare che la bacchetta si alzi subito.</p>
-        </div>
-
-        <div class="step">
-          <b>Secondo Colpo (Rebound Stroke)</b>
-          <p>Permetti alla bacchetta di rimbalzare naturalmente dopo il primo colpo. Questo secondo colpo dovrebbe avvenire
-            con uno sforzo minimo del polso o delle dita. È il rimbalzo a fare il lavoro.</p>
-        </div>
-
-        <div class="step">
-          <b>Alternanza</b>
-          <p>Dopo aver eseguito i due colpi con una mano, esegui lo stesso processo con l'altra.</p>
-        </div>
-
-        <div class="tip">
-          <b>Consiglio pratico</b>
-          <p>All'inizio, esegui il movimento lentamente per sentire il rimbalzo. Concentrati sulla sensazione che la bacchetta
-            ha quando torna su. Una volta che hai familiarità con il movimento, aumenta gradualmente la velocità, sempre con
-            l'aiuto di un metronomo.</p>
-          <p>Puoi usare questo video che ti spiega passo passo la tecnica del rullo a colpi doppi.</p>
-          <a href="https://www.youtube.com/watch?v=O8nXHHlrZiA&t=122s&end=343s" target="_blank">Guarda il video</a>
-        </div>
-
-        <div id="Rullo_1" class="abc-section">
-          <div class="abc-title">Rullo a colpi doppi</div>
-          <div class="abc-desc">Esercitati sul rullo a colpi doppi. Inizia lentamente e aumenta gradualmente la velocità.
-          </div>
-          <div id="Rullo_1-paper"></div>
-          <div id="Rullo_1-audio"></div>
-          <p>Puoi usare questo video che ti guida ad esercitarti sul rullo a colpi doppi a diverse velocità</p>
-          <a href="https://www.youtube.com/watch?v=0bFPaEwuZBU" target="_blank">Guarda il video di warm-up sul rullo a colpi
-            doppi</a>
-        </div>
-
-        <h2>Il Rullo a 9</h2>
-        <p>Il <b>Rullo a 9</b> è costituito da 8 note più una nota con accento. La figurazione base per studiarlo ed eseguirlo
-          è costituita da una semiminima suonata interamente in trentaduesimi, più una nota successiva al rullo.</p>
-        <b>Quindi il rullo a 9 ha una durata complessiva di una semiminima.</b>
-
-        <div id="Rullo9_1" class="abc-section">
-          <div class="abc-title">Rullo a 9 - Passo 1</div>
-          <div class="abc-desc">Cominciamo con eseguire una quartina di semicrome a colpi singoli:</div>
-          <div id="Rullo9_1-paper"></div>
-          <div id="Rullo9_1-audio"></div>
-        </div>
-
-        <div id="Rullo9_2" class="abc-section">
-          <div class="abc-title">Rullo a 9 - Passo 2</div>
-          <div class="abc-desc">Per ogni semicroma eseguiamo due suoni con la tecnica dei colpi doppi. Otteniamo così 8
-            biscrome che più la nota successiva fanno una successione di 9 note.</div>
-          <div id="Rullo9_2-paper"></div>
-          <div id="Rullo9_2-audio"></div>
-        </div>
-
-        <div id="Rullo9_3" class="abc-section">
-          <div class="abc-title">Rullo a 9 - Notazione</div>
-          <div class="abc-desc">Lo troveremo scritto così:</div>
-          <div id="Rullo9_3-paper"></div>
-          <div id="Rullo9_3-audio"></div>
-        </div>
-
-        <h2>Il Rullo a 5</h2>
-        <p>Il <b>Rullo a 5</b> è costituito da 4 note più una nota con accento. La figurazione base per studiarlo ed eseguirlo
-          è costituita da una croma suonata interamente in trentaduesimi, più una nota successiva al rullo.</p>
-        <b>Quindi il rullo a 5 ha una durata complessiva di una croma.</b>
-
-        <div id="Rullo5_1" class="abc-section">
-          <div class="abc-title">Rullo a 5 - Passo 1</div>
-          <div class="abc-desc">Cominciamo con eseguire una coppia di semicrome a colpi singoli:</div>
-          <div id="Rullo5_1-paper"></div>
-          <div id="Rullo5_1-audio"></div>
-        </div>
-
-        <div id="Rullo5_2" class="abc-section">
-          <div class="abc-title">Rullo a 5 - Passo 2</div>
-          <div class="abc-desc">Per ogni semicroma eseguiamo due suoni con la tecnica dei colpi doppi. Otteniamo così 4
-            biscrome che più la nota successiva fanno una successione di 5 note.</div>
-          <div id="Rullo5_2-paper"></div>
-          <div id="Rullo5_2-audio"></div>
-        </div>
-
-        <div id="Rullo5_3" class="abc-section">
-          <div class="abc-title">Rullo a 5 - Notazione</div>
-          <div class="abc-desc">Lo troveremo scritto così:</div>
-          <div id="Rullo5_3-paper"></div>
-          <div id="Rullo5_3-audio"></div>
+        <div id="pattern5_scala" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="pattern5_scala-paper"></div>
+          <div id="pattern5_scala-audio"></div>
         </div>
 
         <div class="external-link-container">
