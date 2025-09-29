@@ -22,7 +22,7 @@
       <div id="aside-container"></div>
 
       <script>
-        fetch("../scripts/aside-moduli.html")
+        fetch("aside-moduli.html")
           .then(r => r.text())
           .then(html => { document.getElementById("aside-container").innerHTML = html; })
           .catch(err => console.error("Errore nel caricamento aside:", err));

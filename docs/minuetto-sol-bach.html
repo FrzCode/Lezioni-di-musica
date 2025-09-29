@@ -339,7 +339,7 @@ w:R L R L R R L R L R R L R L R R L R L R`
             displayLoop: true,
             displayRestart: true,
             displayPlay: true,
-            displayProgress: true,
+                       displayProgress: true,
             displayWarp: true
           };
 
@@ -419,12 +419,11 @@ w:R L R L R R L R L R R L R L R R L R L R`
       <div id="aside-container"></div>
 
       <script>
-        fetch("../scripts/aside-moduli.html")
+        fetch("aside-moduli.html")
           .then(r => r.text())
           .then(html => { document.getElementById("aside-container").innerHTML = html; })
           .catch(err => console.error("Errore nel caricamento aside:", err));
       </script>
-
 
       <!-- Contenuti principali -->
       <article>
@@ -432,75 +431,75 @@ w:R L R L R R L R L R R L R L R R L R L R`
 
         <h2>Introduzione</h2>
         <p>Questo brano è un pilastro per chiunque si avvicini alla musica classica. Sebbene sia conosciuto come un'opera di Bach, l'autore più probabile è in realtà <strong>Christian Petzold</strong>, un altro compositore barocco. L'opera proviene dal famoso <em>Quaderno di Anna Magdalena Bach</em>, raffinata musicista e seconda moglie di Johann Sebastian Bach.
-    </p>
+        </p>
    
-    <h3>Carattere e Forma della Melodia</h3>
-    <p>
-        Il Minuetto è una danza di corte del periodo barocco, il che significa che il tuo obiettivo principale è trasmettere **grazia, nobiltà e stabilità ritmica**.
-    </p>
+        <h3>Carattere e Forma della Melodia</h3>
+        <p>
+          Il Minuetto è una danza di corte del periodo barocco, il che significa che il tuo obiettivo principale è trasmettere **grazia, nobiltà e stabilità ritmica**.
+        </p>
     
-    <h4>Tempo e Tonalità</h4>
-    <p>
-        Il brano è in <strong>Sol Maggiore</strong> e segue un rigoroso schema in <strong>3/4</strong>. Questo metro ternario richiede che tu senta un **leggero accento sul primo battito** di ogni misura, mantenendo il tempo moderato e costante, proprio come farebbe un ballerino.
-    </p>
+        <h4>Tempo e Tonalità</h4>
+        <p>
+          Il brano è in <strong>Sol Maggiore</strong> e segue un rigoroso schema in <strong>3/4</strong>. Questo metro ternario richiede che tu senta un <strong>leggero accento sul primo battito</strong> di ogni misura, mantenendo il tempo moderato e costante, proprio come farebbe un ballerino.
+        </p>
 
-    <h4>La Forma Binaria (A-B)</h4>
-    <p>
-        La melodia è costruita in due sezioni principali, entrambe ripetute (A-A-B-B).
-    </p>
-    <ul>
-        <li>La <strong>Sezione A</strong> parte da Sol Maggiore e, attraverso una melodia molto orecchiabile e basata su intervalli semplici (spesso terze e note ribattute), si sposta verso la dominante, **Re Maggiore**. Questo crea la prima tensione.</li>
-        <li>La <strong>Sezione B</strong> esplora brevemente la nuova armonia prima di reindirizzare la melodia verso il ritorno a **Sol Maggiore**, concludendo il pezzo con un senso di completezza.</li>
-    </ul>
-    </div>
+        <h4>La Forma Binaria (A-B)</h4>
+        <p>
+          La melodia è costruita in due sezioni principali, entrambe ripetute (A-A-B-B).
+        </p>
+        <ul>
+          <li>La <strong>Sezione A</strong> parte da Sol Maggiore e, attraverso una melodia molto orecchiabile e basata su intervalli semplici (spesso terze e note ribattute), si sposta verso la dominante, <strong>Re Maggiore</strong>. Questo crea la prima tensione.</li>
+          <li>La <strong>Sezione B</strong> esplora brevemente la nuova armonia prima di reindirizzare la melodia verso il ritorno a <strong>Sol Maggiore</strong>, concludendo il pezzo con un senso di completezza.</li>
+        </ul>
 
         <div id="brano" class="abc-section">
-    <div class="abc-title"></div>
-    <div class="abc-desc"></div>
-    <div id="brano-paper"></div>
-    <div id="brano-audio"></div>
-  </div>  
-  <p>Per affrontare al meglio lo studio di questo brano sulla marimba, dobbiamo capire in che tonalità è impostato il brano. Eseguiamo la scala e l'arpeggio:</p>
-  
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="brano-paper"></div>
+          <div id="brano-audio"></div>
+        </div>
 
-  <div id="scala" class="abc-section">
-    <div class="abc-title"></div>
-    <div class="abc-desc"></div>
-    <div id="scala-paper"></div>
-    <div id="scala-audio"></div>
-  </div>
-  <div id="arp" class="abc-section">
-    <div class="abc-title"></div>
-    <div class="abc-desc"></div>
-    <div id="arp-paper"></div>
-    <div id="arp-audio"></div>
-  </div>
+        <p>Per affrontare al meglio lo studio di questo brano sulla marimba, dobbiamo capire in che tonalità è impostato il brano. Eseguiamo la scala e l'arpeggio:</p>
 
-        <p> <class="intro-paragraph">Adesso ci eserciteremo su alcuni <b>"patterns"</b> ritmico-melodici che troviamo in questo brano.</p>
+        <div id="scala" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="scala-paper"></div>
+          <div id="scala-audio"></div>
+        </div>
 
-<h2>Cos'è un pattern?</h2>
-<p>Un <b>pattern</b> è una <i>piccola cellula musicale</i>, una breve sequenza di note con un ritmo specifico, che possiamo trovare più volte.</p>
+        <div id="arp" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc"></div>
+          <div id="arp-paper"></div>
+          <div id="arp-audio"></div>
+        </div>
 
-<p><b>“Pattern”</b> infatti significa <b>modello</b> o <b>schema</b>.</p>
+        <p class="intro-paragraph">Adesso ci eserciteremo su alcuni <b>"patterns"</b> ritmico-melodici che troviamo in questo brano.</p>
 
-<p>In parole semplici:</p>
-<p>È un <b>mini-motivetto</b> che usiamo più volte, per allenarci nella coordinazione, nella memoria e nella musicalità.</p>
+        <h2>Cos'è un pattern?</h2>
+        <p>Un <b>pattern</b> è una <i>piccola cellula musicale</i>, una breve sequenza di note con un ritmo specifico, che possiamo trovare più volte.</p>
 
-<h2>Perché studiare i pattern?</h2>
+        <p><b>“Pattern”</b> infatti significa <b>modello</b> o <b>schema</b>.</p>
 
-<p><b>Sticking efficiente</b>: imparare dove usare la mano destra o sinistra in sequenza, prima ancora di pensare all’intero fraseggio.</p>
+        <p>In parole semplici:</p>
+        <p>È un <b>mini-motivetto</b> che usiamo più volte, per allenarci nella coordinazione, nella memoria e nella musicalità.</p>
 
-<p><b>Memoria motoria</b>: ripetere uno stesso pattern aiuta ad automatizzare i movimenti delle mani.</p>
+        <h2>Perché studiare i pattern?</h2>
+
+        <p><b>Sticking efficiente</b>: imparare dove usare la mano destra o sinistra in sequenza, prima ancora di pensare all’intero fraseggio.</p>
+
+        <p><b>Memoria motoria</b>: ripetere uno stesso pattern aiuta ad automatizzare i movimenti delle mani.</p>
    
-<p><b>Analisi musicale</b>: riconoscere i pattern nel brano aiuta a capire la struttura e a suonare in modo più consapevole.</p>
+        <p><b>Analisi musicale</b>: riconoscere i pattern nel brano aiuta a capire la struttura e a suonare in modo più consapevole.</p>
 
-<p>Ogni frammento su cui ci soffermeremo lo ripeteremo:</p>
+        <p>Ogni frammento su cui ci soffermeremo lo ripeteremo:</p>
 
-<p>- prima lentamente, facendo attenzione a leggere correttamente il ritmo, le note e lo sticking;</p>
+        <p>- prima lentamente, facendo attenzione a leggere correttamente il ritmo, le note e lo sticking;</p>
    
-<p>- quando lo memorizziamo correttamente lo possiamo eseguire più volte sempre più velocemente;</p>
+        <p>- quando lo memorizziamo correttamente lo possiamo eseguire più volte sempre più velocemente;</p>
 
-<p>- infine lo trasporteremo su tutte le note della scala, per rendere più solido il controllo tecnico.</p>
+        <p>- infine lo trasporteremo su tutte le note della scala, per rendere più solido il controllo tecnico.</p>
 
         <div id="pattern1" class="abc-section">
           <div class="abc-title"></div>
@@ -537,7 +536,7 @@ w:R L R L R R L R L R R L R L R R L R L R`
           <div id="pattern3-audio"></div>
         </div>
 
-        <div id="pattern3_scala class="abc-section">
+        <div id="pattern3_scala" class="abc-section">
           <div class="abc-title"></div>
           <div class="abc-desc"></div>
           <div id="pattern3_scala-paper"></div>
@@ -581,7 +580,7 @@ w:R L R L R R L R L R R L R L R R L R L R`
 
         <div class="external-link-container">
           <p>Vai qui per concludere la lezione:</p>
-          <a href="https://michaeleskin.com/abctools/abctools.html?lzw=BoLgjAUAKiCaCGA7A1gU1QAgCIHscBMAbVCAYRCgCd58A6CAUgYGcBjHS1ACgzAwCYMAZgCUjAA6F4ATwD6ACwCWAc3mEV8gC6yAbmFk5EhaRAAy4APQAWCAFkQ-axACKIAEQBBQsWWUcb3msAXjB+ADYIAGkQUkYWTU5NVjV4Zk0MBIBXEgA1cAxWYgAzIPFUSlY42wBJLGqMcT9feABbXn4ADira+oSkZnEcZkwAWiEbPMEcVk14HVQgwTTUFuYg+EzNHG66hqbqNoAGOJ0cRVZUdkIODOpEAfhORE0IPKEMadn5oPfl1fXNtsmDVdo0cM0jiczhcrjc+vdxI9UM9XuAIBgAF6CAA+mJxeIwuKxhIgAEIWkVSQULKxrLSrNSrPTaYTGcyLNSuKSLBZSSzcbSRCz2UyOQK6RKMFyebzWCTqUKJQyRfypdzZTSLCJqSLWbTdfqxZiLABvGkAXxZZtY5upxpJpMpGFJAD4+Urda73aKffS9Zq1TK+ayvfTFb7rM63Sqlf6rRadWL0aGPbGUxGfXGObTpRr-dqMaaEyzC6zC9bbfGbXbS9j0cSicbyU7c+78wbU5nxSzc7L5YL7Riy-bW6rBR2I-7Jzn1W26wqJ+zWaPNdrDV3E5nDWWi9Wq5WObX6-ih4XyeIqSv27Ht+LpxYr-OB6Wh0T
+          <a href="https://michaeleskin.com/abctools/abctools.html?lzw=BoLgjAUAKiCaCGA7A1gU1QAgCIHscBMAbVCAYRCgCd58A6CAUgYGcBjHS1ACgzAwCYMAZgCUjAA6F4ATwD6ACwCWAc3mEV8gC6yAbmFk5EhaRAAy4APQAWCAFkQ-axACKIAEQBBQsWWUcb3msAXjB+ADYIAGkQUkYWTU5NVjV4Zk0MBIBXEgA1cAxWYgAzIPFUSlY42wBJLGqMcT9feABbXn4ADira+oSkZnEcZkwAWiEbPMEcVk14HVQgwTTUFuYg+EzNHG66hqbqNoAGOJ0cRVZUdkIODOpEAfhORE0IPKEMadn5oPfl1fXNtsmDVdo0cM0jiczhcrjc+vdxI9UM9XuAIBgAF6CAA+mJxeIwuKxhIgAEIWkVSQULKxrLSrNSrPTaYTGcyLNSuKSLBZSSzcbSRCz2UyOQK6RKMFyebzWCTqUKJQyRfypdzZTSLCJqSLWbTdfqxZiLABvGkAXxZZtY5upxpJpMpGFJAD4+Urda73aKffS9Zq1TK+ayvfTFb7rM63Sqlf6rRadWL0aGPbGUxGfXGObTpRr-dqMaaEyzC6zC9bbfGbXbS9j0cSicbyU7c+78wbU5nxSzc7L5YL7Riy-bW6rBR2I-7Jzn1W26wqJ+zWaPNdrDV3E5nDWWi9Wq5WObX6-ih4XyeIqSv27Ht+LpxYr-OB6Wh0T" target="_blank" rel="noopener">Apri ABC Tools</a>
         </div> <!-- chiude external-link-container -->
       </article>
 
@@ -601,5 +600,23 @@ w:R L R L R R L R L R R L R L R R L R L R`
   <footer>
     <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
   </footer>
+
+  <script>
+    // Header
+    fetch("header.html?v=1")
+      .then(r => r.text())
+      .then(html => { document.getElementById("header-container").innerHTML = html; })
+      .catch(e => console.error("Header 404?", e));
+
+    // Aside
+    fetch("aside-moduli.html?v=1")
+      .then(r => {
+        if (!r.ok) throw new Error(r.status + " " + r.statusText);
+        return r.text();
+      })
+      .then(html => { document.getElementById("aside-container").innerHTML = html; })
+      .catch(e => console.error("Aside 404?", e));
+  </script>
+
 </body>
 </html>
