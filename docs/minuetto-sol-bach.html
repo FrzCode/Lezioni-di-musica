@@ -415,12 +415,16 @@ w:R L R L R R L R L R R L R L R R L R L R`
 
   <main>
     <div class="content-wrapper">
-      <!-- Sidebar sinistra: indice (se vuoi, popola qui un indice come nell’altra pagina) -->
-      <aside class="left-sidebar">
-        <nav id="original-index" style="display:none;">
-          <!-- (Vuoto per non alterare contenuti: puoi inserire un indice qui in futuro) -->
-        </nav>
-      </aside>
+      <!-- Sidebar sinistra caricata da file esterno -->
+      <div id="aside-container"></div>
+
+      <script>
+        fetch("../scripts/aside-moduli.html")
+          .then(r => r.text())
+          .then(html => { document.getElementById("aside-container").innerHTML = html; })
+          .catch(err => console.error("Errore nel caricamento aside:", err));
+      </script>
+
 
       <!-- Contenuti principali -->
       <article>
