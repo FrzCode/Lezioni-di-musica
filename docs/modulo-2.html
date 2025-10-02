@@ -23,16 +23,15 @@
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
-      <aside class="left-sidebar">
-        <nav id="original-index" style="display:none;">
-          <h3>Indice Generale</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="modulo-1.html">Modulo 1</a></li>
-            <li><a href="modulo-3.html">Modulo 3</a></li>
-          </ul>
-        </nav>
-      </aside>
+      <div id="aside-container"></div>
+
+      <script>
+        fetch("aside-moduli.html")
+          .then(r => r.text())
+          .then(html => { document.getElementById("aside-container").innerHTML = html; })
+          .catch(err => console.error("Errore nel caricamento aside:", err));
+      </script>
+
 
       <!-- Contenuto principale -->
       <article>
@@ -82,6 +81,18 @@
       }
     });
   </script>
+
+      // Aside
+    fetch("aside-moduli.html?v=1")
+      .then(r => {
+        if (!r.ok) throw new Error(r.status + " " + r.statusText);
+        return r.text();
+      })
+      .then(html => { document.getElementById("aside-container").innerHTML = html; })
+      .catch(e => console.error("Aside 404?", e));
+  </script>
+
+
 </body>
 
 </html>
