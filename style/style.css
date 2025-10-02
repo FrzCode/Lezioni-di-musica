@@ -20,7 +20,10 @@
 
 /* Reset base */
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html, body {
+  height:100%;
+  overflow-x: hidden; /* unificato qui per evitare duplicati */
+}
 img,svg,video,canvas{ max-width:100%; height:auto; display:block; }
 button,input,select,textarea{ font:inherit; }
 
@@ -304,7 +307,7 @@ article button:hover, button:hover{
   }
 }
 
-/* ≥ 900px: 2 colonne (left sopra l'articolo, right sotto) */
+/* ≥ 900px: 2 colonne (left sopra l’articolo, right sotto) */
 @media (min-width: 900px){
   .content-wrapper{
     grid-template-columns: 1fr minmax(0, 2fr);
@@ -337,10 +340,11 @@ article button:hover, button:hover{
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
+
 /* === FIX CRITICI MOBILE (incolla in fondo al CSS) ======================= */
 
 /* 1) Evita overflow orizzontale dovuto a elementi fuori griglia */
-html, body { overflow-x: hidden; }
+/* (già unificato sopra in html, body) */
 
 /* 2) Clippa eventuali decorazioni assolute dell'header caricata da header.html */
 #header-container { position: relative; overflow: hidden; }
@@ -361,7 +365,7 @@ html, body { overflow-x: hidden; }
 }
 
 /* 3) Griglia: su mobile article full-width, sidebar sotto */
-@media (max-width: 1140px){
+@media (max-width: 899px){
   .content-wrapper{
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -387,3 +391,47 @@ img, .abcjs-container, [id$="-paper"] { max-width: 100%; }
 
 /* 5) Metti l'articolo sopra a tutto se qualcosa ha z-index alti nell'header */
 article { position: relative; z-index: 1; }
+
+/* === Embed PDF / Allegati === */
+.embed-pdf {
+  width: 100%;
+  height: 80vh;               /* altezza “a finestra”, comoda per desktop */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;           /* taglia scrollbars dell'iframe */
+  background: #f8f8f8;        /* colore di sfondo in attesa del load */
+}
+
+/* L'iframe riempie tutto il contenitore */
+.embed-pdf iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Variante scura (se usi preferenze di sistema) */
+@media (prefers-color-scheme: dark) {
+  .embed-pdf {
+    border-color: #444;
+    background: #1e1e1e;
+  }
+}
+
+/* Miglior resa su schermi piccoli */
+@media (max-width: 768px) {
+  .embed-pdf {
+    height: 60vh;
+    border-radius: 6px;
+  }
+}
+
+/* Opzionale: classe “compatta” per pagine molto dense */
+.embed-pdf--compact {
+  height: 60vh;
+}
+
+/* Opzionale: classe “alta” per pagine con poco contenuto */
+.embed-pdf--tall {
+  height: 90vh;
+}
