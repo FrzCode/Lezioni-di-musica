@@ -11,37 +11,32 @@
 </head>
 
 <body>
-  <div id="header-container"></div>
+<header>
 
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-container").innerHTML = data;
-    });
-</script>
-  <!-- Contenitore con l'indice originale, può essere nascosto -->
+  <!-- Header come nella pagina "scale" -->
+  <div id="header-container">
+    
+    <script>
+      fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+      });
+      </script>
+  </div>
+</header>
 
+  <!-- Sidebar sinistra caricata da file esterno -->
+  <div class="content-wrapper">
+    <div id="aside-container"></div>
+    <script>
+      fetch("aside-moduli.html")
+        .then(r => r.text())
+        .then(html => { document.getElementById("aside-container").innerHTML = html; })
+        .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
 
-  <main>
-    <div class="content-wrapper">
-      <!-- Sidebar sinistra: qui copieremo l'indice -->
-      <aside class="left-sidebar">
-        <nav id="original-index" style="display:none;">
-          <h3>Indice Generale</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Capitolo 1 - I parametri fondamentali del suono</a></li>
-            <li><a href="#">Capitolo 2</a></li>
-            <li><a href="#">Capitolo 3</a></li>
-            <li><a href="#">Capitolo 4</a></li>
-            <li><a href="#">Capitolo 5</a></li>
-            <li><a href="#">Capitolo 6</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-
+    <main>
       <article>
         <h1>Cos'è una scala?</h1>
         <hr />
@@ -104,27 +99,28 @@
             synth.start();
           });
         </script>
-
-        <h2>Argomenti correlati</h2>
+        <h2>Esercizi correlati</h2>
         <p>
-          <a href="La scala maggiore.html">Vai alla lezione</a><br />
-          <a href="Le_note_musicali.html">Vai alla lezione sul nome delle note</a><br />
-          <a href="parametri_fondamentali_del_suono.html">Parametri fondamentali del suono</a><br />
-          <a href="frequenza.html">Frequenza</a>
+          <a href="scale-mallet-control.html">Tecnica sulle scale tratta da <i>Mallet Control</i></a><br>
         </p>
       </article>
+    </main>
+    <!-- Sidebar destra (DEVE essere sibling di article) -->
+    <aside>
+      <h3>Argomenti correlati</h3>
+      <p>
+        <a href="note-musicali.html">Le note musicali</a><br />
+        <a href="parametri_fondamentali_del_suono.html">Parametri fondamentali del suono</a><br />
+      </p>
 
-      <aside>
-        <h3>Articoli Correlati</h3>
-        <ul>
-          <li><a href="#">Titolo articolo correlato 1</a></li>
-          <li><a href="#">Titolo articolo correlato 2</a></li>
-          <li><a href="#">Titolo articolo correlato 3</a></li>
-          <li><a href="#">Titolo articolo correlato 4</a></li>
-        </ul>
-      </aside>
-    </div>
-  </main>
+      <h3>Esercizi correlati</h3>
+      <p>
+        <a href="scale-mallet-control.html">Tecnica sulle scale da <i>Mallet Control</i></a><br />
+      </p>
+    </aside>
+
+
+  </div>
 
   <footer>
     <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>

@@ -12,10 +12,10 @@
   --shadow-medium:0 4px 20px rgba(0,0,0,.15);
 
   /* layout */
-  --page-max: 1280px;      /* larghezza massima contenuto */
-  --gap: 1.25rem;          /* gap griglia */
+  --page-max: 1400px;     /* allarga la fascia bianca centrale */
+  --gap: 1.25rem;         /* gap griglia */
   --radius: 12px;
-  --sidebar-w: 220px;      /* sidebar desktop */
+  --sidebar-w: 240px;     /* sidebar di base */
 }
 
 /* Reset base */
@@ -77,9 +77,10 @@ header{
 header h1{ margin:0; color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,.2); }
 
 /* =========================
-   LAYOUT PRINCIPALE (GRID con aree)
-   MOBILE-FIRST: 1 colonna
+   LAYOUT RESPONSIVE A GRID
    ========================= */
+
+/* Base: una colonna */
 main{
   padding: clamp(1rem, 2.5vw, 2rem) 0;
 }
@@ -87,7 +88,7 @@ main{
 
 /* wrapper fluido e centrato */
 .content-wrapper{
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-areas:
     "article"
@@ -95,14 +96,15 @@ main{
     "right";
   gap: var(--gap);
   width:100%;
-  max-width: min(92vw, var(--page-max));
+  max-width: min(96vw, var(--page-max));
   margin:0 auto;
 }
 
-/* mappatura aree (non cambiare HTML) */
+/* mappatura aree */
 .left-sidebar{ grid-area:left; }
+.content-wrapper > article{ grid-area:article; }
+/* aside destro = qualsiasi aside che NON sia la left-sidebar */
 .content-wrapper > aside:not(.left-sidebar){ grid-area:right; }
-article{ grid-area:article; }
 
 /* Card base (article/aside) */
 .left-sidebar,
@@ -300,38 +302,42 @@ article button:hover, button:hover{
    BREAKPOINTS (progressivi)
    ========================= */
 
-/* ≥ 680px: un po' più respiro, bottoni non full width */
+/* ≥ 680px: un po' più respiro */
 @media (min-width: 680px){
   .content-wrapper{
     max-width: min(94vw, var(--page-max));
   }
 }
 
-/* ≥ 900px: 2 colonne (left sopra l’articolo, right sotto) */
+/* ≥ 900px: 2 colonne (left accanto all’articolo, right sotto) */
 @media (min-width: 900px){
   .content-wrapper{
-    grid-template-columns: 1fr minmax(0, 2fr);
+    grid-template-columns: minmax(0, var(--sidebar-w)) minmax(0, 1fr);
     grid-template-areas:
       "left article"
       "right article";
   }
-  /* sidebar un filo più stretta */
-  :root{ --sidebar-w: 200px; }
+  /* sidebar leggermente più stretta su questa fascia */
+  :root{ --sidebar-w: 260px; }
 }
 
 /* ≥ 1140px: 3 colonne classiche (left – article – right) */
 @media (min-width: 1140px){
   .content-wrapper{
-    grid-template-columns: minmax(0, var(--sidebar-w)) minmax(0,1fr) minmax(0, var(--sidebar-w));
+    grid-template-columns:
+      minmax(0, var(--sidebar-w))
+      minmax(0, 1fr)
+      minmax(0, var(--sidebar-w));
     grid-template-areas: "left article right";
-    max-width: min(92vw, var(--page-max));
+    max-width: min(96vw, var(--page-max)); /* fascia bianca più grande */
   }
+  :root{ --sidebar-w: 300px; } 
 }
 
-/* Micro-tuning tipografico/padding su mobile molto piccolo */
+/* Tipografia/padding su mobile molto piccolo */
 @media (max-width: 420px){
-  .abc-title{ gap:8px; }
-  .external-link-container a{ padding:10px 16px; }
+  .abc-title{ gap: 8px; }
+  .external-link-container a{ padding: 10px 16px; }
 }
 
 /* =========================
@@ -364,7 +370,7 @@ article button:hover, button:hover{
   }
 }
 
-/* 3) Griglia: su mobile article full-width, sidebar sotto */
+/* 3) Griglia: su mobile article full-width, sidebar sotto (coerente con base) */
 @media (max-width: 899px){
   .content-wrapper{
     grid-template-columns: 1fr;
@@ -380,7 +386,7 @@ article button:hover, button:hover{
   /* Neutralizza eventuali larghezze fisse ereditate */
   .left-sidebar,
   .right-sidebar,
-  .content-wrapper > aside { flex: initial; }
+  .content-wrapper > aside { /* nessun flex necessario in Grid */ }
   body { padding: 12px; } /* un filo meno padding */
 }
 
@@ -434,4 +440,27 @@ article { position: relative; z-index: 1; }
 /* Opzionale: classe “alta” per pagine con poco contenuto */
 .embed-pdf--tall {
   height: 90vh;
+}
+
+/* =========================
+   BOX TIP / CONSIGLIO
+   ========================= */
+.tip {
+  background: var(--background-light);
+  border-left: 5px solid var(--secondary-color);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.tip b {
+  display: block;
+  color: var(--secondary-color);
+  margin-bottom: .4rem;
+  font-size: 1.05em;
+}
+
+.tip p {
+  margin: 0;
 }
