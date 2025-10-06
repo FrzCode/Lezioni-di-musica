@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esercizi per quattro bacchette</title>
+
+  <link rel="stylesheet" href="../../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <div class="content-wrapper">
+    <div id="aside-container"></div>
+
+    <main>
+
+        <article>
+          <h1>Esercizi per quattro bacchette</h1>
+          <section>
+            <h2>Esercizi di base</h2>
+            <p>Gli esercizi per il livello principiante</p>
+            <p><i>Qui inserire pdf oppure link ai vari esercizi</i></p>
+          </section>
+          <h2>Esercizi intermedi</h2>
+          <p>Qui trovi esercizi di livello intermedio</p>
+          <section>
+          </section>
+        </article>
+      </main>
+
+      
+    <!-- Sidebar destra (DEVE essere sibling di article) -->
+    <aside>
+      <h3>Argomenti correlati</h3>
+      <p>
+        <a href="#">Esercizi per due bacchette</a><br />
+      </p>
+      <h3>Brani collegati</h3>
+      <p>
+        <a href="#"></a>
+      </p>
+  </div>
+
+  <script>
+    // Inclusioni da docs/
+    fetch("../header.html")
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById("header-container");
+        el.innerHTML = html;
+
+        // Rende robusti i link interni contenuti nel header incluso:
+        // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      });
+
+    fetch("../aside-moduli.html")
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById("aside-container");
+        el.innerHTML = html;
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      })
+      .catch(err => console.error("Errore nel caricamento aside:", err));
+  </script>
+</body>
+</html>
