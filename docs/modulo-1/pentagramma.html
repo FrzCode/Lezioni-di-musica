@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Esercizi per quattro bacchette</title>
+
+    <link rel="stylesheet" href="../../style/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+
+
+    <!-- Header come nella pagina "scale" -->
+    <div id="header-container">
+
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
+
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Sidebar sinistra caricata da file esterno -->
+        <div id="aside-container"></div>
+
+        <script>
+            fetch("aside-moduli.html")
+                .then(r => r.text())
+                .then(html => { document.getElementById("aside-container").innerHTML = html; })
+                .catch(err => console.error("Errore nel caricamento aside:", err));
+        </script>
+
+        <article>
+            <h1>Il pentagramma</h1>
+
+            <p>
+                Per scrivere le <strong>note musicali</strong> utilizziamo uno
+                <strong>strumento grafico speciale</strong> chiamato <strong>pentagramma</strong>.
+                È formato da <strong>cinque linee orizzontali</strong> tracciate a distanza regolare:
+                queste linee creano anche <strong>quattro spazi</strong> tra di loro.
+            </p>
+
+            <div class="tip">
+                🎵 <strong>Ricorda:</strong>
+                <ul>
+                    <li>Le <strong>linee e gli spazi</strong> si contano <strong>dal basso verso l’alto</strong>.</li>
+                    <li>Le note possono trovarsi <strong>sulle linee</strong> oppure <strong>negli spazi</strong>,
+                        <em>mai in una situazione intermedia</em>.
+                    </li>
+                    <li>Le note <strong>più in basso</strong> sul pentagramma hanno un suono <strong>grave</strong>,
+                        quelle <strong>più in alto</strong> hanno un suono <strong>acuto</strong>.</li>
+                </ul>
+            </div>
+
+            <p>
+                Ogni posizione sul pentagramma rappresenta un suono preciso.
+                Per capire <strong>quale nota</strong> corrisponde a ogni linea o spazio,
+                serve un segno chiamato <strong>chiave</strong>.
+                👉 <a href="#">Le chiavi musicali</a>
+            </p>
+
+            <p>
+                Quando le note sono <strong>troppo alte o troppo basse</strong> per stare dentro le cinque linee,
+                usiamo delle <strong>piccole linee in più</strong>, chiamate <strong>linee addizionali</strong>.
+                👉 <a href="#">Linee addizionali</a>
+            </p>
+
+            <h2>Prova tu!</h2>
+            <p>
+                Disegna un pentagramma su un foglio:
+            </p>
+            <ol>
+                <li>Traccia <strong>cinque linee orizzontali</strong> con un righello.</li>
+                <li>Numerale da <strong>1 (in basso)</strong> a <strong>5 (in alto)</strong>.</li>
+                <li>Scrivi una nota su ogni linea e in ogni spazio.</li>
+                <li>Nota come salendo le note diventano “più acute”.</li>
+            </ol>
+        </article>
+
+
+
+        <!-- Sidebar destra (DEVE essere sibling di article) -->
+        <aside>
+            <h3>Argomenti correlati</h3>
+            <p>
+                <a href="note-musicali.html">Note musicali</a><br />
+            </p>
+
+        </aside>
+
+
+    </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
+    <script>
+        // Inclusioni da docs/
+        fetch("../header.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("header-container");
+                el.innerHTML = html;
+
+                // Rende robusti i link interni contenuti nel header incluso:
+                // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            });
+
+        fetch("../aside-moduli.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("aside-container");
+                el.innerHTML = html;
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            })
+            .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
+</body>
+
+</html>
