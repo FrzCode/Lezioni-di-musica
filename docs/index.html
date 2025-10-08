@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><!-- Inserisci titolo qui --></title>
+    <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../style/style.css" />
 </head>
 
 <body>
     <div id="header-container"></div>
-
     <div class="content-wrapper">
         <div id="aside-container">
-            Qui trovi l'asider
+            
         </div>
 
         <main>
@@ -34,8 +33,8 @@
                 <details class="accordion-item">
                     <summary class="accordion-summary">
                         <span class="summary-title"><a href="modulo-1.html">Modulo 1</a></span>
-                        <p class="summary-desc">Il Modulo 1 affronta le basi del nostro percorso da zero.</p>
                     </summary>
+                    <p class="summary-desc">Il Modulo 1 affronta le basi del nostro percorso da zero.</p>
                     <ul class="accordion-panel">
                         <li><a href="#">Lettura ritmica</a></li>
                         <li><a href="#">Tecnica</a></li>
@@ -48,8 +47,8 @@
                 <details class="accordion-item">
                     <summary class="accordion-summary">
                         <span class="summary-title"><a href="modulo-2.html">Modulo 2</a></span>
-                        <p>Rulli a colpi multipli, flam, sedicesimi su tamburo e prime orchestrazioni su mallet.</p>
                     </summary>
+                    <p>Rulli a colpi multipli, flam, sedicesimi su tamburo e prime orchestrazioni su mallet.</p>
                     <ul class="accordion-panel">
                         <li><a href="#">Lettura ritmica</a></li>
                         <li><a href="#">Tecnica</a></li>
@@ -61,8 +60,8 @@
                 <details class="accordion-item">
                     <summary class="accordion-summary">
                         <span class="summary-title"><a href="modulo-3.html">Modulo 3</a></span>
-                        <p>Consolidamento delle basi: lettura, timing e musicalità applicata.</p>
                     </summary>
+                    <p>Consolidamento delle basi: lettura, timing e musicalità applicata.</p>
                     <ul class="accordion-panel">
                         <li><a href="modulo-3.html#programma">Programma</a></li>
                         <li><a href="modulo-3.html#esercizi">Esercizi</a></li>
@@ -162,7 +161,16 @@
                 </details>
             </details>
         </main>
-
+ <!-- Sidebar destra -->
+      <aside>
+        <h3>Strumenti</h3>
+        <ul>
+          <li><a href="#">Tamburo</a></li>
+          <li><a href="#">Mallet</a></li>
+          <li><a href="#">Timpani</a></li>
+          <li><a href="#">Multipercussioni</a></li>
+        </ul>
+      </aside>
 
         <footer>
             <p><!-- Testo del footer (es. copyright, contatti) --></p>
@@ -170,36 +178,17 @@
 </body>
 
 <script>
-    // Inclusioni da docs/
-    fetch("header.html")
-        .then(r => r.text())
-        .then(html => {
-            const el = document.getElementById("header-container");
-            el.innerHTML = html;
+  // Header
+  fetch("header.html")
+    .then(r => r.text())
+    .then(html => { document.getElementById("header-container").innerHTML = html; });
 
-            // Rende robusti i link interni contenuti nel header incluso:
-            // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
-            el.querySelectorAll('a[href]').forEach(a => {
-                const href = a.getAttribute('href');
-                if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
-                    a.setAttribute('href', '../' + href);
-                }
-            });
-        });
-
-    fetch("aside-moduli.html")
-        .then(r => r.text())
-        .then(html => {
-            const el = document.getElementById("aside-container");
-            el.innerHTML = html;
-            el.querySelectorAll('a[href]').forEach(a => {
-                const href = a.getAttribute('href');
-                if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
-                    a.setAttribute('href', '../' + href);
-                }
-            });
-        })
-        .catch(err => console.error("Errore nel caricamento aside:", err));
+  // Aside
+  fetch("aside-moduli.html")
+    .then(r => r.text())
+    .then(html => { document.getElementById("aside-container").innerHTML = html; })
+    .catch(e => console.error("Aside 404?", e));
 </script>
+
 
 </html>
