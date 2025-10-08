@@ -12,33 +12,194 @@
 <body>
     <div id="header-container"></div>
 
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-container").innerHTML = data;
-    });
-</script>
+    <div class="content-wrapper">
+        <div id="aside-container">
+            Qui trovi l'asider
+        </div>
 
-
-    <main>
-        <section>
-            <h2><!-- Sottotitolo sezione 1 -->Indice degli argomenti</h2>
-            <p><!-- Testo descrittivo sezione 1 -->
-            <a href="Le scale.html">Le scale</a> 
-
+        <main>
+            <h1>Benvenuto</h1>
+            <p>Benvenuto nel sito! In queste pagine troverai molti contenuti
+                che ti guideranno nel tuo apprendimento. Abbiamo suddiviso la didattica in livelli
+                che ti permetteranno, passo dopo passo, di diventare sempre più bravo.
             </p>
-        </section>
+            <h2>Indice degli argomenti</h2>
 
-        <section>
-            <h2><!-- Sottotitolo sezione 2 --></h2>
-            <p><!-- Testo descrittivo sezione 2 --></p>
-        </section>
-    </main>
+            <!-- LIVELLO BASE -->
+            <details class="level-group">
+                <summary class="level-summary">
+                    <h3>Livello base</h3>
+                </summary>
+                <!-- Modulo 1 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-1.html">Modulo 1</a></span>
+                        <p class="summary-desc">Il Modulo 1 affronta le basi del nostro percorso da zero.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="#">Lettura ritmica</a></li>
+                        <li><a href="#">Tecnica</a></li>
+                        <li><a href="#">Brani</a></li>
+                    </ul>
+                </details>
 
-    <footer>
-        <p><!-- Testo del footer (es. copyright, contatti) --></p>
-    </footer>
+
+                <!-- Modulo 2 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-2.html">Modulo 2</a></span>
+                        <p>Rulli a colpi multipli, flam, sedicesimi su tamburo e prime orchestrazioni su mallet.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="#">Lettura ritmica</a></li>
+                        <li><a href="#">Tecnica</a></li>
+                        <li><a href="#">Brani</a></li>
+                    </ul>
+                </details>
+
+                <!-- Modulo 3 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-3.html">Modulo 3</a></span>
+                        <p>Consolidamento delle basi: lettura, timing e musicalità applicata.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-3.html#programma">Programma</a></li>
+                        <li><a href="modulo-3.html#esercizi">Esercizi</a></li>
+                        <li><a href="modulo-3.html#ascolti">Ascolti guidati</a></li>
+                    </ul>
+                </details>
+            </details>
+
+            <!-- LIVELLO INTERMEDIO -->
+            <details class="level-group">
+                <summary class="level-summary">
+                    <h3>Livello intermedio</h3>
+                </summary>
+
+                <!-- Modulo 4 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-4.html">Modulo 4</a></span>
+                        <p>Transizioni di sticking, dinamiche di base e coordinazione progressiva.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-4.html#introduzione">Introduzione</a></li>
+                        <li><a href="modulo-4.html#coordinazione">Coordinazione e pattern</a></li>
+                        <li><a href="modulo-4.html#dinamiche">Dinamiche e accenti</a></li>
+                    </ul>
+                </details>
+
+                <!-- Modulo 5 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-5.html">Modulo 5</a></span>
+                        <p>Figurazioni in sedicesimi, controllo del tempo e lettura a difficoltà crescente.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-5.html#sedicesimi">Figurazioni in sedicesimi</a></li>
+                        <li><a href="modulo-5.html#metronomo">Studio col metronomo</a></li>
+                        <li><a href="modulo-5.html#lettura">Lettura ritmica</a></li>
+                    </ul>
+                </details>
+
+                <!-- Modulo 6 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-6.html">Modulo 6</a></span>
+                        <p>Flam e rulli applicati, orchestrazioni su mallet e controllo del suono.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-6.html#flam">Tecnica del flam</a></li>
+                        <li><a href="modulo-6.html#rulli">Rulli applicati</a></li>
+                        <li><a href="modulo-6.html#mallet">Orchestrazioni su mallet</a></li>
+                    </ul>
+                </details>
+            </details>
+
+            <!-- LIVELLO AVANZATO -->
+            <details class="level-group">
+                <summary class="level-summary">
+                    <h3>Livello avanzato</h3>
+                </summary>
+
+                <!-- Modulo 7 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-7.html">Modulo 7</a></span>
+                        <p>Accenti spostati, poliritmie semplici e fine controllo timbrico.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-7.html#accenti">Accenti spostati</a></li>
+                        <li><a href="modulo-7.html#poliritmie">Poliritmie semplici</a></li>
+                        <li><a href="modulo-7.html#timbrica">Controllo timbrico</a></li>
+                    </ul>
+                </details>
+
+                <!-- Modulo 8 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <h3>Livello base</h3>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-8.html#pattern-complessi">Pattern complessi</a></li>
+                        <li><a href="modulo-8.html#cambi-tempo">Cambi di tempo</a></li>
+                        <li><a href="modulo-8.html#frasi-ottave">Frasi su più ottave</a></li>
+                    </ul>
+                </details>
+
+                <!-- Modulo 9 -->
+                <details class="accordion-item">
+                    <summary class="accordion-summary">
+                        <span class="summary-title"><a href="modulo-9.html">Modulo 9</a></span>
+                        <p>Studio di brani, interpretazione e costruzione della performance completa.</p>
+                    </summary>
+                    <ul class="accordion-panel">
+                        <li><a href="modulo-9.html#studio-brani">Studio di brani</a></li>
+                        <li><a href="modulo-9.html#interpretazione">Interpretazione</a></li>
+                        <li><a href="modulo-9.html#performance">Performance</a></li>
+                    </ul>
+                </details>
+            </details>
+        </main>
+
+
+        <footer>
+            <p><!-- Testo del footer (es. copyright, contatti) --></p>
+        </footer>
 </body>
+
+<script>
+    // Inclusioni da docs/
+    fetch("header.html")
+        .then(r => r.text())
+        .then(html => {
+            const el = document.getElementById("header-container");
+            el.innerHTML = html;
+
+            // Rende robusti i link interni contenuti nel header incluso:
+            // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+            el.querySelectorAll('a[href]').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                    a.setAttribute('href', '../' + href);
+                }
+            });
+        });
+
+    fetch("aside-moduli.html")
+        .then(r => r.text())
+        .then(html => {
+            const el = document.getElementById("aside-container");
+            el.innerHTML = html;
+            el.querySelectorAll('a[href]').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                    a.setAttribute('href', '../' + href);
+                }
+            });
+        })
+        .catch(err => console.error("Errore nel caricamento aside:", err));
+</script>
 
 </html>

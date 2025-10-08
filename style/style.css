@@ -464,3 +464,27 @@ article { position: relative; z-index: 1; }
 .tip p {
   margin: 0;
 }
+/* SUMMARY dei livelli: testo sulla stessa riga + spazio per la freccia */
+.level-summary{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.85rem 1rem .85rem 1.6rem; /* spazio a sinistra per la freccia */
+  position:relative;
+}
+.level-summary h3{ margin:0; }
+
+/* Freccia personalizzata per i livelli (mostrata anche se il marker default è nascosto) */
+.level-group > summary::marker { content:""; }           /* Safari fix / nasconde default */
+.level-group > summary::before{
+  content:"▸";
+  position:absolute;
+  left:.8rem;
+  top:50%;
+  transform:translateY(-50%);
+  transition:transform .2s ease;
+  line-height:1;
+}
+.level-group[open] > summary::before{
+  transform:translateY(-50%) rotate(90deg);
+}
