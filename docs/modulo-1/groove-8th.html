@@ -1,5 +1,41 @@
-    
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esercizi per quattro bacchette</title>
 
+  <link rel="stylesheet" href="../../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    
+        
+
+    <!-- Header come nella pagina "scale" -->
+    <div id="header-container">
+
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
+
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Sidebar sinistra caricata da file esterno -->
+        <div id="aside-container"></div>
+
+        <script>
+            fetch("aside-moduli.html")
+                .then(r => r.text())
+                .then(html => { document.getElementById("aside-container").innerHTML = html; })
+                .catch(err => console.error("Errore nel caricamento aside:", err));
+        </script>
 
         <!-- Contenuto principale -->
       <article>
@@ -40,22 +76,39 @@
 
 
     <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
   <script>
-    // Header (file in docs/)
-    fetch("../../header.html")
+    // Inclusioni da docs/
+    fetch("../header.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header load error:", e));
+      .then(html => {
+        const el = document.getElementById("header-container");
+        el.innerHTML = html;
 
-    // Aside (file in docs/)
+        // Rende robusti i link interni contenuti nel header incluso:
+        // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      });
+
     fetch("../aside-moduli.html")
       .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside load error:", e));
+      .then(html => {
+        const el = document.getElementById("aside-container");
+        el.innerHTML = html;
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      })
+      .catch(err => console.error("Errore nel caricamento aside:", err));
   </script>
 </body>
 </html>
