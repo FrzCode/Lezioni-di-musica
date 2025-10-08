@@ -3,21 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Groove in ottavi</title>
+  <title>Esercizi per quattro bacchette</title>
 
   <!-- CSS: due livelli sopra -->
   <link rel="stylesheet" href="../../style/style.css" />
-  <!-- ABCJS solo se serve veramente in questa pagina -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script> -->
+  <!-- (ABCJS se ti serve davvero in questa pagina)
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+  -->
 </head>
 <body>
-  <!-- Header (UNO solo) -->
+  <!-- Header (unico) -->
   <div id="header-container"></div>
 
   <main>
     <div class="content-wrapper">
-      <!-- Sidebar sinistra (UNO solo) -->
+      <!-- Sidebar sinistra (unica) -->
       <div id="aside-container"></div>
+
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Primi colpi</h1>
+        <hr />
+        <p>Stai dando i primi colpi sul tamburo. Impariamo a usare bene le singole mani, 
+          fino a alternarle bene.
+        </p>
+
+        <div class="embed-pdf">
+          <iframe
+            src="../../materiali-didattici/Otto per mano.pdf"
+            title="Primi colpi (PDF)">
+          </iframe>
+        </div>
+
+        <p style="margin-top:1rem; text-align:center;">
+          <!-- Corretto: virgolette + percorso coerente -->
+          <a href='../../materiali-didattici/Otto per mano.pdf' target="_blank" rel="noopener">
+            Apri il PDF in una nuova finestra
+          </a>
+        </p>
 
       <!-- Contenuto principale -->
       <article>
@@ -57,17 +80,16 @@
     <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
   </footer>
 
-  <!-- Script: un SOLO blocco, percorsi coerenti -->
+  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
   <script>
-    // Header & Aside stanno in docs/
-    const ROOT = "../"; // <-- se sposti la pagina, aggiorna questo prefisso
-
-    fetch(ROOT + "header.html")
+    // Header (file in docs/)
+    fetch("../header.html")
       .then(r => r.text())
       .then(html => { document.getElementById("header-container").innerHTML = html; })
       .catch(e => console.error("Header load error:", e));
 
-    fetch(ROOT + "aside-moduli.html")
+    // Aside (file in docs/)
+    fetch("../aside-moduli.html")
       .then(r => r.text())
       .then(html => { document.getElementById("aside-container").innerHTML = html; })
       .catch(e => console.error("Aside load error:", e));
