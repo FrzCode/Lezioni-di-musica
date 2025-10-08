@@ -61,7 +61,7 @@
   <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
   <script>
     // Header (file in docs/)
-    fetch("../../header.html")
+    fetch("../header.html")
       .then(r => r.text())
       .then(html => { document.getElementById("header-container").innerHTML = html; })
       .catch(e => console.error("Header load error:", e));
