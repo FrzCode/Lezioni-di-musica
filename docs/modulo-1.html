@@ -41,13 +41,12 @@
         <h2 id="tamburo">Tamburo</h2>
         <p>Sezione dedicata al tamburo.</p>
         <p><a href="modulo-1/primi-colpi.html"><b>Primi colpi</b></a> <br> Inizieremo
-            con la sola destra, poi con la sinistra, fino all'alternanza delle mani.</p>
-            <p><a href="modulo-1/groove-8th.html"></a><b></b>Groove in 8th (esercizi preparatori)</b></p>
-            <p><a href="modulo-1/sei-diteggiature-base.html"></a><b></b>Le sei diteggiature di base sui sedicesimi</b></p>
-        
+          con la sola destra, poi con la sinistra, fino all'alternanza delle mani.</p>
+        <p><a href="modulo-1/sei-diteggiature-base.html"><b>Le sei diteggiature di base sui sedicesimi</b></a></p>
+
         <h2 id="mallet">Mallet</h2>
         <p>Sezione dedicata agli strumenti a tastiera percussiva (marimba, vibrafono...).</p>
-        
+
 
         <h2 id="timpani">Timpani</h2>
         <p>Sezione dedicata ai timpani.</p>
@@ -58,10 +57,9 @@
       <aside>
         <h3>Articoli Correlati</h3>
         <ul>
+          <li><a href="modulo-1/note-musicali.html">Le note musicali</a></li>
+          <li><a href="modulo-1/primi-colpi.html">I primi colpi</a></li>
           <li><a href="Le scale.html">Le scale musicali</a></li>
-          <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
-          <li><a href="#">Tecniche di percussione</a></li>
-          <li><a href="#">Pattern ritmici</a></li>
         </ul>
       </aside>
     </div>
@@ -83,17 +81,14 @@
     });
   </script>
 
-      // Aside
-    fetch("aside-moduli.html?v=1")
-      .then(r => {
-        if (!r.ok) throw new Error(r.status + " " + r.statusText);
-        return r.text();
-      })
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside 404?", e));
+  // Aside
+  fetch("aside-moduli.html?v=1")
+  .then(r => {
+  if (!r.ok) throw new Error(r.status + " " + r.statusText);
+  return r.text();
+  })
+  .then(html => { document.getElementById("aside-container").innerHTML = html; })
+  .catch(e => console.error("Aside 404?", e));
   </script>
-
-
 </body>
-
 </html>
