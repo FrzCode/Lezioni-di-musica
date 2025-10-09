@@ -5,110 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Esercizi per quattro bacchette</title>
 
+  <!-- CSS: due livelli sopra -->
   <link rel="stylesheet" href="../../style/style.css" />
+  <!-- (ABCJS se ti serve davvero in questa pagina)
   <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+  -->
 </head>
 <body>
-    <div id="header-container"></div>
-    
-        
+  <!-- Header (unico) -->
+  <div id="header-container"></div>
 
-    <!-- Header come nella pagina "scale" -->
-    <div id="header-container">
-
-        <script>
-            fetch("header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
-                });
-        </script>
-
-    </div>
-
+  <main>
     <div class="content-wrapper">
-        <!-- Sidebar sinistra caricata da file esterno -->
-        <div id="aside-container"></div>
+      <!-- Sidebar sinistra (unica) -->
+      <div id="aside-container"></div>
 
-        <script>
-            fetch("aside-moduli.html")
-                .then(r => r.text())
-                .then(html => { document.getElementById("aside-container").innerHTML = html; })
-                .catch(err => console.error("Errore nel caricamento aside:", err));
-        </script>
-
-        <!-- Contenuto principale -->
+      <!-- Contenuto principale -->
       <article>
         <h1>Primi colpi</h1>
         <hr />
         <p>Stai dando i primi colpi sul tamburo. Impariamo a usare bene le singole mani, 
-            fino a alternarle bene.
+          fino a alternarle bene.
         </p>
 
         <div class="embed-pdf">
-  <iframe
-    src="../../materiali-didattici/Otto per mano.pdf"
-    title="Primi colpi (PDF)">
-  </iframe>
-</div>
-
+          <iframe
+            src="../../materiali-didattici/Otto per mano.pdf"
+            title="Primi colpi (PDF)">
+          </iframe>
+        </div>
 
         <p style="margin-top:1rem; text-align:center;">
-        <a href="/materiali-didattici/Groove in 8th (esercizi preparatori).pdf" target="_blank">Apri PDF</a>
-
+          <a href=..materiali-didattici/"SOLFEGGIO pause-di-crome.pdf" target="_blank">Apri il PDF in una nuova finestra</a>
         </p>
       </article>
 
-
-        <!-- Sidebar destra (DEVE essere sibling di article) -->
-        <aside>
-            <h3>Argomenti correlati</h3>
-            <p>
-                <a href="Le scale.html">Le scale</a><br />
-                <a href="parametri_fondamentali_del_suono.html">Parametri fondamentali del suono</a><br />
-            </p>
-
-        </aside>
-
-
+      <!-- Sidebar destra -->
+      <aside>
+        <h3>Argomenti correlati</h3>
+        <ul>
+          <li><a href="../Le scale.html">Le scale</a></li>
+          <li><a href="../parametri_fondamentali_del_suono.html">Parametri fondamentali del suono</a></li>
+        </ul>
+      </aside>
     </div>
-    </main>
+  </main>
 
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-    </footer>
+  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
   <script>
-    // Inclusioni da docs/
+    // Header (file in docs/)
     fetch("../header.html")
       .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById("header-container");
-        el.innerHTML = html;
+      .then(html => { document.getElementById("header-container").innerHTML = html; })
+      .catch(e => console.error("Header load error:", e));
 
-        // Rende robusti i link interni contenuti nel header incluso:
-        // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
-        el.querySelectorAll('a[href]').forEach(a => {
-          const href = a.getAttribute('href');
-          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
-            a.setAttribute('href', '../' + href);
-          }
-        });
-      });
-
+    // Aside (file in docs/)
     fetch("../aside-moduli.html")
       .then(r => r.text())
-      .then(html => {
-        const el = document.getElementById("aside-container");
-        el.innerHTML = html;
-        el.querySelectorAll('a[href]').forEach(a => {
-          const href = a.getAttribute('href');
-          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
-            a.setAttribute('href', '../' + href);
-          }
-        });
-      })
-      .catch(err => console.error("Errore nel caricamento aside:", err));
+      .then(html => { document.getElementById("aside-container").innerHTML = html; })
+      .catch(e => console.error("Aside load error:", e));
   </script>
 </body>
 </html>
