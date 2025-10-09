@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Esercizi per quattro bacchette</title>
+
+    <link rel="stylesheet" href="../../style/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+    <!-- Header come nella pagina "scale" -->
+    <div id="header-container">
+
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script>
+
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Sidebar sinistra caricata da file esterno -->
+        <div id="aside-container"></div>
+
+        <script>
+            fetch("aside-moduli.html")
+                .then(r => r.text())
+                .then(html => { document.getElementById("aside-container").innerHTML = html; })
+                .catch(err => console.error("Errore nel caricamento aside:", err));
+        </script>
+
+        <!-- Contenuto principale -->
+        <article>
+            <h1>Colpi singoli con le sei diteggiature sui sedicesimi</h1>
+            <hr />
+            <h2>Quartine</h2>
+            <p>Abbiamo appreso come suonare i sedicesimi con le <a href="../modulo-1/sei-diteggiature-base.html">sei
+                    diteggiature base</a>.</p>
+            <p>Suona gli esercizi del PDF. Puoi anche aggiungere la cassa ad ogni quarto.
+            </p>
+
+            <div class="embed-pdf">
+                <iframe src="../../materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
+                    title="Colpi singoli con le sei diteggiature sui sedicesimi (PDF)">
+                </iframe>
+            </div>
+
+
+            <p style="margin-top:1rem; text-align:center;">
+                <a href="/materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
+                    target="_blank">Apri PDF in un'altra finestra</a>
+
+            </p>
+        </article>
+
+
+        <!-- Sidebar destra (DEVE essere sibling di article) -->
+        <aside>
+            <h3>Argomenti correlati</h3>
+            <p>
+                <a href="../modulo-1/sei-diteggiature-base.html">Le sei diteggiature di base</a><br />
+                <a href="../modulo-1/">Primi colpi</a><br />
+            </p>
+
+        </aside>
+    </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
+    <script>
+        // Inclusioni da docs/
+        fetch("../header.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("header-container");
+                el.innerHTML = html;
+
+                // Rende robusti i link interni contenuti nel header incluso:
+                // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            });
+
+        fetch("../aside-moduli.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("aside-container");
+                el.innerHTML = html;
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            })
+            .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
+</body>
+
+</html>
