@@ -12,25 +12,12 @@
 <body>
   <!-- Header -->
   <div id="header-container"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-      });
-  </script>
-
-  <main>
-    <div class="content-wrapper">
-      <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
-      <div id="aside-container"></div>
-
-      <script>
-        fetch("aside-moduli.html")
-          .then(r => r.text())
-          .then(html => { document.getElementById("aside-container").innerHTML = html; })
-          .catch(err => console.error("Errore nel caricamento aside:", err));
-      </script>
+ 
+<div class="content-wrapper">
+  <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
+  <div id="aside-container"></div>
+  
+  
 
 
       <!-- Contenuto principale -->
@@ -55,37 +42,36 @@
         <p>Sezione dedicata ai timpani.</p>
         <p><a href="index.html">Torna alla home</a></p>
       </article>
-
+      
       <!-- Sidebar destra -->
       <aside>
         <h3>Articoli Correlati</h3>
         <ul>
           <li><a href="Le scale.html">Le scale musicali</a></li>
-          <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
           <li><a href="#">Tecniche di percussione</a></li>
           <li><a href="#">Pattern ritmici</a></li>
         </ul>
       </aside>
     </div>
-  </main>
 
    <footer>
     <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
   </footer>
 
   <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
-  <script>
-    // Header (file in docs/)
-    fetch("../header.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header load error:", e));
+    <script>
+    fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-container").innerHTML = data;
+    });
+    </script>
+<script>
+    fetch("aside-moduli.html")
+    .then(r => r.text())
+    .then(html => { document.getElementById("aside-container").innerHTML = html; })
+    .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
 
-    // Aside (file in docs/)
-    fetch("../aside-moduli.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside load error:", e));
-  </script>
 </body>
 </html>
