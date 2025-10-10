@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,6 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
   -->
 </head>
+
 <body>
   <!-- Header (unico) -->
   <div id="header-container"></div>
@@ -20,32 +23,30 @@
       <!-- Sidebar sinistra (unica) -->
       <div id="aside-container"></div>
 
+<!--Puoi copiare paro paro fino a qui!-->
 
-        <!-- Contenuto principale -->
-        <article>
-            <h1>Colpi singoli con le sei diteggiature sui sedicesimi</h1>
-            <hr />
-            <h2>Quartine</h2>
-            <p>Abbiamo appreso come suonare i sedicesimi con le <a href="../modulo-1/sei-diteggiature-base.html">sei
-                    diteggiature base</a>.</p>
-            <p>Suona gli esercizi del PDF. Puoi anche aggiungere la cassa ad ogni quarto.
-            </p>
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Colpi singoli con le sei diteggiature sui sedicesimi</h1>
+        <hr />
+        <h2>Quartine</h2>
+        <p>Abbiamo appreso come suonare i sedicesimi con le <a href="../modulo-1/sei-diteggiature-base.html">sei
+            diteggiature base</a>.</p>
+        <p>Suona gli esercizi del PDF. Puoi anche aggiungere la cassa ad ogni quarto.
+        </p>
 
-            <div class="embed-pdf">
-                <iframe src="../../materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
-                    title="Colpi singoli con le sei diteggiature sui sedicesimi (PDF)">
-                </iframe>
-            </div>
+        <div class="embed-pdf">
+          <iframe src="../../materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
+            title="Colpi singoli con le sei diteggiature sui sedicesimi (PDF)">
+          </iframe>
+        </div>
+        <p style="margin-top:1rem; text-align:center;">
+          <a href="../../materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
+            target="_blank">Apri PDF in un'altra finestra</a>
+        </p>
+      </article>
 
-
-            <p style="margin-top:1rem; text-align:center;">
-                <a href="../../materiali-didattici/Colpi singoli con le sei diteggiature sui sedicesimi.pdf"
-                    target="_blank">Apri PDF in un'altra finestra</a>
-
-            </p>
-        </article>
-
-<!-- Sidebar destra -->
+      <!-- Sidebar destra -->
       <aside>
         <h3>Argomenti correlati</h3>
         <ul>
@@ -55,23 +56,10 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
-  <script>
-    // Header (file in docs/)
-    fetch("../header.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header load error:", e));
-
-    // Aside (file in docs/)
-    fetch("../aside-moduli.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside load error:", e));
-  </script>
+  <!--Puoi copiare paro paro da qui a seguire, tranne
+  che lo script non sia di livello 1-->
+  <div id="footer-container"> </div>
+  <script src="../../scripts/common-lev-1.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Le sei diteggiature di base sui sedicesimi</title>
+
+    <link rel="stylesheet" href="../../style/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+
+<body>
+    <div id="header-container"></div>
+
+
+
+    <!-- Header come nella pagina "scale" -->
+    <div id="header-container">
+
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Sidebar sinistra caricata da file esterno -->
+        <div id="aside-container"></div>
+        <article>
+
+        </article>
+
+        <script>
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("header-container").innerHTML = data;
+                });
+        </script> <!-- Sidebar destra (DEVE essere sibling di article) -->
+        <aside>
+            <h3>Argomenti correlati</h3>
+            <p>
+                <a href="#">Solfeggi ritmici con sedicesimi</a><br />
+            </p>
+
+        </aside>
+    </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
+    <script src="../../scripts/common-lev-1.js"></script>
+
+</body>
+</html>

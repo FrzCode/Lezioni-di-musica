@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Esercizi per quattro bacchette</title>
+  <title>Primi colpi in ottavi</title>
 
   <!-- CSS: due livelli sopra -->
   <link rel="stylesheet" href="../../style/style.css" />
@@ -42,12 +42,7 @@
           </a>
         </p>
 
-      <!-- Contenuto principale -->
-      <article>
-        <h1>Groove in ottavi</h1>
-        <hr />
-        <h2>Esercizi preparatori</h2>
-        <p>Un po' di tecnica.</p>
+        <h2>Altri esercizi</h2>
 
         <div class="embed-pdf">
           <iframe
@@ -64,6 +59,7 @@
 
         <h2>Ritmi</h2>
         <p>Dopo gli esercizi preparatori, possiamo suonare i ritmi in ottavi.</p>
+        <p>I contenuti arriveranno presto</p>
       </article>
 
       <!-- Sidebar destra -->
@@ -76,23 +72,7 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
-  <script>
-    // Header (file in docs/)
-    fetch("../header.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header load error:", e));
-
-    // Aside (file in docs/)
-    fetch("../aside-moduli.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside load error:", e));
-  </script>
+<div id="footer-container"> </div>
+  <script src="../../scripts/common-lev-1.js"></script>
 </body>
 </html>

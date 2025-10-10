@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
   -->
 </head>
+
 <body>
   <!-- Header (unico) -->
   <div id="header-container"></div>
@@ -24,19 +26,18 @@
       <article>
         <h1>Primi colpi</h1>
         <hr />
-        <p>Stai dando i primi colpi sul tamburo. Impariamo a usare bene le singole mani, 
+        <p>Stai dando i primi colpi sul tamburo. Impariamo a usare bene le singole mani,
           fino a alternarle bene.
         </p>
 
         <div class="embed-pdf">
-          <iframe
-            src="../../materiali-didattici/Otto per mano.pdf"
-            title="Primi colpi (PDF)">
+          <iframe src="../../materiali-didattici/Otto per mano.pdf" title="Primi colpi (PDF)">
           </iframe>
         </div>
 
         <p style="margin-top:1rem; text-align:center;">
-          <a href="..materiali-didattici/SOLFEGGIO pause-di-crome.pdf" target="_blank">Apri il PDF in una nuova finestra</a>
+          <a href="..materiali-didattici/SOLFEGGIO pause-di-crome.pdf" target="_blank">Apri il PDF in una nuova
+            finestra</a>
         </p>
       </article>
 
@@ -51,23 +52,8 @@
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
-  <script>
-    // Header (file in docs/)
-    fetch("../header.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header load error:", e));
-
-    // Aside (file in docs/)
-    fetch("../aside-moduli.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside load error:", e));
-  </script>
+  <div id="footer-container"> </div>
+  <script src="../../scripts/common-lev-1.js"></script>
 </body>
+
 </html>
