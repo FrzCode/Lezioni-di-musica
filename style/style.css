@@ -112,7 +112,7 @@ main{
 .content-wrapper > aside,
 article{
   background:#fff;
-  padding: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.75rem, 1.6vw + 1rem, 2.5rem);
   border-radius: var(--radius);
   box-shadow: var(--shadow-light);
 }
@@ -347,7 +347,6 @@ article button:hover, button:hover{
   *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
 
-/* === FIX CRITICI MOBILE (incolla in fondo al CSS) ======================= */
 
 /* 1) Evita overflow orizzontale dovuto a elementi fuori griglia */
 /* (già unificato sopra in html, body) */
@@ -396,7 +395,7 @@ article button:hover, button:hover{
 img, .abcjs-container, [id$="-paper"] { max-width: 100%; }
 
 /* 5) Metti l'articolo sopra a tutto se qualcosa ha z-index alti nell'header */
-article { position: relative; z-index: 1; }
+article { position: relative; z-index: 1;  }
 
 /* === Embed PDF / Allegati === */
 .embed-pdf {
