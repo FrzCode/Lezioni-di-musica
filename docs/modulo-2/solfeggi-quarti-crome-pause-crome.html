@@ -25,53 +25,55 @@
 
     </div>
 
-    <div class="content-wrapper">
-        <!-- Sidebar sinistra caricata da file esterno -->
-        <div id="aside-container"></div>
+    <main>
 
-        <script>
-            fetch("aside-moduli.html")
+        <div class="content-wrapper">
+            <!-- Sidebar sinistra caricata da file esterno -->
+            <div id="aside-container"></div>
+
+            <script>
+                fetch("aside-moduli.html")
                 .then(r => r.text())
                 .then(html => { document.getElementById("aside-container").innerHTML = html; })
                 .catch(err => console.error("Errore nel caricamento aside:", err));
-        </script>
+                </script>
 
-        <!-- Contenuto principale -->
-        <article>
-            <h1>Solfeggi ritmici</h1>
-            <h2>Quarti, crome e pause di croma</h2>
-            <hr />
-            <p>Suona gli esercizi del PDF. Se non lo hai già fatto, ti consiglio di esercitarti sugli <a href="pause-di-crome.html">esercizi con sole crome e pause di crome</a>.
-            </p>
-
-            <div class="embed-pdf">
-                <iframe src="../../materiali-didattici/SOLFEGGI-crome-pause-di-crome-quarti.pdf"
-                    title="SOLFEGGI Quarti, crome, pause di crome (PDF)">
-                </iframe>
-            </div>
-
-
-            <p style="margin-top:1rem; text-align:center;">
-                <a href="/materiali-didattici/SOLFEGGI-crome-pause-di-crome-quarti.pdf"
-                    target="_blank">Apri PDF in un'altra finestra</a>
-
-            </p>
-        </article>
+<!-- Contenuto principale -->
+<article>
+    <h1>Solfeggi ritmici</h1>
+    <h2>Quarti, crome e pause di croma</h2>
+    <hr />
+    <p>Suona gli esercizi del PDF. Se non lo hai già fatto, ti consiglio di esercitarti sugli <a href="pause-di-crome.html">esercizi con sole crome e pause di crome</a>.
+    </p>
+    
+    <div class="embed-pdf">
+        <iframe src="../../materiali-didattici/SOLFEGGI-crome-pause-di-crome-quarti.pdf"
+        title="SOLFEGGI Quarti, crome, pause di crome (PDF)">
+    </iframe>
+</div>
 
 
-        <!-- Sidebar destra (DEVE essere sibling di article) -->
-        <aside>
-            <h3>Argomenti correlati</h3>
-            <h4>Tamburo</h4>
-            <p>
-                <a href="../modulo-1/sei-diteggiature-base.html">Le sei diteggiature di base</a><br />
-                <a href="../modulo-1/">Primi colpi</a><br />
-                <a href="pause-di-crome.html">Solfeggi con crome e pause di crome</a><br />
-            </p>
+<p style="margin-top:1rem; text-align:center;">
+    <a href="/materiali-didattici/SOLFEGGI-crome-pause-di-crome-quarti.pdf"
+    target="_blank">Apri PDF in un'altra finestra</a>
+    
+</p>
+</article>
 
-        </aside>
-    </div>
-    </main>
+
+<!-- Sidebar destra (DEVE essere sibling di article) -->
+<aside>
+    <h3>Argomenti correlati</h3>
+    <h4>Tamburo</h4>
+    <p>
+        <a href="../modulo-1/sei-diteggiature-base.html">Le sei diteggiature di base</a><br />
+        <a href="../modulo-1/">Primi colpi</a><br />
+        <a href="pause-di-crome.html">Solfeggi con crome e pause di crome</a><br />
+    </p>
+    
+</aside>
+</div>
+</main>
 
 
     <footer>
