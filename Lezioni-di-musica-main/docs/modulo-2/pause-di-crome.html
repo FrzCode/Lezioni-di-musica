@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esercizi per quattro bacchette</title>
+
+  <link rel="stylesheet" href="../../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+
+<body>
+  <div id="header-container"></div>
+  <!-- Header come nella pagina "scale" -->
+  <div id="header-container">
+
+    <script>
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-container").innerHTML = data;
+        });
+    </script>
+
+  </div>
+
+  <div class="content-wrapper">
+    <!-- Sidebar sinistra caricata da file esterno -->
+    <div id="aside-container"></div>
+
+    <script>
+      fetch("aside-moduli.html")
+        .then(r => r.text())
+        .then(html => { document.getElementById("aside-container").innerHTML = html; })
+        .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
+
+    <!-- Contenuto principale -->
+    <article>
+      <h1>Pause di crome</h1>
+      <hr />
+      <p>In questa lezione vediamo il PDF dedicato alle pause di crome.</p>
+
+      <div class="embed-pdf">
+        <iframe src="../../materiali-didattici/SOLFEGGIO crome e pause di crome.pdf"
+          title="SOLFEGGIO: crome e pause di crome (PDF)">
+        </iframe>
+      </div>
+
+
+      <p style="margin-top:1rem; text-align:center;">
+        <a href="../../materiali-didattici/SOLFEGGIO crome e pause di crome.pdf" target="_blank">Apri il PDF in una nuova
+          finestra</a>
+      </p>
+
+      <p>Puoi fare ancora esercizi di solfeggio ritmico <a href="solfeggi-quarti-crome-pause-crome.html">
+          <b>cliccando qui</b>.</a></p>
+    </article>
+
+    <!-- Sidebar destra -->
+    <aside>
+      <h3>Articoli Correlati</h3>
+      <ul>
+        <li><a href="modulo-2.html#tamburo">Tamburo</a></li>
+        <li><a href="modulo-2.html#mallet">Mallet</a></li>
+        <li><a href="modulo-2.html#timpani">Timpani</a></li>
+      </ul>
+    </aside>
+  </div>
+  </main>
+
+        <!-- Sidebar destra (DEVE essere sibling di article) -->
+        <aside>
+            <h3>Argomenti correlati</h3>
+            <p>
+                <a href="../modulo-1/sei-diteggiature-base.html">Le sei diteggiature di base</a><br />
+                <a href="../modulo-1/">Primi colpi</a><br />
+            </p>
+
+        </aside>
+    </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
+    <script>
+        // Inclusioni da docs/
+        fetch("../header.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("header-container");
+                el.innerHTML = html;
+
+                // Rende robusti i link interni contenuti nel header incluso:
+                // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            });
+
+        fetch("../aside-moduli.html")
+            .then(r => r.text())
+            .then(html => {
+                const el = document.getElementById("aside-container");
+                el.innerHTML = html;
+                el.querySelectorAll('a[href]').forEach(a => {
+                    const href = a.getAttribute('href');
+                    if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+                        a.setAttribute('href', '../' + href);
+                    }
+                });
+            })
+            .catch(err => console.error("Errore nel caricamento aside:", err));
+    </script>
+</body>
+
+</html>

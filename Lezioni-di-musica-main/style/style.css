@@ -1,0 +1,489 @@
+/* =========================
+   VARIABILI & RESET
+   ========================= */
+:root{
+  --primary-color:#0a9ecc;
+  --secondary-color:#ff6b35;
+  --success-color:#28a745;
+  --background-light:#f8f9fa;
+  --border-color:#e9ecef;
+  --text-dark:#343a40;
+  --shadow-light:0 2px 10px rgba(0,0,0,.1);
+  --shadow-medium:0 4px 20px rgba(0,0,0,.15);
+
+  /* layout */
+  --page-max: 1400px;     /* allarga la fascia bianca centrale */
+  --gap: 1.25rem;         /* gap griglia */
+  --radius: 12px;
+  --sidebar-w: 240px;     /* sidebar di base */
+}
+
+/* Reset base */
+*{ box-sizing:border-box; }
+html, body {
+  height:100%;
+  overflow-x: hidden; /* unificato qui per evitare duplicati */
+}
+img,svg,video,canvas{ max-width:100%; height:auto; display:block; }
+button,input,select,textarea{ font:inherit; }
+
+/* =========================
+   BODY & TYPO (mobile-first)
+   ========================= */
+html{
+  /* tipografia fluida */
+  font-size: clamp(15px, 0.9vw + 12px, 18px);
+}
+body{
+  font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin:0;
+  padding: clamp(10px, 1.8vw, 20px);
+  line-height:1.7;
+  color:var(--text-dark);
+  background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+  min-height:100vh;
+}
+
+/* Titoli fluidi */
+h1{
+  text-align:center;
+  color:var(--primary-color);
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.6rem);
+  font-weight:700;
+  margin:0 0 .5rem;
+  text-shadow:2px 2px 4px rgba(0,0,0,.08);
+}
+h2{
+  color:var(--secondary-color);
+  font-weight:600;
+  border-left:4px solid var(--secondary-color);
+  padding-left:12px;
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 .5rem;
+  font-size: clamp(1.2rem, 1.2vw + 1rem, 1.6rem);
+}
+article h2, article h3{ padding-top:1.1em; }
+
+/* =========================
+   HEADER
+   ========================= */
+header{
+  background:linear-gradient(135deg,#0a9ecc 0%,#087ea4 100%);
+  color:#fff;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align:center;
+  border-radius:15px;
+  box-shadow:var(--shadow-medium);
+}
+header h1{ margin:0; color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,.2); }
+
+/* =========================
+   LAYOUT RESPONSIVE A GRID
+   ========================= */
+
+/* Base: una colonna */
+main{
+  padding: clamp(1rem, 2.5vw, 2rem) 0;
+}
+.index-home{ text-align:center; }
+
+/* wrapper fluido e centrato */
+.content-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "article"
+    "left"
+    "right";
+  gap: var(--gap);
+  width:100%;
+  max-width: min(96vw, var(--page-max));
+  margin:0 auto;
+}
+
+/* mappatura aree */
+.left-sidebar{ grid-area:left; }
+.content-wrapper > article{ grid-area:article; }
+/* aside destro = qualsiasi aside che NON sia la left-sidebar */
+.content-wrapper > aside:not(.left-sidebar){ grid-area:right; }
+
+/* Card base (article/aside) */
+.left-sidebar,
+.right-sidebar,
+.content-wrapper > aside,
+article{
+  background:#fff;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.75rem, 1.6vw + 1rem, 2.5rem);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+}
+
+/* Sidebar (stile) */
+aside h3{
+  margin-top:0;
+  border-bottom:2px solid var(--primary-color);
+  padding-bottom:.5rem;
+  margin-bottom:1rem;
+}
+aside ul{ list-style:none; padding:0; margin:0; }
+aside ul li{ margin-bottom:.8rem; }
+aside ul li a{
+  text-decoration:none;
+  color:var(--primary-color);
+  transition: color .25s ease;
+}
+aside ul li a:hover{ color:var(--secondary-color); }
+
+/* =========================
+   FOOTER
+   ========================= */
+footer{
+  background:#333;
+  color:#fff;
+  text-align:center;
+  padding:1rem;
+  margin-top: clamp(1rem, 3vw, 2rem);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+}
+
+/* =========================
+   COMPONENTI
+   ========================= */
+.container{
+  background:#fff;
+  padding: clamp(14px, 2.2vw, 30px);
+  border-radius:15px;
+  box-shadow:var(--shadow-medium);
+}
+
+.highlight{ fill:var(--primary-color); }
+.abcjs-cursor{ stroke:var(--secondary-color); stroke-width:3px; }
+
+/* Sezioni ABCJS */
+.abc-section{
+  margin-bottom: clamp(24px, 3vw, 40px);
+  background: var(--background-light);
+  padding: clamp(16px, 2.2vw, 25px);
+  border-radius:10px;
+  border:1px solid var(--border-color);
+  transition: transform .2s ease, box-shadow .2s ease;
+  position:relative;
+}
+.abc-section:hover{
+  box-shadow: var(--shadow-light);
+  transform: translateY(-2px);
+}
+.abc-title{
+  font-size: clamp(1.05rem, 1vw + .8rem, 1.3rem);
+  font-weight:600;
+  margin-bottom:12px;
+  color:var(--primary-color);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.abc-title::before{
+  content:"♪";
+  font-size:1.1em;
+  color:var(--secondary-color);
+}
+.abc-desc{
+  margin-bottom: clamp(12px, 1.6vw, 20px);
+  font-style:italic;
+  color:#666;
+  background:#fff;
+  padding: clamp(10px, 1.5vw, 15px);
+  border-radius:8px;
+  border-left:3px solid var(--primary-color);
+}
+
+/* Badge progresso opzionale */
+.progress-indicator{
+  position:absolute; top:10px; right:15px;
+  background:var(--success-color); color:#fff;
+  padding:4px 8px; border-radius:12px; font-size:.8em; font-weight:600;
+  display:none;
+}
+.abc-section.completed .progress-indicator{ display:block; }
+
+/* Paragrafo “hero” */
+.intro-paragraph{
+  text-align:center;
+  font-size: clamp(1rem, .8vw + .9rem, 1.15rem);
+  margin: clamp(24px, 4vw, 40px) 0;
+  background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));
+  color:#fff; padding: clamp(14px, 2vw, 20px);
+  border-radius:10px; font-weight:500;
+}
+
+/* Controlli */
+.controls-container{
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  margin-top:15px; padding:15px; background:#fff;
+  border-radius:8px; border:1px solid var(--border-color);
+}
+.speed-control{
+  display:flex; align-items:center; gap:10px;
+  background:var(--background-light); padding:8px 12px; border-radius:6px;
+  font-size:.95em;
+}
+.speed-control input[type="range"]{ width:100px; accent-color:var(--primary-color); }
+.speed-display{ font-weight:600; color:var(--primary-color); min-width:35px; }
+
+/* Bottoni */
+.pdf-btn,.loop-btn,.metronome-btn,
+article button, button{
+  background:linear-gradient(135deg,var(--primary-color),#087ea4);
+  color:#fff; border:none; padding:10px 16px; border-radius:6px;
+  cursor:pointer; font-size:.95em; font-weight:600;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.pdf-btn:hover,.loop-btn:hover,.metronome-btn:hover,
+article button:hover, button:hover{
+  background:linear-gradient(135deg,#087ea4,var(--primary-color));
+  transform: translateY(-1px);
+  box-shadow:0 4px 12px rgba(10,158,204,.3);
+}
+.loop-btn.active{ background:linear-gradient(135deg,var(--success-color),#20c997); }
+.metronome-btn.active{ background:linear-gradient(135deg,var(--secondary-color),#e55a2b); }
+
+/* TOC flottante (se lo usi) */
+.floating-toc{
+  position:fixed; top:20px; right:20px; background:#fff;
+  border-radius:10px; padding:15px; box-shadow:var(--shadow-medium);
+  max-width:250px; max-height:400px; overflow-y:auto; z-index:1000; display:none;
+}
+.floating-toc.show{ display:block; }
+.toc-toggle{
+  position:fixed; top:20px; right:20px; background:var(--primary-color); color:#fff;
+  border:none; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:18px;
+  z-index:1001; box-shadow:var(--shadow-medium); transition: transform .2s ease;
+}
+.toc-toggle:hover{ transform:scale(1.1); }
+.toc-item{
+  display:block; padding:5px 0; color:var(--primary-color); text-decoration:none; font-size:.9em; border-bottom:1px solid #eee;
+}
+.toc-item:hover{ background:var(--background-light); padding-left:5px; }
+
+/* Messaggi di stato */
+.audio-error{
+  background:#f8d7da; color:#721c24; padding:15px; border-radius:8px; border:1px solid #f5c6cb;
+}
+.sticking-legend{
+  background:#e9ecef; padding:15px; border-radius:8px; margin:20px 0; text-align:center;
+}
+.sticking-legend strong{ color:var(--primary-color); }
+
+/* Link esterni CTA */
+.external-link-container{
+  text-align:center; margin-top: clamp(28px, 4vw, 50px);
+  padding: clamp(16px, 2.2vw, 30px);
+  background:var(--background-light);
+  border-radius:10px; box-shadow:var(--shadow-light);
+}
+.external-link-container a{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--secondary-color),#e55a2b);
+  color:#fff; padding:12px 22px; border-radius:8px; text-decoration:none;
+  font-size: clamp(1rem, .6vw + .9rem, 1.2rem); font-weight:600;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 4px 15px rgba(255,107,53,.35);
+}
+.external-link-container a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(255,107,53,.55);
+}
+
+/* Nascondi tempo ABCJS */
+.abcjs-tempo, .abcjs-tempo-text, .abcjs-tempo-indicator{ display:none !important; }
+
+/* =========================
+   BREAKPOINTS (progressivi)
+   ========================= */
+
+/* ≥ 680px: un po' più respiro */
+@media (min-width: 680px){
+  .content-wrapper{
+    max-width: min(94vw, var(--page-max));
+  }
+}
+
+/* ≥ 900px: 2 colonne (left accanto all’articolo, right sotto) */
+@media (min-width: 900px){
+  .content-wrapper{
+    grid-template-columns: minmax(0, var(--sidebar-w)) minmax(0, 1fr);
+    grid-template-areas:
+      "left article"
+      "right article";
+  }
+  /* sidebar leggermente più stretta su questa fascia */
+  :root{ --sidebar-w: 260px; }
+}
+
+/* ≥ 1140px: 3 colonne classiche (left – article – right) */
+@media (min-width: 1140px){
+  .content-wrapper{
+    grid-template-columns:
+      minmax(0, var(--sidebar-w))
+      minmax(0, 1fr)
+      minmax(0, var(--sidebar-w));
+    grid-template-areas: "left article right";
+    max-width: min(96vw, var(--page-max)); /* fascia bianca più grande */
+  }
+  :root{ --sidebar-w: 300px; } 
+}
+
+/* Tipografia/padding su mobile molto piccolo */
+@media (max-width: 420px){
+  .abc-title{ gap: 8px; }
+  .external-link-container a{ padding: 10px 16px; }
+}
+
+/* =========================
+   ACCESSIBILITÀ & MOTION
+   ========================= */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+}
+
+
+/* 1) Evita overflow orizzontale dovuto a elementi fuori griglia */
+/* (già unificato sopra in html, body) */
+
+/* 2) Clippa eventuali decorazioni assolute dell'header caricata da header.html */
+#header-container { position: relative; overflow: hidden; }
+
+/* Disattiva su mobile elementi decorativi/flottanti dell'header (nomi generici) */
+@media (max-width: 1024px){
+  #header-container .hero,
+  #header-container .banner { position: relative !important; overflow: hidden !important; }
+  #header-container .floating,
+  #header-container .floating-card,
+  #header-container .shape,
+  #header-container .decor,
+  #header-container [class*="blob"],
+  #header-container [class*="shape"],
+  #header-container [class*="decor"] {
+    display: none !important;
+  }
+}
+
+/* 3) Griglia: su mobile article full-width, sidebar sotto (coerente con base) */
+@media (max-width: 899px){
+  .content-wrapper{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "article"
+      "left"
+      "right";
+    max-width: 100%;
+  }
+  article,
+  .left-sidebar,
+  .content-wrapper > aside { width: 100%; }
+  /* Neutralizza eventuali larghezze fisse ereditate */
+  .left-sidebar,
+  .right-sidebar,
+  .content-wrapper > aside { /* nessun flex necessario in Grid */ }
+  body { padding: 12px; } /* un filo meno padding */
+}
+
+/* 4) Assicurare che le note/ABCJS e le immagini non sbordino mai */
+.abcjs-container svg,
+[id$="-paper"] svg { width: 100% !important; height: auto !important; }
+img, .abcjs-container, [id$="-paper"] { max-width: 100%; }
+
+/* 5) Metti l'articolo sopra a tutto se qualcosa ha z-index alti nell'header */
+article { position: relative; z-index: 1;  }
+
+/* === Embed PDF / Allegati === */
+.embed-pdf {
+  width: 100%;
+  height: 80vh;               /* altezza “a finestra”, comoda per desktop */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;           /* taglia scrollbars dell'iframe */
+  background: #f8f8f8;        /* colore di sfondo in attesa del load */
+}
+
+/* L'iframe riempie tutto il contenitore */
+.embed-pdf iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Variante scura (se usi preferenze di sistema) */
+@media (prefers-color-scheme: dark) {
+  .embed-pdf {
+    border-color: #444;
+    background: #1e1e1e;
+  }
+}
+
+/* Miglior resa su schermi piccoli */
+@media (max-width: 768px) {
+  .embed-pdf {
+    height: 60vh;
+    border-radius: 6px;
+  }
+}
+
+/* Opzionale: classe “compatta” per pagine molto dense */
+.embed-pdf--compact {
+  height: 60vh;
+}
+
+/* Opzionale: classe “alta” per pagine con poco contenuto */
+.embed-pdf--tall {
+  height: 90vh;
+}
+
+/* =========================
+   BOX TIP / CONSIGLIO
+   ========================= */
+.tip {
+  background: var(--background-light);
+  border-left: 5px solid var(--secondary-color);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.tip b {
+  display: block;
+  color: var(--secondary-color);
+  margin-bottom: .4rem;
+  font-size: 1.05em;
+}
+
+.tip p {
+  margin: 0;
+}
+/* SUMMARY dei livelli: testo sulla stessa riga + spazio per la freccia */
+.level-summary{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.85rem 1rem .85rem 1.6rem; /* spazio a sinistra per la freccia */
+  position:relative;
+}
+.level-summary h3{ margin:0; }
+
+/* Freccia personalizzata per i livelli (mostrata anche se il marker default è nascosto) */
+.level-group > summary::marker { content:""; }           /* Safari fix / nasconde default */
+.level-group > summary::before{
+  content:"▸";
+  position:absolute;
+  left:.8rem;
+  top:50%;
+  transform:translateY(-50%);
+  transition:transform .2s ease;
+  line-height:1;
+}
+.level-group[open] > summary::before{
+  transform:translateY(-50%) rotate(90deg);
+}

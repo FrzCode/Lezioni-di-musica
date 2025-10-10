@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yankee Doodle</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://paulrosen.github.io/abcjs/abcjs-audio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stili -->
+  <link rel="stylesheet" href="../style/style.css" />
+
+  <!-- ABCJS (entrambi gli script come nel contenuto originale, non rimossi) -->
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+  <script src="https://paulrosen.github.io/abcjs/dist/abcjs-basic.js"></script>
+
+  <script type="text/javascript">
+    // Ogni brano: titolo, descrizione, codice ABC
+    const brani = [
+      {
+        id: "brano",
+        titolo: "Yankee Doodle",
+        descrizione: "Ascolta il brano arrangiato per rullante e pianoforte.",
+        abc: `X:1
+T:Yankee Doodle
+C:Trad.
+%%score( 1 2 3 4)
+%play_highlight_v1_only
+L:1/4
+M:2/4
+Q:"Allegro"
+%%MIDI tempo 120
+K:C
+%%stretchlast true
+%%barnumbers 0
+%%setbarnb 1
+%%measurefont 6
+V:1 clef=perc stems=auto
+%%MIDI program none
+%%MIDI transpose none
+V:2 clef=perc stems=up
+%%MIDI program 128
+%%MIDI transpose -34
+%%voicecolor transparent
+V:3 octave=2 stems=down
+%%MIDI program 0
+%%voicecolor transparent
+V:4 octave=3 stems=up
+%%MIDI program 0
+%%voicecolor transparent
+V:1
+z2 | z2 | z2 | z2 |
+!mf! c/c/4c/4 c/4c/4c/ | c/4c/4c/ c/(!//!c/ | c/)c/ c/4c/4c/ | c/4c/4c/ (!///!c |
+c/)c/4c/4 c/4c/4c/ | (!//!c/c/) c/c/4c/4 | c/c/4c/4 c/c/ | z/{/c}c/ {/c}c/ z/ |
+!f! !>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ (!///!c | !>!c/4)c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ {/c} c/c/ |
+!>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ c/(!//!c/ | c/) z/{/c} c/ z/ | z/{/c} c/ {/c} c/ z/ |
+z2 | z z/!mf! (!//!c/ | c/)c/4c/4 c/4c/4c/4c/4 | c/c/ (!///!c |
+c/) z/ z | z z/ (!//!c/ | c/)c/4c/4 c/4c/4c/ | c/4c/4c/ c/(!//!c/ |
+c/)c/4c/4 c/4c/4c/ | (!//!c/c/) c/c/4c/4 | c/c/4c/4 c/c/ | z/{/c} c/ {/c} c/ z/ |
+z2 | z z/!mp! (!//!c/ | c/)c/4c/4 c/c/ | c/4c/4c/ c/(!//!c/ |
+c/) z/ z | z2 | c/c/4c/4 c/4c/4c/ | c/4c/4c/ c/(!//!c/ |
+!f! !>!c/4)c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ c/(!//!c/ | c/) z/{/c} c/ z/ | z/{/c} c/ {/c} c/ z/ |]
+V:2
+z2 | z2 | z2 | z2 |
+!mf! c/c/4c/4 c/4c/4c/ | c/4c/4c/ c/c/8c/8c/8c/8 | c/c/ c/4c/4c/ | c/4c/4c/ c/8c/8c/8c/8c/8c/8c/8c/8 |
+c/)c/4c/4 c/4c/4c/ | c/8c/8c/8c/8c/ c/c/4c/4 | c/c/4c/4 c/c/ |  z/4>> c/4c/4>> c/4 c/4> z/4 z/
+!f! !>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ c/8c/8c/8c/8c/8c/8c/8c/8 | !>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/4>> c/4 c/4> z/4c/ |
+!>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ c/c/8c/8c/8c/8 | c/ z/4>> c/4 c/4> z/4 z/|z/4>> c/4 c/4>> c/4 c/4> z/4 z/|
+z2 | z z/!mf! c/8c/8c/8c/8 | c/c/4c/4 c/4c/4c/4c/4 | c/c/ (c/8c/8c/8c/8c/8c/8c/8c/8 |
+c/) z/ z | z z/ c/8c/8c/8c/8 | c/c/4c/4 c/4c/4c/ | c/4c/4c/ c/(c/8c/8c/8c/8 |
+c/)c/4c/4 c/4c/4c/ | c/8c/8c/8c/8c/ c/c/4c/4 | c/c/4c/4 c/c/ |z/4>> c/4 c/4>> c/4 c/4> z/4 z/ |
+z2 | z z/!mp! c/8c/8c/8c/8 | c/c/4c/4 c/c/ | c/4c/4c/ c/c/8c/8c/8c/8 |
+c/ z/ z | z2 | c/c/4c/4 c/4c/4c/ | c/4c/4c/ c/c/8c/8c/8c/8 |
+!f! !>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 | c/c/ c/c/8c/8c/8c/8 | c/ z/4>> c/4 c/4> z/4 z/|z/4>> c/4 c/4>> c/4 c/4> z/4 z/|]
+V:3
+%%MIDI transpose -24
+!f! C/C/ D/E/ | C/E/ D/C/ | (B,/G,/) A,/B,/ | C C/ z/ |
+!mf! C/C/ D/E/ | C/E/ D/G,/ | C/C/ D/E/ | C B, |
+C/C/ D/E/ | (F/E/) D/C/ | (B,/G,/) A,/B,/ | C !>!C/ z/ |
+!f! A,/>B,/ A,/G,/ | A,/B,/ C | G,/>A,/ G,/F,/ | E, G, |
+A,/>B,/ A,/G,/ | A,/B,/ C/A,/ | G,/C/ B,/D/ | C C/ z/ |
+!mf! C/C/ D/E/ | C/E/ D/ z/ | z2 | z2 |
+C/C/ D/E/ | C B,/ z/ | z2 | z2 |
+C/C/ D/E/ | (F/E/) D/C/ | (B,/G,/) A,/B,/ | C !>!C/ z/ |
+!mp! A,/>B,/ A,/G,/ | A,/B,/ C | z2 | z2 |
+G,/>A,/ G,/F,/ | E, G, | z2 | z2 |
+!f! A,/>B,/ A,/G,/ | A,/B,/ C/A,/ | G,/C/ B,/D/ | C !>![CEc]/ z/ |]
+V:4 
+%%MIDI transpose -36
+[C,E,G,]/ z/ z | [C,E,G,]/ z/ z | [G,,D,F,]/ z/ [G,,D,F,]/ z/ | z/ [C,E,G,]/ [C,E,G,]/ z/ |
+C,/G,/ G,,/G,/ | C,/G,/ G,,/ z/ | C,/G,/ G,,/G,/ | z/ (^F,/ G,/)=F,/ |
+E, B,, | A,,2 | G,,/ z/ z | z/ [C,E,G,]/ !>![C,E,G,]/ z/ |
+[F,,C,F,]2 | [F,,C,F,]2 | [C,,G,,C,]2 | [C,,G,,C,]2 |
+[F,,C,F,]2 | [F,,C,F,]2 | [G,,D,F,]/ z/ [G,,D,F,]/ z/ | z/ [C,E,G,]/ [C,E,G,]/ z/ |
+C,/G,/ G,,/G,/ | C,/G,/ G,,/ z/ | G,,/ z/ G,,/ z/ | z/ G,,/ G,, |
+C,/G,/ G,,/G,/ | z/ (^F,/ G,/) z/ | G,,/ z/ G,,/ z/ | z/ G,,/ G,, |
+E, B,, | A,,2 | G,,/ z/ z | z/ [C,E,G,]/ !>![C,E,G,]/ z/ |
+[F,,C,F,]2 | [F,,C,F,]2 | F,,/ z/ F,,/ z/ | z/ F,,/ F,, |
+[C,,G,,C,]2 | [C,,G,,C,]2 | C,,/ z/ C,,/ z/ | z/ C,,/ C,, |
+[F,,C,F,]2 | [F,,C,F,]2 | [G,,D,F,]/ z/ [G,,D,F,]/ z/ | z/ [C,E,G,]/ !>![C,E,G,]/ z/ |]`
+      },
+      {
+        id: "pattern1",
+        titolo: "Pattern ritmico n.1 con crome e semicrome",
+        descrizione: "Soffermiamoci su alcuni pattern ritmici che sono presenti nel brano, facendo attenzione alla lettura ritmica e allo sticking.",
+        abc: `X:1
+T:
+L:1/4
+K:none
+Q:72
+M:2/4
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/c/4c/4 c/c/:|
+w: R R L R L 
+w: L L R L R 
+w: R L R L R
+w: L R L R L`
+      },
+      {
+        id: "pattern2",
+        titolo: "Pattern ritmico n.2 con crome e semicrome",
+        descrizione: "Esegui questo pattern alternando le mani",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/c/ c/4c/4c/:|
+w: R L R L R
+w: L R L R L`
+      },
+      {
+        id: "pattern3",
+        titolo: "Pattern ritmico n.3 con semicrome",
+        descrizione: "Concentrati sulla precisione ritmica",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/c/4c/4 c/4c/4c/:|
+w: R R L R L R
+w: L L R L R L
+w: R L R L R L `
+      },
+      {
+        id: "pattern4",
+        titolo: "Pattern di semicrome con accenti",
+        descrizione: "Esegui gli accenti con dinamica marcata",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:!>!c/4c/4c/4c/4 !>!c/4c/4c/4c/4 :|
+w: R L R L R L R L
+w: L R L R L R L R L`
+      },
+      {
+        id: "pattern5",
+        titolo: "Flam",
+        descrizione: "Esegui il Flam. Parti lentamente e accellera gradualmente.",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%score (1 2)
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program none
+%%MIDI transpose none
+V:2 clef=perc stems=up
+%%MIDI program 128
+%%MIDI transpose -34
+%%voicecolor transparent
+V:1
+|:{c/}c {c/}c:|
+w: ᴸ~R ᴸ~R
+w: ᴿ~L ᴿ~L
+w: ᴸ~R ᴿ~L
+V:2
+|:c/16 c/> z/4 z/8 z/16 c/16 c/> z/4 z/8 z/16:|
+`
+      },
+      {
+        id: "Rullo_1",
+        titolo: "Rullo a colpi doppi",
+        descrizione: "Esercitati sul rullo a colpi doppi. Inizia lentamente e aumenta gradualmente la velocità.",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/c/c/c/:|
+w: R R L L 
+M:2/4
+|:c/4c/4c/4c/4 c/4c/4c/4c/4:|
+w: R R L L R R L L R R L L
+M:2/4
+|:c/8c/8c/8c/8c/8c/8c/8c/8 c/8c/8c/8c/8c/8c/8c/8c/8:|
+w: R R L L R R L L R R L L R R L L`
+      },
+      {
+        id: "Rullo9_1",
+        titolo: "Rullo a 9 - Passo 1",
+        descrizione: "Cominciamo con eseguire una quartina di semicrome a colpi singoli:",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/4c/4c/4c/4 c:|
+w: R L R L R
+w: L R L R L`
+      },
+      {
+        id: "Rullo9_2",
+        titolo: "Rullo a 9 - Passo 2",
+        descrizione: "Per ogni semicroma eseguiamo due colpi con la tecnica dei colpi doppi. Otteniamo così 8 biscrome che più la nota successiva fanno una successione di 9 note.",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/8c/8c/8c/8c/8c/8c/8c/8 c:|
+w: R R L L R R L L R
+w: L L R R L L R R L`
+      },
+      {
+        id: "Rullo9_3",
+        titolo: "Rullo a 9 - Notazione",
+        descrizione: "Lo troveremo scritto così:",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+%%score (1 2)
+V:1 clef=perc stems=down
+%%MIDI program none
+%%MIDI transpose none
+V:2 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+%%voicecolor transparent
+V:1
+|:(!///!c c):|
+V:2
+|:c/8c/8c/8c/8c/8c/8c/8c/8 c:|`
+      },
+      {
+        id: "Rullo5_1",
+        titolo: "Rullo a 5 - Passo 1",
+        descrizione: "Cominciamo con eseguire una coppia di semicrome a colpi singoli:",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/4c/4c/ c:|c/c/4c/4 c:|
+w: R L R L R L R L `
+      },
+      {
+        id: "Rullo5_2",
+        titolo: "Rullo a 5 - Passo 2",
+        descrizione: "Per ogni semicroma eseguiamo due colpi con la tecnica dei colpi doppi. Otteniamo così 4 biscrome che più la nota successiva fanno una successione di 5 note.",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+V:1 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+|:c/8c/8c/8c/8c/ c:|c/c/8c/8c/8c/8 c:|
+w: R R L L R L R L L R R L `
+      },
+      {
+        id: "Rullo5_3",
+        titolo: "Rullo a 5 - Notazione",
+        descrizione: "Lo troveremo scritto così:",
+        abc: `X:1
+T:
+L:1/4
+K:none
+M:2/4
+Q:72
+%%stretchlast 0
+%%score (1 2)
+V:1 clef=perc stems=down
+%%MIDI program none
+%%MIDI transpose none
+V:2 clef=perc stems=auto
+%%MIDI program 128
+%%MIDI transpose -34
+%%voicecolor transparent
+V:1
+|:(!//!c/c/) c:|:c/(!//!c/ c):|
+V:2
+|:c/8c/8c/8c/8 c/ c:|:c/c/8c/8c/8c/8  c:|`
+      },
+    ];
+
+    // Opzioni di rendering
+    const abcOptions = { add_classes: true, responsive: "resize" };
+
+    // CursorControl personalizzato per l'highlight e il cursore rosso
+    function CursorControl(divId) {
+      var self = this;
+      self.onReady = function () { };
+      self.onStart = function () {
+        var svg = document.querySelector("#" + divId + " svg");
+        var cursor = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        cursor.setAttribute("class", "abcjs-cursor");
+        cursor.setAttributeNS(null, 'x1', 0);
+        cursor.setAttributeNS(null, 'y1', 0);
+        cursor.setAttributeNS(null, 'x2', 0);
+        cursor.setAttributeNS(null, 'y2', 0);
+        svg.appendChild(cursor);
+      };
+      self.beatSubdivisions = 2;
+      self.onBeat = function (beatNumber, totalBeats, totalTime) { };
+      self.onEvent = function (ev) {
+        if (ev.measureStart && ev.left === null) return;
+        var lastSelection = document.querySelectorAll("#" + divId + " svg .highlight");
+        for (var k = 0; k < lastSelection.length; k++)
+          lastSelection[k].classList.remove("highlight");
+        if (ev.voice === 0) {
+          for (var i = 0; i < ev.elements.length; i++) {
+            var note = ev.elements[i];
+            for (var j = 0; j < note.length; j++) {
+              note[j].classList.add("highlight");
+            }
+          }
+        }
+        var cursor = document.querySelector("#" + divId + " svg .abcjs-cursor");
+        if (cursor) {
+          cursor.setAttribute("x1", ev.left - 2);
+          cursor.setAttribute("x2", ev.left - 2);
+          cursor.setAttribute("y1", ev.top);
+          cursor.setAttribute("y2", ev.top + ev.height);
+        }
+      };
+      self.onFinished = function () {
+        var els = document.querySelectorAll("#" + divId + " svg .highlight");
+        for (var i = 0; i < els.length; i++) {
+          els[i].classList.remove("highlight");
+        }
+        var cursor = document.querySelector("#" + divId + " svg .abcjs-cursor");
+        if (cursor) {
+          cursor.setAttribute("x1", 0);
+          cursor.setAttribute("x2", 0);
+          cursor.setAttribute("y1", 0);
+          cursor.setAttribute("y2", 0);
+        }
+      };
+    }
+
+    // Per ogni brano: rendering, synth, controlli
+    function renderAll() {
+      brani.forEach(brano => {
+        // Popola titolo e descrizione
+        const titleEl = document.querySelector("#" + brano.id + " .abc-title");
+        if (titleEl) { titleEl.innerHTML = brano.titolo; }
+        const descEl = document.querySelector("#" + brano.id + " .abc-desc");
+        if (descEl) { descEl.innerHTML = brano.descrizione || ''; }
+
+        if (ABCJS.synth.supportsAudio()) {
+          let cursorControl = new CursorControl(brano.id + "-paper");
+          let synthControl = new ABCJS.synth.SynthController();
+          let synthOptions = {
+            displayLoop: true,
+            displayRestart: true,
+            displayPlay: true,
+            displayProgress: true,
+            displayWarp: true
+          };
+
+          if (brano.id !== "brano") {
+            // Forza il tempo a 72 BPM per tutti i pattern
+            synthOptions.qpm = 72;
+            synthOptions.tempo = 72;
+          }
+
+          synthControl.load("#" + brano.id + "-audio", cursorControl, synthOptions);
+          let visualOptions = { add_classes: true, responsive: "resize" };
+          let visualObj = ABCJS.renderAbc(brano.id + "-paper", brano.abc, visualOptions)[0];
+
+          // Forza il tempo a 72 BPM per tutti i pattern (tranne il brano principale)
+          if (brano.id !== "brano") {
+            if (visualObj.tempo) visualObj.tempo = 72;
+            if (visualObj.qpm) visualObj.qpm = 72;
+            if (visualObj.midi) visualObj.midi.tempo = 72;
+          }
+
+          let midiBuffer = new ABCJS.synth.CreateSynth();
+          midiBuffer.init({ visualObj: visualObj }).then(function () {
+            if (brano.id === "brano") {
+              synthControl.setTune(visualObj, false, { highlight: { vocal: [0] } });
+            } else {
+              synthControl.setTune(visualObj, false, { tempo: 72, qpm: 72 });
+            }
+          }).catch(function (error) {
+            console.error("Error creating synth for " + brano.id, error);
+          });
+
+          // Nascondi elementi di tempo nei pattern
+          if (brano.id !== "brano") {
+            setTimeout(() => {
+              const paper = document.querySelector("#" + brano.id + "-paper");
+              if (paper) {
+                const tempoElements = paper.querySelectorAll(".abcjs-tempo, .abcjs-tempo-text, .abcjs-tempo-indicator");
+                tempoElements.forEach(el => { el.style.display = "none"; });
+              }
+            }, 100);
+          }
+        } else {
+          document.getElementById(brano.id + "-audio").innerHTML =
+            "<div class='audio-error'>Audio is not supported in this browser.</div>";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // carica header
+      fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("header-container").innerHTML = data;
+        });
+
+      // copia eventuale indice nella sidebar sinistra (se presente)
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+
+      // render ABCJS
+      renderAll();
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Header come nella pagina "scale" -->
+  <div id="header-container"></div>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra: indice (se vuoi, popola qui un indice come nell’altra pagina) -->
+      <aside class="left-sidebar">
+        <nav id="original-index" style="display:none;">
+          <!-- (Vuoto per non alterare contenuti: puoi inserire un indice qui in futuro) -->
+        </nav>
+      </aside>
+
+      <!-- Contenuti principali -->
+      <article>
+        <h1>Yankee Doodle</h1>
+
+        <h2>Introduzione</h2>
+        <p><b>Yankee Doodle</b> è una delle canzoni popolari americane più riconoscibili, ma le sue origini sono tutt'altro
+          che patriottiche. Nel periodo della guerra di indipendenza americana dall'Inghilterra, questa melodia fu composta
+          dai soldati britannici per prendere in giro i coloni americani, descritti come persone sempliciotte e ingenue.
+          Il termine "yankee" era un nomignolo dispregiativo che indicava gli americani delle colonie del Nord, mentre
+          "doodle" significava "sciocco" o "semplicione". La canzone racconta la storia di un giovane "yankee" che, nella sua
+          ingenuità, mette una piuma nel cappello e pensa di essere alla moda.
+          Contrariamente alle intenzioni originali, i coloni americani adottarono la canzone con orgoglio, trasformando
+          l'insulto in un simbolo di identità e patriottismo durante la Guerra d'indipendenza. Oggi, "Yankee Doodle" è un inno
+          alla storia americana e alla capacità di un popolo di appropriarsi di un insulto e farne una bandiera.</p>
+
+        <div id="brano" class="abc-section">
+          <div class="abc-title"></div>
+          <div class="abc-desc">Adesso ascoltiamo il brano completo arrangiato per rullante e pianoforte.</div>
+          <div id="brano-paper"></div>
+          <div id="brano-audio"></div>
+        </div>
+
+        <p class="intro-paragraph">Adesso ci eserciteremo su alcuni <b>"rudiments"</b> che troviamo in questo brano.</p>
+
+        <h2>Cos'è un "rudiment"?</h2>
+        <p>Un <b>"rudiment"</b> è un pattern (cioè schema, modello) tecnico per lo studio e l'esecuzione del rullante. I
+          "rudiments" sono essenziali per lo sviluppo della tecnica e della coordinazione.</p>
+
+        <p>In parole semplici:</p>
+        <p>È un <b>uno schema ritmico</b> che usiamo più volte, per allenarci nella coordinazione, nella memoria e nella
+          musicalità.</p>
+
+        <h2>Perché studiare i rudiment?</h2>
+
+        <p><b>Sticking efficiente</b>: imparare che sticking usare in un "rudiment" è essenziale per essere poi pronti ad
+          applicarlo quando si rende necessario.</p>
+
+        <p><b>Memoria motoria</b>: ripetere lo stesso "rudiment" aiuta ad automatizzare i movimenti delle mani.</p>
+
+        <p><b>Analisi musicale</b>: Memorizzare un "rudiment" significa imparare a riconoscere visivamente e a riprodurre
+          un'intera sequenza di note e colpi con un unico "sguardo". Invece di dover leggere ogni singola nota, il tuo
+          cervello riconosce il pattern del rudimento e sa già come eseguirla.</p>
+
+        <p>Ogni "rudiment" su cui ci soffermeremo lo ripeteremo:</p>
+
+        <p>- prima lentamente, facendo attenzione a leggere correttamente il ritmo, le note e lo sticking;</p>
+
+        <p>- quando lo memorizziamo correttamente lo possiamo eseguire più volte sempre più velocemente;</p>
+
+        <p>- infine, lo possiamo applicare al brano che stiamo studiando.</p>
+
+        <div id="pattern1" class="abc-section">
+          <div class="abc-title">Pattern ritmici con crome e semicrome</div>
+          <div class="abc-desc">Eseguiamo più volte questi pattern del brano prima lentamente e poi velocemente.</div>
+          <div id="pattern1-paper"></div>
+          <div id="pattern1-audio"></div>
+        </div>
+
+        <div id="pattern2" class="abc-section">
+          <div class="abc-title">Pattern ritmico con crome e semicrome</div>
+          <div class="abc-desc">Esegui questo pattern alternando le mani.</div>
+          <div id="pattern2-paper"></div>
+          <div id="pattern2-audio"></div>
+        </div>
+
+        <div id="pattern3" class="abc-section">
+          <div class="abc-title">Pattern ritmico con semicrome</div>
+          <div class="abc-desc">Concentrati sulla precisione ritmica.</div>
+          <div id="pattern3-paper"></div>
+          <div id="pattern3-audio"></div>
+        </div>
+
+        <div id="pattern4" class="abc-section">
+          <div class="abc-title">Pattern con accenti</div>
+          <div class="abc-desc">Esegui gli accenti con dinamica marcata.</div>
+          <div id="pattern4-paper"></div>
+          <div id="pattern4-audio"></div>
+        </div>html
+
+        <h2>Il Flam: cos'è e come si realizza</h2>
+        <p>Il <b>Flam</b> è un rudimento essenziale che arricchisce il fraseggio. Ecco una spiegazione dettagliata su come
+          eseguirlo correttamente sul rullante.</p>
+        <p>Ecco una procedura passo-passo per imparare ad eseguire il flam correttamente.</p>
+
+        <p><strong>Spiegazione del Flam:</strong></p>
+        <p>Il flam non è altro che due colpi eseguiti quasi simultaneamente, ma con una leggera differenza temporale. I due
+          colpi sono chiamati colpo principale e acciaccatura.</p>
+
+        <p><b>Colpo Principale</b>: Questo è il colpo forte, che determina il tempo del flam. Viene eseguito con la bacchetta
+          che parte da un'altezza maggiore.</p>
+
+        <p><b>Acciaccatura</b>: Questo è il colpo più debole e breve. Viene eseguito con la bacchetta che parte da un'altezza
+          molto bassa, quasi a contatto con la pelle del rullante.</p>
+
+        <p>La chiave del flam è la corretta coordinazione tra i due colpi. Le due bacchette partiranno insieme. Ovviamente la
+          bacchetta posizionata più vicina al rullante suonerà prima di quella posta più in alto.</p>
+        <i>Non devono suonare come due colpi distinti e separati, ma nemmeno come un unico colpo.</i>
+
+        <div id="pattern5" class="abc-section">
+          <div class="abc-title">Flam</div>
+          <div class="abc-desc">Esegui il Flam. Parti lentamente e accellera gradualmente.</div>
+          <div id="pattern5-paper"></div>
+          <div id="pattern5-audio"></div>
+          <p>Qui puoi approfondire come realizzare il flam:</p>
+          <a href="https://www.youtube.com/watch?v=cABTAOyYFY8" target="_blank">Guarda l'approfondimento sul flam</a>
+        </div>
+
+        <h2>Il Rullo a colpi doppi: cos'è e come si realizza</h2>
+        <p>Il <b>rullo</b> è una tecnica che serve a dare l'illusione di un suono continuo e prolungato, quasi come una nota
+          tenuta. Sul rullante, che ha un suono percussivo e secco, il rullo è l'unico modo per ottenere questo effetto.</p>
+        <p>Ecco una procedura passo-passo per imparare ad eseguire il rullo correttamente.</p>
+
+        <p><strong>Spiegazione dell'esecuzione del Rullo a colpi doppi:</strong></p>
+        <p>Il segreto per un rullo pulito sta nel far <strong>rimbalzare</strong> la bacchetta. L'obiettivo non è un doppio
+          colpo forzato, ma una serie di colpi che fluiscono naturalmente.</p>
+
+        <div class="step">
+          <b>Posizione di partenza</b>
+          <p>Tieni la bacchetta in modo rilassato ma saldo, senza stringere. La presa deve permettere alla bacchetta di
+            muoversi liberamente.</p>
+        </div>
+
+        <div class="step">
+          <b>Primo Colpo (Down Stroke)</b>
+          <p>Esegui un colpo deciso. Non lasciare che la bacchetta si alzi subito.</p>
+        </div>
+
+        <div class="step">
+          <b>Secondo Colpo (Rebound Stroke)</b>
+          <p>Permetti alla bacchetta di rimbalzare naturalmente dopo il primo colpo. Questo secondo colpo dovrebbe avvenire
+            con uno sforzo minimo del polso o delle dita. È il rimbalzo a fare il lavoro.</p>
+        </div>
+
+        <div class="step">
+          <b>Alternanza</b>
+          <p>Dopo aver eseguito i due colpi con una mano, esegui lo stesso processo con l'altra.</p>
+        </div>
+
+        <div class="tip">
+          <b>Consiglio pratico</b>
+          <p>All'inizio, esegui il movimento lentamente per sentire il rimbalzo. Concentrati sulla sensazione che la bacchetta
+            ha quando torna su. Una volta che hai familiarità con il movimento, aumenta gradualmente la velocità, sempre con
+            l'aiuto di un metronomo.</p>
+          <p>Puoi usare questo video che ti spiega passo passo la tecnica del rullo a colpi doppi.</p>
+          <a href="https://www.youtube.com/watch?v=O8nXHHlrZiA&t=122s&end=343s" target="_blank">Guarda il video</a>
+        </div>
+
+        <div id="Rullo_1" class="abc-section">
+          <div class="abc-title">Rullo a colpi doppi</div>
+          <div class="abc-desc">Esercitati sul rullo a colpi doppi. Inizia lentamente e aumenta gradualmente la velocità.
+          </div>
+          <div id="Rullo_1-paper"></div>
+          <div id="Rullo_1-audio"></div>
+          <p>Puoi usare questo video che ti guida ad esercitarti sul rullo a colpi doppi a diverse velocità</p>
+          <a href="https://www.youtube.com/watch?v=0bFPaEwuZBU" target="_blank">Guarda il video di warm-up sul rullo a colpi
+            doppi</a>
+        </div>
+
+        <h2>Il Rullo a 9</h2>
+        <p>Il <b>Rullo a 9</b> è costituito da 8 note più una nota con accento. La figurazione base per studiarlo ed eseguirlo
+          è costituita da una semiminima suonata interamente in trentaduesimi, più una nota successiva al rullo.</p>
+        <b>Quindi il rullo a 9 ha una durata complessiva di una semiminima.</b>
+
+        <div id="Rullo9_1" class="abc-section">
+          <div class="abc-title">Rullo a 9 - Passo 1</div>
+          <div class="abc-desc">Cominciamo con eseguire una quartina di semicrome a colpi singoli:</div>
+          <div id="Rullo9_1-paper"></div>
+          <div id="Rullo9_1-audio"></div>
+        </div>
+
+        <div id="Rullo9_2" class="abc-section">
+          <div class="abc-title">Rullo a 9 - Passo 2</div>
+          <div class="abc-desc">Per ogni semicroma eseguiamo due suoni con la tecnica dei colpi doppi. Otteniamo così 8
+            biscrome che più la nota successiva fanno una successione di 9 note.</div>
+          <div id="Rullo9_2-paper"></div>
+          <div id="Rullo9_2-audio"></div>
+        </div>
+
+        <div id="Rullo9_3" class="abc-section">
+          <div class="abc-title">Rullo a 9 - Notazione</div>
+          <div class="abc-desc">Lo troveremo scritto così:</div>
+          <div id="Rullo9_3-paper"></div>
+          <div id="Rullo9_3-audio"></div>
+        </div>
+
+        <h2>Il Rullo a 5</h2>
+        <p>Il <b>Rullo a 5</b> è costituito da 4 note più una nota con accento. La figurazione base per studiarlo ed eseguirlo
+          è costituita da una croma suonata interamente in trentaduesimi, più una nota successiva al rullo.</p>
+        <b>Quindi il rullo a 5 ha una durata complessiva di una croma.</b>
+
+        <div id="Rullo5_1" class="abc-section">
+          <div class="abc-title">Rullo a 5 - Passo 1</div>
+          <div class="abc-desc">Cominciamo con eseguire una coppia di semicrome a colpi singoli:</div>
+          <div id="Rullo5_1-paper"></div>
+          <div id="Rullo5_1-audio"></div>
+        </div>
+
+        <div id="Rullo5_2" class="abc-section">
+          <div class="abc-title">Rullo a 5 - Passo 2</div>
+          <div class="abc-desc">Per ogni semicroma eseguiamo due suoni con la tecnica dei colpi doppi. Otteniamo così 4
+            biscrome che più la nota successiva fanno una successione di 5 note.</div>
+          <div id="Rullo5_2-paper"></div>
+          <div id="Rullo5_2-audio"></div>
+        </div>
+
+        <div id="Rullo5_3" class="abc-section">
+          <div class="abc-title">Rullo a 5 - Notazione</div>
+          <div class="abc-desc">Lo troveremo scritto così:</div>
+          <div id="Rullo5_3-paper"></div>
+          <div id="Rullo5_3-audio"></div>
+        </div>
+
+        <div class="external-link-container">
+          <p>Vai qui per concludere la lezione:</p>
+          <a href="https://michaeleskin.com/abctools/abctools.html?lzw=BoLgjAUAKiCaCGA7A1gU1QAgCIHscBMAbVCAYRCgCd58A6CAUgYGcBjHS1ACgzAwCYMAZgCUjAA6F4ATwD6ACwCWAc3mEV8gC6yAbmFk5EhaRAAy4APQAWCAFkQ-axACKIAEQBBQsWWUcb3msAXjB+ADYIAGkQUkYWTU5NVjV4Zk0MBIBXEgA1cAxWYgAzIPFUSlY42wBJLGqMcT9feABbXn4ADira+oSkZnEcZkwAWiEbPMEcVk14HVQgwTTUFuYg+EzNHG66hqbqNoAGOJ0cRVZUdkIODOpEAfhORE0IPKEMadn5oPfl1fXNtsmDVdo0cM0jiczhcrjc+vdxI9UM9XuAIBgAF6CAA+mJxeIwuKxhIgAEIWkVSQULKxrLSrNSrPTaYTGcyLNSuKSLBZSSzcbSRCz2UyOQK6RKMFyebzWCTqUKJQyRfypdzZTSLCJqSLWbTdfqxZiLABvGkAXxZZtY5upxpJpMpGFJAD4+Urda73aKffS9Zq1TK+ayvfTFb7rM63Sqlf6rRadWL0aGPbGUxGfXGObTpRr-dqMaaEyzC6zC9bbfGbXbS9j0cSicbyU7c+78wbU5nxSzc7L5YL7Riy-bW6rBR2I-7Jzn1W26wqJ+zWaPNdrDV3E5nDWWi9Wq5WObX6-ih4XyeIqSv27Ht+LpxYr-OB6Wh0T
+        </div> <!-- chiude external-link-container -->
+      </article>
+
+      <!-- Sidebar destra con articoli correlati (puoi personalizzare) -->
+      <aside>
+        <h3>Articoli Correlati</h3>
+        <ul>
+          <li><a href="#">Altro rudiment di base</a></li>
+          <li><a href="#">Esercizi di sticking</a></li>
+          <li><a href="#">Pattern avanzati</a></li>
+          <li><a href="#">Lettura ritmica applicata</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+</body>
+</html>

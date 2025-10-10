@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rullo Buzz (Multiple Bounce Roll)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => { document.getElementById("header-container").innerHTML = data; });
+  </script>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra: indice (come in Le scale.html) -->
+      <aside class="left-sidebar">
+        <nav id="original-index" style="display:none;">
+          <h3>Indice Generale</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="modulo-2.html#tamburo">Tamburo</a></li>
+            <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
+            <li><a href="Le scale.html">Le scale</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Rullo Buzz (multiple bounce roll)</h1>
+        <hr />
+
+        <h2>Cos'è</h2>
+        <p>
+          Il <strong>rullo buzz</strong> è una tecnica per produrre un <strong>suono continuo</strong> sul tamburo.
+          È usata in molti generi musicali: jazz, rock, pop e musica classica.
+        </p>
+
+        <h2>Come si esegue</h2>
+        <p>
+          Applica una <strong>leggera pressione con l'indice</strong> sulla bacchetta e usa <strong>solo il
+            polso</strong>,
+          senza coinvolgere il braccio. Tieni le bacchette tra <strong>pollice e indice</strong> come fulcro: così
+          controlli
+          con precisione la pressione e ottieni un <strong>rimbalzo multiplo</strong> pulito e uniforme. Alternando le
+          bacchette
+          otterrai l'effetto continuo del rullo buzz.
+        </p>
+
+        <h2>Prima di iniziare</h2>
+        <p>
+          Esercitati prima sul <strong>rimbalzo multiplo a mani separate</strong>: lascia che la bacchetta rimbalzi più
+          volte
+          con un <em>solo</em> movimento di polso. Quando il rimbalzo è regolare con entrambe le mani, passa alle
+          <strong>mani alternate</strong>. La coordinazione è essenziale per un suono uniforme.
+        </p>
+
+        <h2>Checklist (passi pratici)</h2>
+        <ul>
+          <li><strong>Fulcro</strong> tra pollice e indice per controllare la bacchetta.</li>
+          <li><strong>Pressione dell'indice</strong> ben dosata: troppa blocca i rimbalzi, troppo poca li rende caotici.
+          </li>
+          <li><strong>Dita rilassate</strong>: non irrigidirle e non ostacolare il rimbalzo.</li>
+          <li><strong>Parti dal bordo</strong> del tamburo: rullo continuo con movimenti minimi del polso; alterna le
+            mani alla velocità necessaria per un suono uniforme.</li>
+          <li><strong>Vai verso il centro</strong>: aumenta progressivamente velocità delle mani e altezza delle
+            bacchette.</li>
+          <li><strong>Obiettivo metrico</strong>: quartina di sedicesimi con metronomo a <strong>100–120</strong> al
+            quarto.</li>
+          <li>Se avverti <strong>tensione</strong>, fermati e controlla la posizione delle mani.</li>
+        </ul>
+
+<div class="tip">
+  <b>Consiglio</b>
+  <p>
+    La pratica è fondamentale: esercitati a <strong>diverse velocità e dinamiche</strong> per sviluppare controllo
+    e resistenza.
+  </p>
+</div>
+      </article>
+      <!-- Sidebar destra (DEVE essere sibling di article) -->
+      <aside>
+        <h3>Argomenti correlati</h3>
+        <p>
+
+          <a href="#">Modulo 2</a><br>
+          <a href="#">Scomporre il rullo</a><br>
+        </p>
+
+        <h3>Esercizi correlati</h3>
+        <p>
+          <a href="#">Esercizi per il buzz roll</a><br />
+          <a href="#">Studi per il rullo</a><br />
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+
+  <!-- Script per popolare la sidebar sinistra (come in Le scale.html) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+    });
+  </script>
+</body>
+
+</html>

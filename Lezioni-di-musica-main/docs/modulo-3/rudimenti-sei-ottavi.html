@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Esercizi per quattro bacchette</title>
+
+  <link rel="stylesheet" href="../../style/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
+</head>
+<body>
+  <div id="header-container"></div>
+
+  <div class="content-wrapper">
+    <div id="aside-container"></div>
+
+    <main>
+
+        <article>
+
+<h1>Rudimenti in 6/8</h1>
+<div class="embed-pdf">
+    <p>Qui puoi scaricare il pdf della lezione.</p>
+  <iframe
+    src="../../materiali-didattici/rudimenti-sei-ottavi.pdf"
+    title="Rudimenti in 6/8">
+  </iframe>
+</div>
+
+<h2>Double Paradiddle e Single paradiddle diddle</h2>
+<p>Se hai imparato a leggere le figurazioni in 6/8 nei solfeggi del <a href="../modulo-2.html">Modulo 2</a>, possiamo 
+applicare alcuni rudimenti che ti saranno utile nel tuo percorso percussionistico, sia che 
+tu voglia studiare musica classica che batteria. </p>
+
+<h3>Doppio paradiddle</h3>
+<p>In costruzione</p>
+<h3>Single paradiddle diddle</h3>
+<p>In costruzione</p>
+<h2>Rulli a colpi doppi</h2>
+        </article>
+    </main>
+
+    
+    <!-- Sidebar destra (DEVE essere sibling di article) -->
+    <aside>
+      <h3>Argomenti correlati</h3>
+      <p>
+        <a href="#">Esercizi per due bacchette</a><br />
+      </p>
+      <h3>Brani collegati</h3>
+      <p>
+        <a href="#"></a>
+      </p>
+  </div>
+
+  
+    <footer>
+        <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+    </footer>
+  <script>
+    // Inclusioni da docs/
+    fetch("../header.html")
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById("header-container");
+        el.innerHTML = html;
+
+        // Rende robusti i link interni contenuti nel header incluso:
+        // Se un href è relativo (non inizia con http, / o #) lo prefissa con "../"
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      });
+
+    fetch("../aside-moduli.html")
+      .then(r => r.text())
+      .then(html => {
+        const el = document.getElementById("aside-container");
+        el.innerHTML = html;
+        el.querySelectorAll('a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && !/^(https?:)?\/\//.test(href) && !href.startsWith('/') && !href.startsWith('#')) {
+            a.setAttribute('href', '../' + href);
+          }
+        });
+      })
+      .catch(err => console.error("Errore nel caricamento aside:", err));
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modulo 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+      });
+  </script>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
+      <div id="aside-container"></div>
+
+      <script>
+        fetch("aside-moduli.html")
+          .then(r => r.text())
+          .then(html => { document.getElementById("aside-container").innerHTML = html; })
+          .catch(err => console.error("Errore nel caricamento aside:", err));
+      </script>
+
+
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Modulo 3</h1>
+        <hr />
+        <section>
+
+          <h2 id="tamburo">Tamburo</h2>
+          <p>Sezione dedicata al tamburo.</p>
+          <p><a href="rulli-misurati.html">Rulli misurati</a></p>
+          <p><a href="modulo-3/rudimenti-sei-ottavi.html">Rudimenti in 6/8</a></p>
+        </section>
+        <section>
+          <h2 id="mallet">Mallet</h2>
+          <p>Sezione dedicata agli strumenti a tastiera percussiva (marimba, vibrafono...).</p>
+          <br><a href="Esercizi-per-quattro-bacchette.html">Esercizi per quattro bacchette</a>
+        </section>
+        <section>
+
+          <h2 id="timpani">Timpani</h2>
+          <p>Sezione dedicata ai timpani.</p>
+          <p><a href="index.html">Torna alla home</a></p>
+        </section>
+      </article>
+
+      <!-- Sidebar destra -->
+      <aside>
+        <h3>Articoli Correlati</h3>
+        <ul>
+          <li><a href="Le scale.html">Le scale musicali</a></li>
+          <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
+          <li><a href="#">Tecniche di percussione</a></li>
+          <li><a href="#">Pattern ritmici</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+
+  <!-- Script per popolare la sidebar sinistra -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+    });
+  </script>
+
+  // Aside
+  fetch("aside-moduli.html?v=1")
+  .then(r => {
+  if (!r.ok) throw new Error(r.status + " " + r.statusText);
+  return r.text();
+  })
+  .then(html => { document.getElementById("aside-container").innerHTML = html; })
+  .catch(e => console.error("Aside 404?", e));
+  </script>
+
+
+</body>
+
+</html>

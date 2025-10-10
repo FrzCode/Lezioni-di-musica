@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modulo 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style/style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-container").innerHTML = data;
+      });
+  </script>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
+      <div id="aside-container"></div>
+
+      <script>
+        fetch("aside-moduli.html")
+          .then(r => r.text())
+          .then(html => { document.getElementById("aside-container").innerHTML = html; })
+          .catch(err => console.error("Errore nel caricamento aside:", err));
+      </script>
+
+
+      <!-- Contenuto principale -->
+      <article>
+        <h1>Modulo 2</h1>
+        <hr />
+
+        <h2 id="tamburo">Tamburo</h2>
+        <p>Sezione dedicata al tamburo.</p>
+        <h3>Solfeggi ritmici</h3>
+        <p><a href="pause-di-crome.html">Crome e pause di crome</a></p>
+        <p><a href="modulo-2/solfeggi-quarti-crome-pause-crome.html">
+          Quarti, crome e pause di crome.</a></p>
+          <h3>Tecnica</h3>
+          <p><a href="modulo-2/solfeggi-quarti-crome-pause-crome.html">
+        <p><a href="modulo-2/colpi-singoli-con-le-sei-diteggiature-diteggiature-sui-sedicesimi.html">Colpi singoli in sedicesimi con diteggiature</a></p>
+        
+        <h2 id="mallet">Mallet</h2>
+        <p>Sezione dedicata agli strumenti a tastiera percussiva (marimba, vibrafono...).</p>
+        
+        <br><a href="Le scale.html">Vai alla lezione sulle scale</a>
+        <br><a href="scale-mallet-control.html">Mallet control sulle scale</a>
+
+        <h2 id="timpani">Timpani</h2>
+        <p>Sezione dedicata ai timpani.</p>
+        <p><a href="index.html">Torna alla home</a></p>
+      </article>
+
+      <!-- Sidebar destra -->
+      <aside>
+        <h3>Articoli Correlati</h3>
+        <ul>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
+  </footer>
+
+  <!-- Script per popolare la sidebar sinistra -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const source = document.getElementById("original-index");
+      const sidebar = document.querySelector(".left-sidebar");
+      if (source && sidebar) {
+        sidebar.innerHTML = source.innerHTML;
+      }
+    });
+  </script>
+
+      // Aside
+    fetch("aside-moduli.html?v=1")
+      .then(r => {
+        if (!r.ok) throw new Error(r.status + " " + r.statusText);
+        return r.text();
+      })
+      .then(html => { document.getElementById("aside-container").innerHTML = html; })
+      .catch(e => console.error("Aside 404?", e));
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+    :root {
+      --primary-color: #0a9ecc;
+      --secondary-color: #ff6b35;
+      --success-color: #28a745;
+      --background-light: #f8f9fa;
+      --border-color: #e9ecef;
+      --text-dark: #343a40;
+      --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+      --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Nunito', sans-serif; 
+      max-width: 1000px; 
+      margin: 0 auto; 
+      padding: 20px; 
+      font-size: 17px; 
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow-medium);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--secondary-color);
+      font-weight: 600;
+      border-left: 4px solid var(--secondary-color);
+      padding-left: 15px;
+      margin-top: 40px;
+    }
+
+    .highlight { fill: var(--primary-color); }
+    .abcjs-cursor { stroke: var(--secondary-color); stroke-width: 3px; }
+
+    .abc-section { 
+      margin-bottom: 40px; 
+      background: var(--background-light);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .abc-section:hover {
+      box-shadow: var(--shadow-light);
+      transform: translateY(-2px);
+    }
+
+    .abc-title { 
+      font-size: 1.3em; 
+      font-weight: 600; 
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .abc-title::before {
+      content: "♪";
+      font-size: 1.2em;
+      color: var(--secondary-color);
+    }
+
+    .abc-desc { 
+      margin-bottom: 20px; 
+      font-style: italic;
+      color: #666;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .intro-paragraph { 
+      text-align: center; 
+      font-size: 1.1em; 
+      margin: 40px 0; 
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+
+    .controls-container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .speed-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--background-light);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+    }
+
+    .speed-control input[type="range"] {
+      width: 80px;
+      accent-color: var(--primary-color);
+    }
+
+    .speed-display {
+      font-weight: 600;
+      color: var(--primary-color);
+      min-width: 35px;
+    }
+
+    .pdf-btn, .loop-btn, .metronome-btn {
+      background: linear-gradient(135deg, var(--primary-color), #087ea4);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .pdf-btn:hover, .loop-btn:hover, .metronome-btn:hover {
+      background: linear-gradient(135deg, #087ea4, var(--primary-color));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(10, 158, 204, 0.3);
+    }
+
+    .loop-btn.active {
+      background: linear-gradient(135deg, var(--success-color), #20c997);
+    }
+
+    .metronome-btn.active {
+      background: linear-gradient(135deg, var(--secondary-color), #e55a2b);
+    }
+
+    .progress-indicator {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: var(--success-color);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      font-weight: 600;
+      display: none;
+    }
+
+    .abc-section.completed .progress-indicator {
+      display: block;
+    }
+
+    .floating-toc {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: var(--shadow-medium);
+      max-width: 250px;
+      max-height: 400px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+    }
+
+    .floating-toc.show {
+      display: block;
+    }
+
+    .toc-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1001;
+      box-shadow: var(--shadow-medium);
+      transition: all 0.3s ease;
+    }
+
+    .toc-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .toc-item {
+      display: block;
+      padding: 5px 0;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9em;
+      border-bottom: 1px solid #eee;
+    }
+
+    .toc-item:hover {
+      background: var(--background-light);
+      padding-left: 5px;
+    }
+
+    .pattern-category {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px;
+      margin: 30px 0;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .container {
+        padding: 20px;
+      }
+      
+      .controls-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .floating-toc {
+        display: none !important;
+      }
+      
+      .toc-toggle {
+        display: none;
+      }
+    }
+
+    .audio-error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #f5c6cb;
+    }
+
+    .sticking-legend {
+      background: #e9ecef;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .sticking-legend strong {
+      color: var(--primary-color);
+    }
+
+    .external-link-container {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      background: var(--background-light);
+      border-radius: 10px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .external-link-container a {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--secondary-color), #e55a2b);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+    }
+
+    .external-link-container a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,107,53,0.6);
+    }
+
+    /* Nasconde tutti gli elementi di tempo creati da ABCJS */
+    .abcjs-tempo {
+      display: none !important;
+    }
+    
+    /* Nasconde anche altri elementi di tempo che potrebbero apparire */
+    .abcjs-tempo-text,
+    .abcjs-tempo-indicator {
+      display: none !important;
+    }
+  
