@@ -1,29 +1,40 @@
-// Esegue tutto solo dopo che il DOM è pronto
+// common-autobase.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Header
-  fetch("../header.html")
-    .then(r => r.text())
-    .then(html => {
-      const el = document.getElementById("header-container");
-      if (el) el.innerHTML = html;
-    })
-    .catch(e => console.error("Header load error:", e));
+  const CANDIDATES = ["./", "../", "../../", "/"];
+  async function fetchFirst(path) {
+    for (const base of CANDIDATES) {
+      try {
+        const r = await fetch(base + path, { cache: "no-cache" });
+        if (r.ok) return await r.text();
+      } catch (_) { }
+    }
+    throw new Error("Impossibile caricare " + path);
+  }
 
-  // Aside
-  fetch("../aside-moduli.html")
-    .then(r => r.text())
-    .then(html => {
-      const el = document.getElementById("aside-container");
-      if (el) el.innerHTML = html;
-    })
-    .catch(e => console.error("Aside load error:", e));
+  (async () => {
+    try {
+      const header = await fetchFirst("header.html");
+      const hc = document.getElementById("header-container");
+      if (hc) hc.innerHTML = header;
+    } catch (e) { console.warn(e); }
 
-  // Footer
-  fetch("../footer.html")
-    .then(r => r.text())
-    .then(html => {
-      const el = document.getElementById("footer-container");
-      if (el) el.innerHTML = html;
-    })
-    .catch(e => console.error("Footer load error:", e));
+    try {
+      const aside = await fetchFirst("aside-moduli.html");
+      const ac = document.getElementById("aside-container");
+      if (ac) {
+        ac.innerHTML = aside;
+        // ora che il form è nel DOM, carichiamo lo script di ricerca
+        const s = document.createElement("script");
+        s.src = "../../scripts/site-search-lev-1.js";
+        document.body.appendChild(s);
+      }
+
+    } catch (e) { console.warn(e); }
+
+    try {
+      const footer = await fetchFirst("footer.html");
+      const fc = document.getElementById("footer-container");
+      if (fc) fc.innerHTML = footer;
+    } catch (e) { console.warn(e); }
+  })();
 });

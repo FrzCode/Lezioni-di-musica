@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Le note musicali",
+    "url": "modulo-1/note-musicali.html",
+    "tags": ["modulo 1", "basi", "note", "pentagramma"],
+    "snippet": "Le sette note: do re mi fa sol la si.",
+    "body": "Spiegazione di note, ordine, uso sul pentagramma, relazione con le chiavi. Esempi, esercizi di lettura."
+  },
+  {
+    "title": "Cos'è una scala?",
+    "url": "modulo-1/scale.html",
+    "tags": ["scala", "ascendente", "discendente", "congiunto", "disgiunto"],
+    "snippet": "Definizione di scala, parole chiave: grado, congiunto, ascendente, discendente.",
+    "body": "La scala è una successione di suoni ordinati per grado congiunto. Esempi di moto congiunto e disgiunto."
+  },
+  {
+    "title": "Parametri fondamentali del suono",
+    "url": "modulo-1/parametri_fondamentali_del_suono.html",
+    "tags": ["altezza", "intensità", "timbro", "durata"],
+    "snippet": "I quattro parametri fondamentali del suono.",
+    "body": "Spiegazione e esempi pratici, collegamenti a esercizi d’ascolto e riconoscimento."
+  }
+]
