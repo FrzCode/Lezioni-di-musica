@@ -177,18 +177,7 @@
         </footer>
 </body>
 
-<script>
-  // Header
-  fetch("header.html")
-    .then(r => r.text())
-    .then(html => { document.getElementById("header-container").innerHTML = html; });
 
-  // Aside
-  fetch("aside-moduli.html")
-    .then(r => r.text())
-    .then(html => { document.getElementById("aside-container").innerHTML = html; })
-    .catch(e => console.error("Aside 404?", e));
-</script>
-
-
+<script src="../scripts/common-lev-1.js"></script>
+<script src="../scripts/site-search-lev-1.js"></script>
 </html>
