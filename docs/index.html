@@ -22,7 +22,13 @@
       <!-- Sidebar sinistra (unica) -->
       <div id="aside-container"></div>
 
-        
+              <script>
+        fetch("aside-moduli.html")
+          .then(r => r.text())
+          .then(html => { document.getElementById("aside-container").innerHTML = html; })
+          .catch(err => console.error("Errore nel caricamento aside:", err));
+      </script>
+
             <article>
                 <h1>Benvenuto</h1>
                 <p>Benvenuto nel sito! In queste pagine troverai molti contenuti
@@ -182,8 +188,7 @@
     </main>
         
         <div id="footer-container"> </div>
-        
-        
+               
         <script src="../../scripts/common-lev-1.js"></script>
         <script src="../../scripts/site-search-lev-1.js"></script>
 </body>
