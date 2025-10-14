@@ -135,25 +135,6 @@ aside ul li a:hover{ color:var(--secondary-color); }
 aside {
   padding: 3em;
 }
-
-
-/* Spaziatura tra blocchi accordion */
-.accordion-item {
-  margin-bottom: 2px; /* distanza tra un modulo e l’altro */
-}
-
-/* Padding interno al summary */
-.accordion-summary {
-  padding: 0.1rem 0.3rem; /* più respiro dentro il blocco */
-}
-
-/* Distanza visiva solo tra i summary (non tra i link) */
-.accordion-summary a {
-  display: inline-block;
-  padding: 0.2rem 0; /* più spazio verticale attorno al testo */
-}
-
-
 /* =========================
    FOOTER
    ========================= */
