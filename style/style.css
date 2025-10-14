@@ -496,3 +496,30 @@ article { position: relative; z-index: 1;  }
 .search-results{ list-style:none; margin:.25rem 0 0; padding:0; max-height:220px; overflow:auto; }
 .search-results li{ margin:.25rem 0; }
 .search-results li.active{ outline:2px solid var(--primary-color); border-radius:6px; }
+
+.accordion-panel a {
+  margin: .6rem 0;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+/* Rientro dei link all'interno dei pannelli dell'accordion */
+.accordion-panel {
+  padding-left: 1.2rem;           /* rientro generale */
+  border-left: 3px solid var(--border-color);
+  margin-top: .3rem;
+}
+
+/* Rientro specifico dei link */
+.accordion-panel a {
+  display: inline-block;
+  margin-left: .3rem;
+  text-indent: 0;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.accordion-panel a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
