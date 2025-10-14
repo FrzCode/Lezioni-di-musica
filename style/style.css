@@ -121,7 +121,7 @@ article{
 aside h3{
   margin-top:0;
   border-bottom:2px solid var(--primary-color);
-  padding-bottom:.5rem;
+  padding-bottom:.7rem;
   margin-bottom:1rem;
 }
 aside ul{ list-style:none; padding:0; margin:0; }
@@ -132,6 +132,27 @@ aside ul li a{
   transition: color .25s ease;
 }
 aside ul li a:hover{ color:var(--secondary-color); }
+aside {
+  padding: 3em;
+}
+
+
+/* Spaziatura tra blocchi accordion */
+.accordion-item {
+  margin-bottom: 2px; /* distanza tra un modulo e l’altro */
+}
+
+/* Padding interno al summary */
+.accordion-summary {
+  padding: 0.1rem 0.3rem; /* più respiro dentro il blocco */
+}
+
+/* Distanza visiva solo tra i summary (non tra i link) */
+.accordion-summary a {
+  display: inline-block;
+  padding: 0.2rem 0; /* più spazio verticale attorno al testo */
+}
+
 
 /* =========================
    FOOTER
@@ -306,6 +327,7 @@ article button:hover, button:hover{
 @media (min-width: 680px){
   .content-wrapper{
     max-width: min(94vw, var(--page-max));
+    padding: 1.5em;
   }
 }
 
@@ -496,3 +518,36 @@ article { position: relative; z-index: 1;  }
 .search-results{ list-style:none; margin:.25rem 0 0; padding:0; max-height:220px; overflow:auto; }
 .search-results li{ margin:.25rem 0; }
 .search-results li.active{ outline:2px solid var(--primary-color); border-radius:6px; }
+
+
+/* === FOOTER STICKY A FONDO PAGINA === */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Il contenuto principale occupa tutto lo spazio disponibile */
+.content-wrapper {
+  flex: 1;
+}
+
+/* Footer sempre in basso, larghezza piena */
+#footer-container {
+  margin-top: auto;            /* lo spinge in fondo */
+  width: 100%;
+}
+
+#footer-container footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 0;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
