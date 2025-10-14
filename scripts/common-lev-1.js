@@ -1,40 +1,63 @@
-// common-autobase.js
+// scripts/common-autobase.js
 document.addEventListener("DOMContentLoaded", () => {
-  const CANDIDATES = ["./", "../", "../../", "/"];
-  async function fetchFirst(path) {
-    for (const base of CANDIDATES) {
+  // Calcola dinamicamente quanti "../" servono per arrivare alla cartella docs/
+  function getBasePrefix() {
+    const path = window.location.pathname;
+    const parts = path.split("/").filter(Boolean); // rimuove stringhe vuote
+    // Cerchiamo l'indice di "docs" nella path
+    const idx = parts.indexOf("docs");
+    if (idx === -1) return "./"; // fallback: se manca "docs" nel percorso
+    const depthAfterDocs = parts.length - (idx + 1);
+    return "../".repeat(depthAfterDocs);
+  }
+
+  const BASE = getBasePrefix();
+
+  // Funzione helper: prova a fare fetch di un file con vari prefissi
+  async function fetchWithFallback(filename) {
+    const candidates = [BASE, "./", "../", "../../", "/"];
+    for (const base of candidates) {
       try {
-        const r = await fetch(base + path, { cache: "no-cache" });
+        const r = await fetch(base + filename, { cache: "no-cache" });
         if (r.ok) return await r.text();
-      } catch (_) { }
+      } catch { /* ignora e prova il prossimo */ }
     }
-    throw new Error("Impossibile caricare " + path);
+    throw new Error("Impossibile caricare " + filename);
   }
 
   (async () => {
+    // HEADER
     try {
-      const header = await fetchFirst("header.html");
+      const header = await fetchWithFallback("header.html");
       const hc = document.getElementById("header-container");
       if (hc) hc.innerHTML = header;
-    } catch (e) { console.warn(e); }
+    } catch (e) {
+      console.warn("Header non trovato:", e);
+    }
 
+    // ASIDE
     try {
-      const aside = await fetchFirst("aside-moduli.html");
+      const aside = await fetchWithFallback("aside-moduli.html");
       const ac = document.getElementById("aside-container");
       if (ac) {
         ac.innerHTML = aside;
-        // ora che il form è nel DOM, carichiamo lo script di ricerca
-        const s = document.createElement("script");
-        s.src = "../../scripts/site-search-lev-1.js";
-        document.body.appendChild(s);
+
+        // carica automaticamente il file di ricerca relativo al livello attuale
+        const script = document.createElement("script");
+        script.src = BASE + "scripts/site-search-lev-1.js";
+        document.body.appendChild(script);
       }
+    } catch (e) {
+      console.warn("Aside non trovato:", e);
+    }
 
-    } catch (e) { console.warn(e); }
-
+    // FOOTER
     try {
-      const footer = await fetchFirst("footer.html");
+      const footer = await fetchWithFallback("footer.html");
       const fc = document.getElementById("footer-container");
       if (fc) fc.innerHTML = footer;
-    } catch (e) { console.warn(e); }
+    } catch (e) {
+      console.warn("Footer non trovato:", e);
+    }
   })();
 });

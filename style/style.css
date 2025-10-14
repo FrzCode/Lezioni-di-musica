@@ -500,13 +500,30 @@ article { position: relative; z-index: 1;  }
 .search-results li{ margin:.25rem 0; }
 .search-results li.active{ outline:2px solid var(--primary-color); border-radius:6px; }
 
-
+/* Rientro dei link all'interno dei pannelli dell'accordion */
 .accordion-panel {
-  padding-left: 1.5rem;
+  padding-left: 1.2rem;           /* rientro generale */
+  border-left: 3px solid var(--border-color);
+  margin-top: .3rem;
 }
 
+/* Rientro specifico dei link */
 .accordion-panel a {
-  display: block;
-  margin-left: .5rem;
+  display: inline-block;
+  margin-left: .3rem;
+  text-indent: 0;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
+.accordion-panel p {
+  margin: .6rem 0;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+
+.accordion-panel a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}

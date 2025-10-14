@@ -30,11 +30,34 @@
 
         <h2 id="tamburo">Tamburo</h2>
         <p>Sezione dedicata al tamburo.</p>
-        <p><a href="modulo-1/primi-colpi.html"><b>Primi colpi</b></a> <br>
-          Inizieremo con la sola destra, poi con la sinistra, fino all'alternanza delle mani.</p>
-        <p><a href="modulo-1/groove-8th.html"><b>Groove in 8th (esercizi preparatori)</b></a></p>
-        <p><a href="modulo-1/SOLFEGGIO-riepilogo-modulo-1.html"><b>Solfeggi con le figurazioni del Modulo 1</b></a></p>
+        <section>
 
+          <details class="accordion-item">
+            <summary class="accordion-summary">
+              <a href=#><b>Tecnica</b></a>
+            </summary>
+            <div class="accordion-panel">
+
+              <a href="modulo-1/primi-colpi.html"><b>Primi colpi</b></a> <br />
+              Inizieremo con la sola destra, poi con la sinistra, fino
+              all'alternanza delle mani.
+              </p>
+              <a href="modulo-1/groove-8th.html"><b>Groove in 8th (esercizi preparatori)</b></a>
+              </p>
+            </div>
+          </details>
+        </section>
+
+        <section>
+          <details class="accordion-item">
+            <p>Allenamento alla lettura ritmica, con progressione graduale.</p>
+            <summary class="accordion-summary">
+              <a href=#><b>Solfeggi ritmici</b></a>
+            </summary>
+            <a href="../modulo-1/SOLFEGGIO-riepilogo-modulo-1.html"><b>Riepilogo delle figurazioni del modulo 1</b></a>
+            <div class="accordion-panel">
+            </div>
+        </section>
         <h2 id="mallet">Mallet</h2>
         <p>Sezione dedicata agli strumenti a tastiera percussiva (marimba, vibrafono...).</p>
 
@@ -70,25 +93,9 @@
       </aside>
     </div>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script: un solo blocco, percorsi coerenti alla profondità -->
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-      });
-  </script>
-  <script>
-    fetch("aside-moduli.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(err => console.error("Errore nel caricamento aside:", err));
-  </script>
+  <div id="footer-container"> </div>
+  <script src="../../scripts/common-lev-1.js"></script>
+  <script src="../../scripts/site-search-lev-1.js"></script>
 
 </body>
 
