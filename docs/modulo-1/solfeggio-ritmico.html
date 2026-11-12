@@ -15,11 +15,6 @@
 
 
 
-    <!-- Header come nella pagina "scale" -->
-    <div id="header-container">
-
-    </div>
-
     <div class="content-wrapper">
         <!-- Sidebar sinistra caricata da file esterno -->
         <div id="aside-container"></div>
@@ -27,13 +22,7 @@
 
         </article>
 
-        <script>
-            fetch("header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
-                });
-        </script> <!-- Sidebar destra (DEVE essere sibling di article) -->
+ <!-- Sidebar destra (DEVE essere sibling di article) -->
         <aside>
             <h3>Argomenti correlati</h3>
             <p>

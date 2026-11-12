@@ -1,5 +1,5 @@
 // scripts/site-search-lev-1.js — indice = JSON (se c'è) + link reali dell'aside
-document.addEventListener("DOMContentLoaded", () => {
+function initSiteSearch() {
   // Trova base reale di /docs/
   function getDocsBase() {
     const path = window.location.pathname;
@@ -223,4 +223,11 @@ document.addEventListener("DOMContentLoaded", () => {
   mo.observe(aside, { childList: true, subtree: true });
   // tenta subito nel caso l’aside sia già presente
   bindSearch();
-});
+}
+
+// se lo script viene aggiunto dopo DOMContentLoaded parte subito
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSiteSearch);
+} else {
+  initSiteSearch();
+}
