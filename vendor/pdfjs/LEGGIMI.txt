@@ -1,0 +1,2 @@
+PDF.js (Mozilla), versione 6.5.438, licenza Apache-2.0 (vedi LICENSE).
+Origine: pacchetto npm pdfjs-dist, cartella build/.

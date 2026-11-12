@@ -6,8 +6,8 @@ import json, os, re, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SW = os.path.join(ROOT, "sw.js")
-INCLUDE_DIRS = ["docs", "scripts", "style", "icons", "img"]
-EXT = {".html", ".css", ".js", ".json", ".png", ".webmanifest"}
+INCLUDE_DIRS = ["docs", "scripts", "style", "icons", "img", "vendor"]
+EXT = {".html", ".css", ".js", ".mjs", ".json", ".png", ".webmanifest"}
 SKIP = {"docs/indice.html", "docs/modello.html"}
 
 files = ["manifest.webmanifest"]

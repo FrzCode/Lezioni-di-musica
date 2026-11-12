@@ -93,9 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", e => { if (!menu.hidden && !header.contains(e.target)) setOpen(false); });
   }
 
-  // Dove il browser non sa mostrare i PDF in un iframe (tipicamente Android) offro un pulsante
-  function pdfFallback() {
-    if (navigator.pdfViewerEnabled !== false) return;
+  // Solo pulsante: ultima risorsa se PDF.js non si carica
+  function pdfButtonOnly() {
     document.querySelectorAll(".embed-pdf").forEach(box => {
       const frame = box.querySelector("iframe");
       if (!frame) return;
@@ -110,6 +109,21 @@ document.addEventListener("DOMContentLoaded", () => {
       box.classList.add("no-inline");
       box.replaceChildren(note, link);
     });
+  }
+
+  // Anteprima PDF: il lettore del browser va bene sul computer, sui telefoni serve PDF.js.
+  // Per provarlo sul computer aggiungi ?pdfjs=1 all'indirizzo della pagina.
+  function pdfPreview() {
+    if (!document.querySelector(".embed-pdf iframe")) return;
+    const usePdfJs = navigator.pdfViewerEnabled !== true
+      || window.matchMedia("(pointer: coarse)").matches
+      || /[?&]pdfjs=1\b/.test(location.search);
+    if (!usePdfJs) return;
+    const s = document.createElement("script");
+    s.type = "module";
+    s.src = BASE + "scripts/pdf-viewer.js";
+    s.onerror = pdfButtonOnly;
+    document.body.appendChild(s);
   }
 
   (async () => {
@@ -159,6 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("Footer non trovato:", e);
     }
 
-    pdfFallback();
+    pdfPreview();
   })();
 });
