@@ -15,29 +15,9 @@
 
 
 
-    <!-- Header come nella pagina "scale" -->
-    <div id="header-container">
-
-        <script>
-            fetch("header.html")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById("header-container").innerHTML = data;
-                });
-        </script>
-
-    </div>
-
     <div class="content-wrapper">
         <!-- Sidebar sinistra caricata da file esterno -->
         <div id="aside-container"></div>
-
-        <script>
-            fetch("aside-moduli.html")
-                .then(r => r.text())
-                .then(html => { document.getElementById("aside-container").innerHTML = html; })
-                .catch(err => console.error("Errore nel caricamento aside:", err));
-        </script>
 
         <article>
             <h1>Il pentagramma</h1>
