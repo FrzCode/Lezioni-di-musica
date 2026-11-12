@@ -1,6 +1,8 @@
 // Service worker di Lezioni di musica.
 // L'elenco PRECACHE e la versione sono generati da tools/build-sw.py: non modificarli a mano.
-const CACHE = "lezioni-v3";
+// Pagine, script e stili: sempre dalla rete (senza cache del browser), cache solo se manca la connessione.
+// PDF e immagini: dalla cache, aggiornati in background alla visita successiva.
+const CACHE = "lezioni-v4";
 /*PRECACHE-START*/
 const PRECACHE = [
   "manifest.webmanifest",
@@ -38,6 +40,7 @@ const PRECACHE = [
   "docs/modulo-4/cinque-ottavi-diddle.html",
   "scripts/aside-moduli.html",
   "scripts/common-lev-1.js",
+  "scripts/pdf-viewer.js",
   "scripts/pwa.js",
   "scripts/site-search-lev-1.js",
   "style/common.js",
@@ -48,14 +51,16 @@ const PRECACHE = [
   "icons/icon-512.png",
   "icons/icon-maskable-512.png",
   "img/Accordo%20maggiore.png",
-  "img/gradini_scala.png"
+  "img/gradini_scala.png",
+  "vendor/pdfjs/pdf.min.mjs",
+  "vendor/pdfjs/pdf.worker.min.mjs"
 ];
 /*PRECACHE-END*/
 
 self.addEventListener("install", e => {
   e.waitUntil(
     caches.open(CACHE)
-      .then(c => Promise.all(PRECACHE.map(u => c.add(u).catch(() => {}))))
+      .then(c => Promise.all(PRECACHE.map(u => c.add(new Request(u, { cache: "reload" })).catch(() => {}))))
       .then(() => self.skipWaiting())
   );
 });
@@ -71,18 +76,23 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   const req = e.request;
   if (req.method !== "GET") return;
+  if (req.headers.has("range")) return; // le richieste parziali le gestisce il browser
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // CDN e font restano online
 
   const staticAsset = /\.(pdf|png|jpe?g|svg|webp)$/i.test(url.pathname);
-  e.respondWith(staticAsset ? cacheFirst(req) : networkFirst(req));
+  e.respondWith(staticAsset ? staleWhileRevalidate(req, e) : networkFirst(req));
 });
+
+function store(cache, req, res) {
+  if (res && res.status === 200) cache.put(req, res.clone()).catch(() => {});
+}
 
 async function networkFirst(req) {
   const cache = await caches.open(CACHE);
   try {
-    const res = await fetch(req);
-    if (res.ok) cache.put(req, res.clone());
+    const res = await fetch(req, { cache: "no-cache" });
+    store(cache, req, res);
     return res;
   } catch {
     const hit = await cache.match(req, { ignoreSearch: true });
@@ -91,11 +101,14 @@ async function networkFirst(req) {
   }
 }
 
-async function cacheFirst(req) {
+async function staleWhileRevalidate(req, e) {
   const cache = await caches.open(CACHE);
   const hit = await cache.match(req);
-  if (hit) return hit;
-  const res = await fetch(req);
-  if (res.ok) cache.put(req, res.clone());
-  return res;
+  const net = fetch(req, { cache: "no-cache" })
+    .then(res => { store(cache, req, res); return res; })
+    .catch(() => null);
+  if (hit) { e.waitUntil(net); return hit; }
+  const res = await net;
+  if (res) return res;
+  throw new Error("offline e non in cache: " + req.url);
 }
