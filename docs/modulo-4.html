@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Modulo 3</title>
+  <title>Modulo 4</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style/style.css" />
 </head>
@@ -12,25 +12,12 @@
 <body>
   <!-- Header -->
   <div id="header-container"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-      });
-  </script>
 
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra (indice generale, puoi modificarlo) -->
       <div id="aside-container"></div>
 
-      <script>
-        fetch("aside-moduli.html")
-          .then(r => r.text())
-          .then(html => { document.getElementById("aside-container").innerHTML = html; })
-          .catch(err => console.error("Errore nel caricamento aside:", err));
-      </script>
 
 
       <!-- Contenuto principale -->
@@ -69,6 +56,7 @@
     </div>
   </main>
 
+<div id="footer-container"></div>
 <script src="../scripts/common-lev-1.js"></script>
 <script src="../scripts/site-search-lev-1.js"></script>
 

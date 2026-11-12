@@ -12,26 +12,11 @@
 <body>
   <!-- Header -->
   <div id="header-container"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => { document.getElementById("header-container").innerHTML = data; });
-  </script>
 
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra: indice (come in Le scale.html) -->
-      <aside class="left-sidebar">
-        <nav id="original-index" style="display:none;">
-          <h3>Indice Generale</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="modulo-2.html#tamburo">Tamburo</a></li>
-            <li><a href="Yankee Doodle.html">Yankee Doodle</a></li>
-            <li><a href="Le scale.html">Le scale</a></li>
-          </ul>
-        </nav>
-      </aside>
+      <div id="aside-container"></div>
 
       <!-- Contenuto principale -->
       <article>
@@ -104,21 +89,10 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
+<div id="footer-container"></div>
 
   <!-- Script per popolare la sidebar sinistra (come in Le scale.html) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const source = document.getElementById("original-index");
-      const sidebar = document.querySelector(".left-sidebar");
-      if (source && sidebar) {
-        sidebar.innerHTML = source.innerHTML;
-      }
-    });
-  </script>
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 
