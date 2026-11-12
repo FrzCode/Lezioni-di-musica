@@ -3,30 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pause di Crome</title>
+  <title>Mallet control sulle scale</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style/style.css" />
 </head>
 <body>
   <!-- Header -->
   <div id="header-container"></div>
-  <script>
-    fetch("header.html")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; });
-  </script>
 
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra caricata da file esterno -->
       <div id="aside-container"></div>
 
-      <script>
-        fetch("aside-moduli.html")
-          .then(r => r.text())
-          .then(html => { document.getElementById("aside-container").innerHTML = html; })
-          .catch(err => console.error("Errore nel caricamento aside:", err));
-      </script>
 
       <!-- Contenuto principale -->
       <article>
@@ -82,10 +71,8 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
+<div id="footer-container"></div>
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 </html>

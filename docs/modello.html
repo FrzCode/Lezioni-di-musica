@@ -13,13 +13,6 @@
 <body>
 <div id="header-container"></div>
 
-<script>
-  fetch("header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-container").innerHTML = data;
-    });
-</script>
 
 
   <main>
@@ -34,9 +27,8 @@
     </section>
   </main>
 
-  <footer>
-    <p><!-- Testo del footer (es. copyright, contatti) --></p>
-  </footer>
+<div id="footer-container"></div>
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 

@@ -389,20 +389,6 @@ w:R L R L R R L R L R R L R L R R L R L R`
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      // carica header
-      fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("header-container").innerHTML = data;
-        });
-
-      // copia eventuale indice nella sidebar sinistra (se presente)
-      const source = document.getElementById("original-index");
-      const sidebar = document.querySelector(".left-sidebar");
-      if (source && sidebar) {
-        sidebar.innerHTML = source.innerHTML;
-      }
-
       // render ABCJS
       renderAll();
     });
@@ -418,12 +404,6 @@ w:R L R L R R L R L R R L R L R R L R L R`
       <!-- Sidebar sinistra caricata da file esterno -->
       <div id="aside-container"></div>
 
-      <script>
-        fetch("aside-moduli.html")
-          .then(r => r.text())
-          .then(html => { document.getElementById("aside-container").innerHTML = html; })
-          .catch(err => console.error("Errore nel caricamento aside:", err));
-      </script>
 
       <!-- Contenuti principali -->
       <article>
@@ -599,27 +579,10 @@ w:R L R L R R L R L R R L R L R R L R L R`
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
+<div id="footer-container"></div>
 
-  <script>
-    // Header
-    fetch("header.html?v=1")
-      .then(r => r.text())
-      .then(html => { document.getElementById("header-container").innerHTML = html; })
-      .catch(e => console.error("Header 404?", e));
 
-    // Aside
-    fetch("aside-moduli.html?v=1")
-      .then(r => {
-        if (!r.ok) throw new Error(r.status + " " + r.statusText);
-        return r.text();
-      })
-      .then(html => { document.getElementById("aside-container").innerHTML = html; })
-      .catch(e => console.error("Aside 404?", e));
-  </script>
-
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 </html>

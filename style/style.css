@@ -76,6 +76,56 @@ header{
 }
 header h1{ margin:0; color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,.2); }
 
+/* Barra del sito: freccia indietro, titolo, menu a tre linee */
+.site-bar{
+  display:grid;
+  grid-template-columns:2.75rem 1fr 2.75rem;
+  align-items:center;
+  gap:.5rem;
+}
+.site-title h1 a{ color:inherit; text-decoration:none; }
+.site-title p{ margin:.25rem 0 0; opacity:.9; }
+.icon-btn{
+  width:2.75rem; height:2.75rem;
+  border:0; border-radius:50%;
+  background:rgba(255,255,255,.18);
+  color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  cursor:pointer;
+}
+.icon-btn:hover{ background:rgba(255,255,255,.3); }
+.icon-btn:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+.icon-btn.is-hidden{ visibility:hidden; }
+.burger{ display:grid; gap:5px; }
+.burger span{
+  display:block; width:20px; height:2px;
+  background:#fff; border-radius:2px;
+  transition:transform .2s, opacity .2s;
+}
+.icon-btn[aria-expanded="true"] .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.icon-btn[aria-expanded="true"] .burger span:nth-child(2){ opacity:0; }
+.icon-btn[aria-expanded="true"] .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+.site-menu{
+  margin-top:.75rem;
+  padding-top:.5rem;
+  border-top:1px solid rgba(255,255,255,.3);
+  text-align:left;
+  max-height:70vh;
+  overflow:auto;
+}
+.site-menu[hidden]{ display:none; }
+.site-menu ul{ list-style:none; margin:0; padding:0; display:grid; gap:.15rem; }
+.site-menu a{
+  display:block; color:#fff; text-decoration:none;
+  padding:.6rem .75rem; border-radius:8px;
+}
+.site-menu a:hover,
+.site-menu a[aria-current="page"]{ background:rgba(255,255,255,.2); }
+@media (min-width:700px){
+  .site-menu ul{ grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)); }
+}
+
 /* =========================
    LAYOUT RESPONSIVE A GRID
    ========================= */
@@ -147,6 +197,8 @@ footer{
   border-radius: var(--radius);
   box-shadow: var(--shadow-light);
 }
+footer p{ margin:0; }
+footer a{ color:#fff; }
 
 /* =========================
    COMPONENTI
@@ -357,6 +409,14 @@ article button:hover, button:hover{
 /* 2) Clippa eventuali decorazioni assolute dell'header caricata da header.html */
 #header-container { position: relative; overflow: hidden; }
 
+/* Su schermi stretti l'header resta in vista: serve per la freccia e il menu nell'app installata */
+@media (max-width: 899px){
+  #header-container{ position: sticky; top: 0; z-index: 50; border-radius: 15px; margin-bottom: .75rem; }
+  header.site-header{ padding: .6rem .75rem; }
+  .site-title h1{ font-size: 1.2rem; }
+  .site-title p{ display: none; }
+}
+
 /* Disattiva su mobile elementi decorativi/flottanti dell'header (nomi generici) */
 @media (max-width: 1024px){
   #header-container .hero,
@@ -526,4 +586,13 @@ article { position: relative; z-index: 1;  }
 .accordion-panel a:hover {
   color: var(--secondary-color);
   text-decoration: underline;
+}
+
+/* PDF non visualizzabile nel riquadro (browser mobile senza lettore integrato) */
+.embed-pdf.no-inline{ height:auto; padding:1.25rem; text-align:center; }
+.embed-pdf.no-inline p{ margin:0 0 .75rem; }
+.pdf-open{
+  display:inline-block; padding:.7rem 1.4rem;
+  background:var(--secondary-color); color:#fff;
+  border-radius:999px; text-decoration:none; font-weight:600;
 }

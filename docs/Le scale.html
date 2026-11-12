@@ -4,37 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lezioni di musica</title>
+  <title>Cos'è una scala?</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/abcjs@6.5.1/dist/abcjs-basic-min.js"></script>
 </head>
 
 <body>
-  <header>
-
-    <!-- Header-->
-    <div id="header-container">
-      <script>
-        fetch("header.html")
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById("header-container").innerHTML = data;
-          });
-      </script>
+  <div id="header-container">
     </div>
-  </header>
   <main>
 
   <!-- Sidebar sinistra caricata da file esterno -->
   <div class="content-wrapper">
     <div id="aside-container"></div>
-    <script>
-      fetch("aside-moduli.html")
-        .then(r => r.text())
-        .then(html => { document.getElementById("aside-container").innerHTML = html; })
-        .catch(err => console.error("Errore nel caricamento aside:", err));
-    </script>
 
       <article>
         <h1>Cos'è una scala?</h1>
@@ -118,19 +101,9 @@
         </p>
       </aside>
     </div>
-    <footer>
-      <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-    </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const source = document.getElementById("original-index");
-        const sidebar = document.querySelector(".left-sidebar");
-        if (source && sidebar) {
-          sidebar.innerHTML = source.innerHTML;
-        }
-      });
-      </script>
+<div id="footer-container"></div>
 </main>
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 

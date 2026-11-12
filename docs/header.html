@@ -1,5 +1,18 @@
 <!-- components/header.html -->
-<header>
-    <h1>Imparo la musica</h1>
-    <p>Lezioni coinvolgenti e interessanti</p>
-  </header>
+<header class="site-header">
+  <div class="site-bar">
+    <button id="back-btn" class="icon-btn is-hidden" type="button" aria-label="Torna indietro">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="site-title">
+      <h1><a href="index.html">Imparo la musica</a></h1>
+      <p>Lezioni coinvolgenti e interessanti</p>
+    </div>
+    <button id="menu-btn" class="icon-btn" type="button" aria-label="Apri il menu" aria-expanded="false" aria-controls="site-menu">
+      <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+  <nav id="site-menu" class="site-menu" aria-label="Menu principale" hidden>
+    <ul></ul>
+  </nav>
+</header>

@@ -471,20 +471,6 @@ V:2
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      // carica header
-      fetch("header.html")
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById("header-container").innerHTML = data;
-        });
-
-      // copia eventuale indice nella sidebar sinistra (se presente)
-      const source = document.getElementById("original-index");
-      const sidebar = document.querySelector(".left-sidebar");
-      if (source && sidebar) {
-        sidebar.innerHTML = source.innerHTML;
-      }
-
       // render ABCJS
       renderAll();
     });
@@ -498,11 +484,7 @@ V:2
   <main>
     <div class="content-wrapper">
       <!-- Sidebar sinistra: indice (se vuoi, popola qui un indice come nell’altra pagina) -->
-      <aside class="left-sidebar">
-        <nav id="original-index" style="display:none;">
-          <!-- (Vuoto per non alterare contenuti: puoi inserire un indice qui in futuro) -->
-        </nav>
-      </aside>
+      <div id="aside-container"></div>
 
       <!-- Contenuti principali -->
       <article>
@@ -735,9 +717,8 @@ V:2
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Il Mio Blog. Tutti i diritti riservati.</p>
-  </footer>
+<div id="footer-container"></div>
+  <script src="../scripts/common-lev-1.js"></script>
   <script src="../scripts/pwa.js"></script>
 </body>
 </html>
